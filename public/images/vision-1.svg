@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80" viewBox="0 0 80 80">
+  <defs>
+    <clipPath id="clip-Vision">
+      <rect width="80" height="80"/>
+    </clipPath>
+  </defs>
+  <g id="Vision" clip-path="url(#clip-Vision)">
+    <g id="vision-2" data-name="vision" transform="translate(18.648 -12.803)">
+      <path id="Path_21291" data-name="Path 21291" d="M0,0H5V2.5H0Z" transform="translate(36.07 43.731) rotate(-57.454)" fill="#EBA10E"/>
+      <path id="Path_21292" data-name="Path 21292" d="M0,0H5V2.5H0Z" transform="translate(28.415 40.34) rotate(-71.275)" fill="#EBA10E"/>
+      <path id="Path_21293" data-name="Path 21293" d="M240.967,34.313h2.5v5h-2.5Z" transform="translate(-220.868)" fill="#EBA10E"/>
+      <path id="Path_21294" data-name="Path 21294" d="M0,0H2.5V5H0Z" transform="translate(10.318 36.397) rotate(-18.725)" fill="#EBA10E"/>
+      <path id="Path_21295" data-name="Path 21295" d="M0,0H2.5V5H0Z" transform="translate(1.828 40.864) rotate(-32.546)" fill="#EBA10E"/>
+      <path id="Path_21296" data-name="Path 21296" d="M366.165,169.937a11.252,11.252,0,0,1-.873,4.365q.114,0,.229,0a6.215,6.215,0,0,1,4.423,1.832l1.252,1.252a32.925,32.925,0,0,0,5.061-4.971,35.611,35.611,0,0,0-12.35-9.243,11.171,11.171,0,0,1,2.257,6.768Z" transform="translate(-333.555 -118.108)" fill="#EBA10E"/>
+      <path id="Path_21297" data-name="Path 21297" d="M25.718,180.235a11.265,11.265,0,0,1-13.366-17.157q-.882.383-1.764.838A35.889,35.889,0,0,0,0,172.356c5.294,6.1,13.249,11.26,21.35,11.26a21.188,21.188,0,0,0,4.906-.6,6.292,6.292,0,0,1-.538-2.784Z" transform="translate(0 -118.025)" fill="#EBA10E"/>
+      <path id="Path_21298" data-name="Path 21298" d="M170.341,154.979a3.739,3.739,0,0,0-1.619.365l-1.982-1.982a8.759,8.759,0,1,0-1.771,1.768l1.985,1.985a3.759,3.759,0,0,0,.732,4.271l6.193,6.193,5.308-5.308L173,156.078A3.729,3.729,0,0,0,170.341,154.979Zm-10.616-3.109a3.753,3.753,0,1,1,3.753-3.753A3.758,3.758,0,0,1,159.725,151.869Z" transform="translate(-138.375 -96.287)" fill="#EBA10E"/>
+      <circle id="Ellipse_3" data-name="Ellipse 3" cx="1.251" cy="1.251" r="1.251" transform="translate(20.099 50.578)" fill="#EBA10E"/>
+    </g>
+  </g>
+</svg>
