@@ -12,7 +12,12 @@ const Hero = () => {
 
   return (
     <div className="relative w-full h-[calc(100vh-82px)] overflow-hidden">
-      <Carousel slideInterval={3000} leftControl="" rightControl="">
+      <Carousel
+        slideInterval={3000}
+        leftControl=""
+        rightControl=""
+        className="h-full [&>div]:h-full [&>div]:overflow-hidden"
+      >
         {slides.map((slide, index) => (
           <div key={index} className="relative w-full h-full">
             <img
