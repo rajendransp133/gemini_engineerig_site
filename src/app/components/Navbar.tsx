@@ -74,13 +74,13 @@ const Navbar = () => {
               >
                 Gemini
               </span>
-              <span
+              {/* <span
                 className={`text-[10px] uppercase tracking-[0.2em] font-medium transition-colors duration-300 ${
                   scrolled ? "text-amber-600" : "text-amber-400"
                 }`}
               >
                 Engineering Works
-              </span>
+              </span> */}
             </div>
           </Link>
 
@@ -154,18 +154,18 @@ const Navbar = () => {
             <div className="flex flex-col">
               <span
                 className={`text-xl font-bold tracking-tight transition-colors duration-300 ${
-                  scrolled ? "text-[#1a1f2e]" : "text-white drop-shadow-lg"
+                  scrolled ? "text-[#343f52]" : "text-white drop-shadow-lg"
                 }`}
               >
                 Gemini
               </span>
-              <span
+              {/* <span
                 className={`text-[10px] uppercase tracking-[0.2em] font-medium transition-colors duration-300 ${
                   scrolled ? "text-amber-600" : "text-amber-400"
                 }`}
               >
                 Engineering Works
-              </span>
+              </span> */}
             </div>
           </Link>
           <button
