@@ -46,14 +46,14 @@ const OurMissionVisionSection = () => {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
           {cards.map((card, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg p-8 border border-[#f0f0f0]  duration-300 text-center"
+              className="bg-gray-50 rounded-lg p-8 border border-[#f0f0f0]  duration-300 text-center"
             >
               {/* Icon Container */}
-              <div className="w-20 h-20 mx-auto mb-6 bg-[#fef9eb] rounded-lg flex items-center justify-center">
+              <div className="w-20 h-20 mx-auto mb-6 bg-white rounded-lg flex items-center justify-center">
                 <Image
                   src={card.icon}
                   alt={card.title}
