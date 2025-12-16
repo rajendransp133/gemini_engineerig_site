@@ -27,8 +27,18 @@ const features = [
 
 const WelcomeSection = () => {
   return (
-    <section className="py-16 md:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 md:py-24 bg-white relative overflow-hidden">
+      {/* Background SVG */}
+      <div
+        className="absolute -top-0 right-0 w-1/2 h-full pointer-events-none"
+        style={{
+          backgroundImage: "url('/images/bg-1.svg')",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "right top",
+          backgroundSize: "contain",
+        }}
+      />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="lg:pl-8">
             {/* Hat icon and title */}
