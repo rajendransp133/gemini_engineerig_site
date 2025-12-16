@@ -7,6 +7,7 @@ import WhyChooseUs from "./components/WhyChooseUs";
 import Experience from "./components/Experience";
 import GetQuote from "./GetQuote";
 import ContactUs from "./components/ContactUs";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -14,11 +15,12 @@ export default function Home() {
       <Navbar />
       <Hero />
       <WelcomeSection />
+      <GetQuote />
       <OurMissionVisionSection />
       <WhyChooseUs />
       <Experience />
-      <GetQuote />
       <ContactUs />
+      <Footer />
     </div>
   );
 }

@@ -20,7 +20,7 @@ const stats = [
 
 const Experience = () => {
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: "#eef1f5" }}>
+    <section className="py-16" style={{ backgroundColor: "#eef1f5" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-30">
           {/* Left Side - Stats */}
