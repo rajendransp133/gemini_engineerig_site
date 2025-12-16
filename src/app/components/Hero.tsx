@@ -1,6 +1,7 @@
 "use client";
 
 import { Carousel } from "flowbite-react";
+import Button from "./Button";
 
 const Hero = () => {
   const slides = [
@@ -39,9 +40,7 @@ const Hero = () => {
         <p className="text-lg md:text-xl text-white mb-8 drop-shadow-md">
           We Don&apos;t Just Build Homes, We Shape Your Future.
         </p>
-        <button className="pointer-events-auto bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-3 rounded-md transition-colors duration-300 shadow-lg">
-          Know More
-        </button>
+        <Button className="pointer-events-auto">Know More</Button>
       </div>
     </div>
   );
