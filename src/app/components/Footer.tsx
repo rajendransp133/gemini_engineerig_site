@@ -7,6 +7,7 @@ import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
 import { FiPhoneCall } from "react-icons/fi";
 import { FaArrowUp } from "react-icons/fa6";
+import LogoIcon from "./LogoIcon";
 
 const Footer = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -43,23 +44,12 @@ const Footer = () => {
         <div className="container mx-auto px-4 lg:px-8 py-12 lg:py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {/* Company Info Section */}
-            <div className="lg:pl-4 relative z-10">
+            <div className="lg:pl-4 relative z-10 flex flex-col gap-4">
               {/* Logo */}
-              <div className="flex items-center gap-3 mb-6">
-                <Image
-                  src="/images/logo.png"
-                  alt="Gemini Engineering Works Logo"
-                  width={45}
-                  height={45}
-                  className="object-contain"
-                />
-                <span className="text-2xl font-bold text-[#1a1f2e] tracking-tight">
-                  Gemini
-                </span>
-              </div>
+              <LogoIcon />
 
               {/* Description */}
-              <p className="text-gray-600 text-base leading-relaxed font-light">
+              <p className="text-gray-600 text-xl leading-relaxed font-light">
                 Gemini is a trusted residential construction company in
                 Location, delivering high-quality, innovative, and reliable
                 home-building solutions.

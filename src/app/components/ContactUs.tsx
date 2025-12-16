@@ -114,7 +114,7 @@ const ContactUs = () => {
           }
         }
         .animate-truck-move {
-          animation: truckMove 10s linear infinite;
+          animation: truckMove 25s linear infinite;
         }
       `}</style>
     </section>

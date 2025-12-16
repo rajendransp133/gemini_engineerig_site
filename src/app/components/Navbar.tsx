@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
+import LogoIcon from "./LogoIcon";
 import { MdPhoneInTalk } from "react-icons/md";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { FaXmark } from "react-icons/fa6";
@@ -51,38 +51,7 @@ const Navbar = () => {
       >
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 flex items-center justify-between">
           {/* Logo Section */}
-          <Link href="/" className="flex items-center gap-3 no-underline group">
-            <div className="relative">
-              <div
-                className={`absolute inset-0 bg-amber-500/20 rounded-xl blur-lg transition-opacity duration-300 ${
-                  scrolled ? "opacity-0" : "group-hover:opacity-100 opacity-0"
-                }`}
-              />
-              <Image
-                src="/images/logo.png"
-                alt="Gemini Engineering Works Logo"
-                width={42}
-                height={42}
-                className="object-contain relative z-10 transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
-            <div className="flex flex-col">
-              <span
-                className={`text-xl font-bold tracking-tight transition-colors duration-300 ${
-                  scrolled ? "text-[#1a1f2e]" : "text-white drop-shadow-lg"
-                }`}
-              >
-                Gemini
-              </span>
-              {/* <span
-                className={`text-[10px] uppercase tracking-[0.2em] font-medium transition-colors duration-300 ${
-                  scrolled ? "text-amber-600" : "text-amber-400"
-                }`}
-              >
-                Engineering Works
-              </span> */}
-            </div>
-          </Link>
+          <LogoIcon />
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center">
