@@ -1,4 +1,4 @@
-import Button from "./components/Button";
+import Link from "next/link";
 
 const GetQuote = () => {
   return (
@@ -25,17 +25,23 @@ const GetQuote = () => {
             {/* Text content */}
             <div className="text-center md:text-left">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 italic">
-                Let&apos;s Build Your Dream Home
+                Need Quality Electric Poles?
               </h2>
               <p className="text-gray-200 text-sm sm:text-base max-w-2xl">
-                Partner with Buildify for reliable, high-quality residential
-                construction in Location. Contact us today to get started!
+                Partner with Gemini Engineering Works for durable RCC & PSC
+                poles. Contact us today for competitive pricing and timely
+                delivery!
               </p>
             </div>
 
             {/* CTA Button */}
             <div className="flex-shrink-0">
-              <Button className="whitespace-nowrap">Get Quote</Button>
+              <Link
+                href="/contact"
+                className="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-3 rounded-md transition-colors duration-300 shadow-lg whitespace-nowrap inline-block"
+              >
+                Get Quote
+              </Link>
             </div>
           </div>
         </div>

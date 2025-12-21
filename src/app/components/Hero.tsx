@@ -2,14 +2,17 @@
 
 import { Carousel } from "flowbite-react";
 import Button from "./Button";
+import { useRouter } from "next/navigation";
 
 const Hero = () => {
   const slides = [
-    { src: "/images/hero/1.webp", alt: "Slide 1" },
-    { src: "/images/hero/2.webp", alt: "Slide 2" },
-    { src: "/images/hero/3.webp", alt: "Slide 3" },
-    { src: "/images/hero/4.webp", alt: "Slide 4" },
+    { src: "/images/hero/1.webp", alt: "RCC Pole Manufacturing" },
+    { src: "/images/hero/2.webp", alt: "PSC Pole Casting Yard" },
+    { src: "/images/hero/3.webp", alt: "Electric Pole Production" },
+    { src: "/images/hero/4.webp", alt: "Quality Pole Manufacturing" },
   ];
+
+  const router = useRouter();
 
   return (
     <div className="relative w-full h-[calc(100vh-82px)] overflow-hidden">
@@ -35,12 +38,17 @@ const Hero = () => {
       {/* Text overlay - positioned above the carousel */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pointer-events-none z-10">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 drop-shadow-lg">
-          Residential Construction Company in Location
+          PSC & RCC Electric Pole Manufacturers
         </h1>
-        <p className="text-lg md:text-xl text-white mb-8 drop-shadow-md">
-          We Don&apos;t Just Build Homes, We Shape Your Future.
+        <p className="text-lg md:text-xl text-white mb-8 drop-shadow-md max-w-3xl">
+          ​Planting the Seeds of Light
         </p>
-        <Button className="pointer-events-auto">Know More</Button>
+        <Button
+          className="pointer-events-auto cursor-pointer"
+          onClick={() => router.push("#products")}
+        >
+          View Our Products
+        </Button>
       </div>
     </div>
   );

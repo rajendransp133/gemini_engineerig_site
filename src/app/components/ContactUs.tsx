@@ -34,21 +34,22 @@ const ContactUs = () => {
                   <IoLocationOutline className="w-7 h-7 text-white" />
                 </div>
                 <p className="text-gray-600 text-base">
-                  123 Main Street, Springfield, IL 62704 United States
+                  SFNO. 27/6F2 Ganesh Nagar, Sathiyamangalam, Kuluthur TK
+                  Vellanur, Pudukkottai - 622501
                 </p>
               </div>
 
-              {/* Email */}
+              {/* GSTIN */}
               <div className="flex items-center gap-4">
                 <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#eba10e] to-[#f5c04a] flex items-center justify-center shadow-md flex-shrink-0">
                   <MdOutlineEmail className="w-7 h-7 text-white" />
                 </div>
-                <a
-                  href="mailto:buildify@gmail.com"
-                  className="text-gray-600 text-base hover:text-[#eba10e] transition-colors"
-                >
-                  buildify@gmail.com
-                </a>
+                <div className="flex flex-col">
+                  <span className="text-gray-500 text-sm">Email</span>
+                  <span className="text-gray-700 text-base font-medium">
+                    asmanikandan@gmail.com
+                  </span>
+                </div>
               </div>
 
               {/* Phone Numbers */}
@@ -58,16 +59,10 @@ const ContactUs = () => {
                 </div>
                 <div className="flex flex-col">
                   <a
-                    href="tel:+911234567890"
+                    href="tel:+919443211374"
                     className="text-gray-600 text-base hover:text-[#eba10e] transition-colors"
                   >
-                    +91 12345 67890
-                  </a>
-                  <a
-                    href="tel:+919876543210"
-                    className="text-gray-600 text-base hover:text-[#eba10e] transition-colors"
-                  >
-                    +91 98765 43210
+                    +91 94432 11374
                   </a>
                 </div>
               </div>
@@ -77,22 +72,22 @@ const ContactUs = () => {
           {/* Right Side - Google Map */}
           <div className="w-full h-[350px] lg:h-[400px] rounded-lg overflow-hidden shadow-lg">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019112879178!2d-122.41941548468225!3d37.77492977975959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c6c8f4459%3A0xb10ed6d9b5050fa5!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1623456789012!5m2!1sen!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.5!2d78.8!3d10.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDI0JzAwLjAiTiA3OMKwNDgnMDAuMCJF!5e0!3m2!1sen!2sin!4v1623456789012!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Google Maps Location"
+              title="Gemini Engineering Works Location - Pudukkottai"
             />
           </div>
         </div>
       </div>
 
       {/* Animated JCB Truck */}
-      <div className="relative mt-16 h-24 overflow-hidden">
-        <div className="animate-truck-move absolute bottom-0">
+      <div className="relative mt-16 h-24 w-full">
+        <div className="absolute bottom-0 left-0 animate-truck-move">
           <Image
             src="/images/vehicle-2.svg"
             alt="JCB Truck"
@@ -102,21 +97,6 @@ const ContactUs = () => {
           />
         </div>
       </div>
-
-      {/* CSS Animation */}
-      <style jsx>{`
-        @keyframes truckMove {
-          0% {
-            transform: translateX(calc(100vw));
-          }
-          100% {
-            transform: translateX(-150px);
-          }
-        }
-        .animate-truck-move {
-          animation: truckMove 25s linear infinite;
-        }
-      `}</style>
     </section>
   );
 };

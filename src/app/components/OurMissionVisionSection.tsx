@@ -6,19 +6,19 @@ const OurMissionVisionSection = () => {
       icon: "/images/commitment-1.svg",
       title: "Our Mission",
       description:
-        "To be the leading residential construction company in Location, renowned for transforming dreams into reality through innovative designs, quality craftsmanship, and exceptional customer service.",
+        "To be the leading manufacturer of high-quality PSC and RCC electric poles in Tamil Nadu, supporting India's power infrastructure with durable, reliable, and cost-effective products that meet the highest industry standards.",
     },
     {
       icon: "/images/vision-1.svg",
       title: "Our Vision",
       description:
-        "To deliver high-quality residential construction solutions by combining expertise, precision, and customer collaboration. We aim to create lasting homes that reflect our clients' unique visions and needs.",
+        "To become the definitive benchmark for utility engineering in India, where the name 'Gemini' is synonymous with unbreakable quality and public safety",
     },
     {
       icon: "/images/value-1.svg",
       title: "Our Values",
       description:
-        "At Gemini, we prioritize integrity, quality, and customer satisfaction. Our values drive us to build with passion, innovate with purpose, and deliver excellence in every project.",
+        "At Gemini Engineering Works, we prioritize quality, durability, and customer satisfaction. Our values drive us to manufacture with precision, deliver on time, and build lasting relationships with every client we serve.",
     },
   ];
 
@@ -41,7 +41,7 @@ const OurMissionVisionSection = () => {
             </h2>
           </div>
           <p className="text-[#343f52] text-lg opacity-80">
-            What makes us the best choice
+            Powering India&apos;s Infrastructure Since 1999
           </p>
         </div>
 

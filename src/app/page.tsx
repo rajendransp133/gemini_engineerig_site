@@ -4,6 +4,8 @@ import Hero from "./components/Hero";
 import WelcomeSection from "./components/WelcomeSection";
 import OurMissionVisionSection from "./components/OurMissionVisionSection";
 import WhyChooseUs from "./components/WhyChooseUs";
+import ProductsSection from "./components/ProductsSection";
+import TNEBPoleSection from "./components/TNEBPoleSection";
 import Experience from "./components/Experience";
 import GetQuote from "./GetQuote";
 import ContactUs from "./components/ContactUs";
@@ -14,12 +16,20 @@ export default function Home() {
     <div>
       <Navbar />
       <Hero />
-      <WelcomeSection />
+      <section id="about">
+        <WelcomeSection />
+      </section>
       <GetQuote />
       <OurMissionVisionSection />
       <WhyChooseUs />
+      <section id="products">
+        <ProductsSection />
+      </section>
+      <TNEBPoleSection />
       <Experience />
-      <ContactUs />
+      <section id="contact">
+        <ContactUs />
+      </section>
       <Footer />
     </div>
   );

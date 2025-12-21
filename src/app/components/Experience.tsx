@@ -2,18 +2,18 @@ import Image from "next/image";
 
 const stats = [
   {
-    number: "10+",
+    number: "25+",
     label: "Years of Experience",
     bgColor: "#e8c872",
   },
   {
-    number: "50+",
-    label: "Machineries",
+    number: "1000+",
+    label: "Poles Manufactured",
     bgColor: "#d9cdb8",
   },
   {
-    number: "34+",
-    label: "Projects",
+    number: "100+",
+    label: "Satisfied Clients",
     bgColor: "#e8c872",
   },
 ];

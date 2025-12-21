@@ -35,18 +35,16 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "About Us", href: "/about" },
-    { name: "Projects", href: "/projects" },
+    { name: "About Us", href: "/#about" },
+    { name: "Products", href: "/#products" },
     { name: "Contact Us", href: "/contact" },
   ];
 
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-500 ease-out ${
-          scrolled
-            ? "bg-white/95 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.08)] py-3"
-            : "bg-gradient-to-b from-black/20 to-transparent py-5"
+        className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-500 ease-out bg-white shadow-[0_4px_30px_rgba(0,0,0,0.08)] ${
+          scrolled ? "py-3" : "py-4"
         }`}
       >
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 flex items-center justify-between">
@@ -64,11 +62,7 @@ const Navbar = () => {
                     }`}
                   >
                     {link.name}
-                    <span
-                      className={`absolute bottom-1.5 left-5 right-5 h-0.5 rounded-full transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100 ${
-                        scrolled ? "bg-amber-500" : "bg-amber-400"
-                      }`}
-                    />
+                    <span className="absolute bottom-1.5 left-5 right-5 h-0.5 rounded-full transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100 bg-amber-500" />
                   </Link>
                 </li>
               ))}
@@ -77,11 +71,7 @@ const Navbar = () => {
 
           {/* Mobile Hamburger Button */}
           <button
-            className={`md:hidden border-none cursor-pointer p-3 rounded-xl transition-all duration-300 ${
-              scrolled
-                ? "bg-gray-100 text-[#343f52] hover:bg-gray-200"
-                : "bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm"
-            }`}
+            className="md:hidden border-none cursor-pointer p-3 rounded-xl transition-all duration-300 bg-gray-100 text-[#343f52] hover:bg-gray-200"
             onClick={() => setIsOpen(true)}
             aria-label="Open menu"
           >
@@ -181,24 +171,21 @@ const Navbar = () => {
           style={{ transitionDelay: isOpen ? "0.5s" : "0s" }}
         >
           <div className="flex flex-col gap-3 ">
-            {/* Email */}
-            <a
-              href="mailto:buildify@gmail.com"
-              className="flex items-center gap-3 text-gray-600 no-underline transition-colors duration-300 hover:text-amber-600"
-            >
+            {/* Owner */}
+            <div className="flex items-center gap-3 text-gray-600">
               <MdOutlineMailOutline className="w-5 h-5 text-amber-500" />
-              <span className="text-sm">buildify@gmail.com</span>
-            </a>
+              <span className="text-sm">Prop: AS. Manikandan</span>
+            </div>
 
             {/* Phone Numbers */}
             <div className="flex items-start gap-3">
               <MdPhoneInTalk className="w-5 h-5 text-amber-500 mt-0.5" />
               <div className="flex flex-col gap-1">
                 <a
-                  href="tel:+919876543210"
+                  href="tel:+919443211374"
                   className="text-sm text-gray-600 no-underline transition-colors duration-300 hover:text-amber-600"
                 >
-                  +91 98765 43210
+                  +91 94432 11374
                 </a>
               </div>
             </div>

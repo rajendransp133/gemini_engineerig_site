@@ -44,3 +44,17 @@ body {
 a {
   transition: color 0.2s ease;
 }
+
+/* Truck animation */
+@keyframes truckMove {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-150px);
+  }
+}
+
+.animate-truck-move {
+  animation: truckMove 25s linear infinite;
+}

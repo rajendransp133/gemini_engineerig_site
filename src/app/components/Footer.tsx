@@ -26,8 +26,8 @@ const Footer = () => {
 
   const quickLinks = [
     { name: "Home", href: "/" },
-    { name: "About Us", href: "/about" },
-    { name: "Projects", href: "/projects" },
+    { name: "About Us", href: "/#about" },
+    { name: "Products", href: "/#products" },
     { name: "Contact Us", href: "/contact" },
   ];
 
@@ -49,11 +49,14 @@ const Footer = () => {
               <LogoIcon />
 
               {/* Description */}
-              <p className="text-gray-600 text-xl leading-relaxed font-light">
-                Gemini is a trusted residential construction company in
-                Location, delivering high-quality, innovative, and reliable
-                home-building solutions.
+              <p className="text-gray-600 text-lg leading-relaxed font-light">
+                Gemini Engineering Works is a trusted manufacturer of PSC & RCC
+                electric poles since 1999. We deliver high-quality, durable
+                poles for power distribution and electrification projects.
               </p>
+              <div className="text-sm text-gray-500">
+                <span className="font-medium">GSTIN:</span> 33AFQPM3686K1ZT
+              </div>
             </div>
 
             {/* Quick Links Section */}
@@ -86,20 +89,18 @@ const Footer = () => {
                 {/* Address */}
                 <div className="flex items-start gap-3">
                   <IoLocationOutline className="w-5 h-5 text-[#eba10e] flex-shrink-0 mt-1" />
-                  <p className="text-gray-600 text-base">
-                    123 Main Street, Springfield, IL 62704 United States
+                  <p className="text-gray-600 text-sm">
+                    SFNO. 27/6F2 Ganesh Nagar, Sathiyamangalam, Kuluthur TK
+                    Vellanur, Pudukkottai - 622501
                   </p>
                 </div>
 
-                {/* Email */}
+                {/* Owner */}
                 <div className="flex items-center gap-3">
                   <MdOutlineEmail className="w-5 h-5 text-[#eba10e] flex-shrink-0" />
-                  <a
-                    href="mailto:buildify@gmail.com"
-                    className="text-gray-600 hover:text-[#eba10e] transition-colors duration-300 text-base no-underline"
-                  >
-                    buildify@gmail.com
-                  </a>
+                  <span className="text-gray-600 text-base">
+                    Prop: AS. Manikandan
+                  </span>
                 </div>
 
                 {/* Phone Numbers */}
@@ -107,16 +108,10 @@ const Footer = () => {
                   <FiPhoneCall className="w-5 h-5 text-[#eba10e] flex-shrink-0 mt-1" />
                   <div className="flex flex-col gap-1">
                     <a
-                      href="tel:+911234567890"
+                      href="tel:+919443211374"
                       className="text-gray-600 hover:text-[#eba10e] transition-colors duration-300 text-base no-underline"
                     >
-                      +91 12345 67890
-                    </a>
-                    <a
-                      href="tel:+919876543210"
-                      className="text-gray-600 hover:text-[#eba10e] transition-colors duration-300 text-base no-underline"
-                    >
-                      +91 98765 43210
+                      +91 94432 11374
                     </a>
                   </div>
                 </div>
@@ -126,19 +121,19 @@ const Footer = () => {
             {/* Google Map Section */}
             <div>
               <h3 className="text-[#1a1f2e] text-lg font-semibold mb-6 flex items-center gap-3 uppercase tracking-wider">
-                Google Map
+                Our Location
                 <span className="flex-1 h-[2px] bg-[#eba10e] max-w-[60px]"></span>
               </h3>
               <div className="w-full h-[180px] rounded-lg overflow-hidden shadow-md">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019112879178!2d-122.41941548468225!3d37.77492977975959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c6c8f4459%3A0xb10ed6d9b5050fa5!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1623456789012!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.5!2d78.8!3d10.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDI0JzAwLjAiTiA3OMKwNDgnMDAuMCJF!5e0!3m2!1sen!2sin!4v1623456789012!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Google Maps Location"
+                  title="Gemini Engineering Works - Pudukkottai"
                 />
               </div>
             </div>
@@ -150,8 +145,8 @@ const Footer = () => {
       <div className="border-t border-gray-300 bg-[#e8eaed]">
         <div className="container mx-auto px-4 lg:px-8 py-4">
           <p className="text-center text-gray-600 text-sm">
-            © {new Date().getFullYear()} Gemini. All rights reserved. This site
-            is protected by reCAPTCHA and Google.
+            © {new Date().getFullYear()} Gemini Engineering Works. All rights
+            reserved. | PSC & RCC Pole Casting Yard, Pudukkottai
           </p>
         </div>
       </div>

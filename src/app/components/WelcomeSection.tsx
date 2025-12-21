@@ -9,7 +9,7 @@ const WelcomeSection = () => {
           {/* Left Side - Image with decorative accents */}
           <ImageSquare
             src="/images/welcome-to-constructions.webp"
-            alt="Construction planning with blueprints and house model"
+            alt="RCC and PSC Pole Manufacturing Facility"
             width={600}
             height={500}
           />
@@ -23,19 +23,35 @@ const WelcomeSection = () => {
               width={48}
               height={48}
               leftText="Welcome to "
-              rightText="Gemini"
+              rightText="Gemini Engineering Works"
             />
 
             {/* Description paragraphs */}
             <div className="space-y-6" style={{ color: "#343f52" }}>
               <p className="text-base md:text-lg leading-relaxed opacity-90">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
-                obcaecati odit fuga, velit cum temporibus autem soluta mollitia
-                saepe porro...
+                Founded in 1999 by <strong>AS. Manikandan</strong>, Gemini
+                Engineering Works has been a trusted name in the manufacturing
+                of high-quality PSC (Pre-Stressed Concrete) and RCC (Reinforced
+                Cement Concrete) electric poles. With over 25 years of
+                experience, we have established ourselves as a leading pole
+                casting yard in Pudukkottai, Tamil Nadu.
               </p>
               <p className="text-base md:text-lg leading-relaxed opacity-90">
-                Excepturi accusamus delectus velit consequuntur! Eum quod modi
-                velit aut molestias, cum animi voluptates eaque!
+                Our state-of-the-art manufacturing facility produces durable,
+                reliable, and cost-effective poles that meet the highest
+                industry standards. We specialize in manufacturing{" "}
+                <strong>RCC poles</strong> (9m with 150kg & 300kg load capacity),{" "}
+                <strong>PSC poles</strong> (8m with 150kg capacity), and{" "}
+                <strong>RCC base plates</strong> — all crafted to deliver
+                exceptional strength and longevity.
+              </p>
+              <p className="text-base md:text-lg leading-relaxed opacity-90">
+                As a proud supplier to{" "}
+                <strong>TNEB (Tamil Nadu Electricity Board) yards</strong>, we
+                serve power distribution companies, contractors, and rural
+                electrification projects across the region. Our commitment to
+                quality and timely delivery has made us a preferred partner for
+                government and private infrastructure projects.
               </p>
             </div>
           </div>

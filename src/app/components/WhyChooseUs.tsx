@@ -4,28 +4,28 @@ import { FaCheckCircle } from "react-icons/fa";
 
 const features = [
   {
-    title: "Expert Craftsmanship",
+    title: "Premium Quality Materials",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem dignissimos ipsa fuga assumenda, id amet possimus magni deleniti quam sequi explicabo.",
+      "We use high-grade cement, sand, aggregates, and steel reinforcement to manufacture poles that exceed IS 1678:1998 standards. Our concrete mix ensures maximum compressive strength while steel rods provide superior tensile strength.",
   },
   {
-    title: "Timely Project Delivery",
+    title: "25+ Years of Experience",
     description:
-      "Deleniti, laudantium sequi voluptas deserunt, iste repellat doloribus natus nemo quibusdam, ullam consequatur omnis et nisi tempore totam? Aliquid quaerat quis.",
+      "Since 1999, Gemini Engineering Works has been a trusted name in pole manufacturing. Our expertise and experience ensure consistent quality and reliability in every pole we produce.",
   },
   {
-    title: "Customer-Centric Approach",
+    title: "Durable & Long-Lasting",
     description:
-      "Libero hic asperiores fugit perspiciatis dignissimos itaque, placeat optio voluptates maxime nulla, magni aspernatur excepturi deserunt enim sapiente eveniet.",
+      "Our RCC and PSC poles are corrosion-free, termite-resistant, and require minimal maintenance. With a lifespan of 40-50 years, they offer excellent value for power distribution and electrification projects.",
   },
   {
-    title: "Commitment to Excellence",
+    title: "Competitive Pricing & Timely Delivery",
     description:
-      "Placeat optio voluptates maxime nulla, magni aspernatur excepturi deserunt enim sapiente eveniet.",
+      "We offer cost-effective solutions without compromising on quality. Our efficient manufacturing process ensures timely delivery for all orders, supporting your project timelines.",
   },
 ];
 
-const WelcomeSection = () => {
+const WhyChooseUs = () => {
   return (
     <section className="py-16 md:py-24 bg-white relative overflow-hidden">
       {/* Background SVG */}
@@ -48,7 +48,7 @@ const WelcomeSection = () => {
                 alt="Construction hat"
                 width={48}
                 height={48}
-                leftText="Transforming Residential"
+                leftText="Why Choose"
                 rightText=""
               />
               <SubHeading
@@ -56,8 +56,8 @@ const WelcomeSection = () => {
                 alt="Construction hat"
                 width={48}
                 height={48}
-                leftText="Construction in "
-                rightText="Location"
+                leftText="Gemini "
+                rightText="Engineering Works?"
                 icon={false}
               />
             </div>
@@ -81,7 +81,7 @@ const WelcomeSection = () => {
           </div>
           <ImageSquare
             src="/images/transforming-residential-construction-in-gambias.webp"
-            alt="Construction planning with blueprints and house model"
+            alt="RCC and PSC Pole Manufacturing"
             width={600}
             height={500}
           />
@@ -91,4 +91,4 @@ const WelcomeSection = () => {
   );
 };
 
-export default WelcomeSection;
+export default WhyChooseUs;
