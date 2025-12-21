@@ -52,10 +52,6 @@ const WhyChooseUs = () => {
                 rightText=""
               />
               <SubHeading
-                src="/images/civil_hat.webp"
-                alt="Construction hat"
-                width={48}
-                height={48}
                 leftText="Gemini "
                 rightText="Engineering Works?"
                 icon={false}

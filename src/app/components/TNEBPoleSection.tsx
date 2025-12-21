@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { FaCheckCircle, FaCog, FaRulerCombined, FaTruck } from "react-icons/fa";
 
@@ -45,8 +46,6 @@ const TNEBPoleSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Content */}
           <div className="order-2 lg:order-1">
-            {/* Badge */}
-
             {/* Title */}
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
               TNEB Standard
@@ -68,10 +67,10 @@ const TNEBPoleSection = () => {
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className="group flex gap-4 p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-[#eba10e]/30 hover:bg-white/10 transition-all duration-300"
+                  className="flex gap-4 p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10"
                 >
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#eba10e] to-[#f5c04a] flex items-center justify-center shadow-lg shadow-[#eba10e]/20 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#eba10e] to-[#f5c04a] flex items-center justify-center">
                       <feature.icon className="w-5 h-5 text-white" />
                     </div>
                   </div>
@@ -91,22 +90,9 @@ const TNEBPoleSection = () => {
             <div className="mt-10">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#eba10e] to-[#f5c04a] text-white font-semibold rounded-xl hover:shadow-xl hover:shadow-[#eba10e]/30 hover:scale-105 transition-all duration-300 no-underline"
+                className="inline-flex items-center bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-3 rounded-md transition-colors duration-300 no-underline"
               >
-                <span>Request a Quote</span>
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
+                Request a Quote
               </Link>
             </div>
           </div>
@@ -121,85 +107,18 @@ const TNEBPoleSection = () => {
 
               {/* Visual card */}
               <div className="relative bg-gradient-to-br from-[#2a3a50] to-[#1f2d3f] rounded-2xl p-8 border border-white/10">
-                {/* Electric pole illustration */}
+                {/* TNEB Logo */}
                 <div className="flex justify-center mb-8">
                   <div className="relative">
-                    {/* Pole structure */}
-                    <svg
-                      className="w-48 h-64"
-                      viewBox="0 0 120 180"
-                      fill="none"
-                    >
-                      {/* Main pole */}
-                      <path
-                        d="M54 180 L50 20 L70 20 L66 180 Z"
-                        fill="url(#poleGradient)"
-                        stroke="#eba10e"
-                        strokeWidth="1.5"
-                      />
-                      {/* Cross arm */}
-                      <rect
-                        x="15"
-                        y="30"
-                        width="90"
-                        height="6"
-                        rx="2"
-                        fill="#4a5568"
-                        stroke="#eba10e"
-                        strokeWidth="1"
-                      />
-                      {/* Insulators */}
-                      <circle cx="25" cy="33" r="6" fill="#eba10e" />
-                      <circle cx="60" cy="33" r="6" fill="#eba10e" />
-                      <circle cx="95" cy="33" r="6" fill="#eba10e" />
-                      {/* Wires */}
-                      <path
-                        d="M25 33 Q 0 50, 25 33"
-                        stroke="#eba10e"
-                        strokeWidth="1"
-                        opacity="0.5"
-                      />
-                      <path
-                        d="M95 33 Q 120 50, 95 33"
-                        stroke="#eba10e"
-                        strokeWidth="1"
-                        opacity="0.5"
-                      />
-                      {/* TNEB Label */}
-                      <rect
-                        x="48"
-                        y="60"
-                        width="24"
-                        height="14"
-                        rx="2"
-                        fill="#eba10e"
-                      />
-                      <text
-                        x="60"
-                        y="70"
-                        textAnchor="middle"
-                        fill="white"
-                        fontSize="6"
-                        fontWeight="bold"
-                      >
-                        TNEB
-                      </text>
-                      <defs>
-                        <linearGradient
-                          id="poleGradient"
-                          x1="60"
-                          y1="20"
-                          x2="60"
-                          y2="180"
-                        >
-                          <stop offset="0%" stopColor="#718096" />
-                          <stop offset="100%" stopColor="#4a5568" />
-                        </linearGradient>
-                      </defs>
-                    </svg>
-
+                    <Image
+                      src="/tneb.jpg"
+                      alt="Tamil Nadu Electricity Board"
+                      width={280}
+                      height={200}
+                      className="rounded-xl object-contain"
+                    />
                     {/* Glowing effect */}
-                    <div className="absolute top-6 left-1/2 -translate-x-1/2 w-20 h-20 bg-[#eba10e]/20 rounded-full blur-2xl" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-[#eba10e]/20 rounded-full blur-3xl -z-10" />
                   </div>
                 </div>
 

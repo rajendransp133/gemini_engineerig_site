@@ -18,24 +18,135 @@ const ContactPage = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const validateField = (name: string, value: string): string => {
+    switch (name) {
+      case "fullName":
+        // Only allow letters, spaces, and common name characters
+        if (value && !/^[a-zA-Z\s'-]+$/.test(value)) {
+          return "Name should only contain letters";
+        }
+        if (value && value.length < 2) {
+          return "Name must be at least 2 characters";
+        }
+        break;
+      case "phone":
+        // Only allow numbers, +, -, spaces, and parentheses
+        if (value && !/^[0-9+\-\s()]+$/.test(value)) {
+          return "Phone number should only contain numbers";
+        }
+        if (value && value.replace(/[^0-9]/g, "").length < 10) {
+          return "Phone number must be at least 10 digits";
+        }
+        break;
+      case "email":
+        if (value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+          return "Please enter a valid email address";
+        }
+        break;
+      case "subject":
+        if (value && value.length < 3) {
+          return "Subject must be at least 3 characters";
+        }
+        break;
+      case "message":
+        if (value && value.length < 10) {
+          return "Message must be at least 10 characters";
+        }
+        break;
+    }
+    return "";
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
+
+    // For phone field, strip out any non-allowed characters immediately
+    if (name === "phone") {
+      const sanitizedValue = value.replace(/[^0-9+\-\s()]/g, "");
+      setFormData((prev) => ({
+        ...prev,
+        [name]: sanitizedValue,
+      }));
+      const error = validateField(name, sanitizedValue);
+      setErrors((prev) => ({ ...prev, [name]: error }));
+      return;
+    }
+
+    // For fullName, strip out numbers and special characters
+    if (name === "fullName") {
+      const sanitizedValue = value.replace(/[^a-zA-Z\s'-]/g, "");
+      setFormData((prev) => ({
+        ...prev,
+        [name]: sanitizedValue,
+      }));
+      const error = validateField(name, sanitizedValue);
+      setErrors((prev) => ({ ...prev, [name]: error }));
+      return;
+    }
+
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
+
+    const error = validateField(name, value);
+    setErrors((prev) => ({ ...prev, [name]: error }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validate all fields before submission
+    const newErrors: Record<string, string> = {};
+    Object.entries(formData).forEach(([name, value]) => {
+      const error = validateField(name, value);
+      if (error) {
+        newErrors[name] = error;
+      }
+    });
+
+    // Check required fields
+    if (!formData.fullName.trim()) {
+      newErrors.fullName = "Full name is required";
+    }
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    }
+    if (!formData.subject.trim()) {
+      newErrors.subject = "Subject is required";
+    }
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+    }
+
+    setErrors(newErrors);
+
+    // If there are errors, don't submit
+    if (Object.keys(newErrors).length > 0) {
+      return;
+    }
+
     setIsSubmitting(true);
     // Simulate submission
     await new Promise((resolve) => setTimeout(resolve, 1000));
     console.log("Form submitted:", formData);
     setIsSubmitting(false);
+    setIsSuccess(true);
+    setFormData({
+      fullName: "",
+      phone: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
+    // Hide success message after 5 seconds
+    setTimeout(() => setIsSuccess(false), 5000);
   };
 
   const contactInfo = [
@@ -140,12 +251,27 @@ const ContactPage = () => {
                       value={formData.fullName}
                       onChange={handleChange}
                       required
-                      className="peer w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl text-[#343f52] placeholder-transparent focus:outline-none focus:border-[#eba10e] focus:bg-white transition-all duration-300"
+                      className={`peer w-full px-5 py-4 bg-gray-50 border-2 rounded-xl text-[#343f52] placeholder-transparent focus:outline-none focus:bg-white transition-all duration-300 ${
+                        errors.fullName
+                          ? "border-red-400 focus:border-red-500"
+                          : "border-gray-200 focus:border-[#eba10e]"
+                      }`}
                       placeholder="Full Name"
                     />
-                    <label className="absolute left-5 top-4 text-gray-400 transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:text-[#eba10e] peer-focus:bg-white peer-focus:px-2 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2 pointer-events-none">
+                    <label
+                      className={`absolute left-5 top-4 transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:bg-white peer-focus:px-2 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2 pointer-events-none ${
+                        errors.fullName
+                          ? "text-red-400 peer-focus:text-red-500"
+                          : "text-gray-400 peer-focus:text-[#eba10e]"
+                      }`}
+                    >
                       Full Name *
                     </label>
+                    {errors.fullName && (
+                      <p className="text-red-500 text-xs mt-1 ml-1">
+                        {errors.fullName}
+                      </p>
+                    )}
                   </div>
 
                   {/* Phone */}
@@ -155,12 +281,27 @@ const ContactPage = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="peer w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl text-[#343f52] placeholder-transparent focus:outline-none focus:border-[#eba10e] focus:bg-white transition-all duration-300"
+                      className={`peer w-full px-5 py-4 bg-gray-50 border-2 rounded-xl text-[#343f52] placeholder-transparent focus:outline-none focus:bg-white transition-all duration-300 ${
+                        errors.phone
+                          ? "border-red-400 focus:border-red-500"
+                          : "border-gray-200 focus:border-[#eba10e]"
+                      }`}
                       placeholder="Phone"
                     />
-                    <label className="absolute left-5 top-4 text-gray-400 transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:text-[#eba10e] peer-focus:bg-white peer-focus:px-2 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2 pointer-events-none">
+                    <label
+                      className={`absolute left-5 top-4 transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:bg-white peer-focus:px-2 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2 pointer-events-none ${
+                        errors.phone
+                          ? "text-red-400 peer-focus:text-red-500"
+                          : "text-gray-400 peer-focus:text-[#eba10e]"
+                      }`}
+                    >
                       Phone Number
                     </label>
+                    {errors.phone && (
+                      <p className="text-red-500 text-xs mt-1 ml-1">
+                        {errors.phone}
+                      </p>
+                    )}
                   </div>
 
                   {/* Email */}
@@ -171,12 +312,27 @@ const ContactPage = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="peer w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl text-[#343f52] placeholder-transparent focus:outline-none focus:border-[#eba10e] focus:bg-white transition-all duration-300"
+                      className={`peer w-full px-5 py-4 bg-gray-50 border-2 rounded-xl text-[#343f52] placeholder-transparent focus:outline-none focus:bg-white transition-all duration-300 ${
+                        errors.email
+                          ? "border-red-400 focus:border-red-500"
+                          : "border-gray-200 focus:border-[#eba10e]"
+                      }`}
                       placeholder="Email"
                     />
-                    <label className="absolute left-5 top-4 text-gray-400 transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:text-[#eba10e] peer-focus:bg-white peer-focus:px-2 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2 pointer-events-none">
+                    <label
+                      className={`absolute left-5 top-4 transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:bg-white peer-focus:px-2 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2 pointer-events-none ${
+                        errors.email
+                          ? "text-red-400 peer-focus:text-red-500"
+                          : "text-gray-400 peer-focus:text-[#eba10e]"
+                      }`}
+                    >
                       Email Address *
                     </label>
+                    {errors.email && (
+                      <p className="text-red-500 text-xs mt-1 ml-1">
+                        {errors.email}
+                      </p>
+                    )}
                   </div>
 
                   {/* Subject */}
@@ -187,12 +343,27 @@ const ContactPage = () => {
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className="peer w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl text-[#343f52] placeholder-transparent focus:outline-none focus:border-[#eba10e] focus:bg-white transition-all duration-300"
+                      className={`peer w-full px-5 py-4 bg-gray-50 border-2 rounded-xl text-[#343f52] placeholder-transparent focus:outline-none focus:bg-white transition-all duration-300 ${
+                        errors.subject
+                          ? "border-red-400 focus:border-red-500"
+                          : "border-gray-200 focus:border-[#eba10e]"
+                      }`}
                       placeholder="Subject"
                     />
-                    <label className="absolute left-5 top-4 text-gray-400 transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:text-[#eba10e] peer-focus:bg-white peer-focus:px-2 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2 pointer-events-none">
+                    <label
+                      className={`absolute left-5 top-4 transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:bg-white peer-focus:px-2 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2 pointer-events-none ${
+                        errors.subject
+                          ? "text-red-400 peer-focus:text-red-500"
+                          : "text-gray-400 peer-focus:text-[#eba10e]"
+                      }`}
+                    >
                       Subject *
                     </label>
+                    {errors.subject && (
+                      <p className="text-red-500 text-xs mt-1 ml-1">
+                        {errors.subject}
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -204,13 +375,48 @@ const ContactPage = () => {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="peer w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl text-[#343f52] placeholder-transparent focus:outline-none focus:border-[#eba10e] focus:bg-white transition-all duration-300 resize-none"
+                    className={`peer w-full px-5 py-4 bg-gray-50 border-2 rounded-xl text-[#343f52] placeholder-transparent focus:outline-none focus:bg-white transition-all duration-300 resize-none ${
+                      errors.message
+                        ? "border-red-400 focus:border-red-500"
+                        : "border-gray-200 focus:border-[#eba10e]"
+                    }`}
                     placeholder="Message"
                   />
-                  <label className="absolute left-5 top-4 text-gray-400 transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:text-[#eba10e] peer-focus:bg-white peer-focus:px-2 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2 pointer-events-none">
+                  <label
+                    className={`absolute left-5 top-4 transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:bg-white peer-focus:px-2 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2 pointer-events-none ${
+                      errors.message
+                        ? "text-red-400 peer-focus:text-red-500"
+                        : "text-gray-400 peer-focus:text-[#eba10e]"
+                    }`}
+                  >
                     Your Message *
                   </label>
+                  {errors.message && (
+                    <p className="text-red-500 text-xs mt-1 ml-1">
+                      {errors.message}
+                    </p>
+                  )}
                 </div>
+
+                {/* Success Message */}
+                {isSuccess && (
+                  <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-xl flex items-center gap-3">
+                    <svg
+                      className="w-5 h-5 flex-shrink-0"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <p className="text-sm font-medium">
+                      Thank you! Your message has been sent successfully.
+                    </p>
+                  </div>
+                )}
 
                 {/* Submit Button */}
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">
@@ -272,7 +478,7 @@ const ContactPage = () => {
                   </h4>
                   <div className="h-[200px] rounded-xl overflow-hidden">
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.5!2d78.8!3d10.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDI0JzAwLjAiTiA3OMKwNDgnMDAuMCJF!5e0!3m2!1sen!2sin!4v1623456789012!5m2!1sen!2sin"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.5!2d78.7853814!3d10.4763535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baa83888347f56d%3A0xe2b955cc24a956e9!2sGemini%20Engineering%20works!5e0!3m2!1sen!2sin!4v1703145600000!5m2!1sen!2sin"
                       width="100%"
                       height="100%"
                       style={{ border: 0 }}
@@ -295,11 +501,11 @@ const ContactPage = () => {
         <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
         <div className="absolute bottom-0 left-0 animate-truck-move">
           <Image
-            src="/images/vehicle-2.svg"
+            src="/images/vehicle-1.svg"
             alt="JCB Truck"
             width={150}
             height={58}
-            className="object-contain"
+            className="object-contain -scale-x-100"
           />
         </div>
       </div>

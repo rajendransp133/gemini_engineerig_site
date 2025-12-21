@@ -31,8 +31,7 @@ const WelcomeSection = () => {
               <p className="text-base md:text-lg leading-relaxed opacity-90">
                 Founded in 1999 by <strong>AS. Manikandan</strong>, Gemini
                 Engineering Works has been a trusted name in the manufacturing
-                of high-quality PSC (Pre-Stressed Concrete) and RCC (Reinforced
-                Cement Concrete) electric poles. With over 25 years of
+                of high-quality electric poles. With over 25 years of
                 experience, we have established ourselves as a leading pole
                 casting yard in Pudukkottai, Tamil Nadu.
               </p>
@@ -40,9 +39,9 @@ const WelcomeSection = () => {
                 Our state-of-the-art manufacturing facility produces durable,
                 reliable, and cost-effective poles that meet the highest
                 industry standards. We specialize in manufacturing{" "}
-                <strong>RCC poles</strong> (9m with 150kg & 300kg load capacity),{" "}
-                <strong>PSC poles</strong> (8m with 150kg capacity), and{" "}
-                <strong>RCC base plates</strong> — all crafted to deliver
+                <strong>RCC poles</strong> (9m with 150kg & 300kg load
+                capacity), <strong>PSC poles</strong> (8m with 150kg capacity),
+                and <strong>RCC base plates</strong> — all crafted to deliver
                 exceptional strength and longevity.
               </p>
               <p className="text-base md:text-lg leading-relaxed opacity-90">
