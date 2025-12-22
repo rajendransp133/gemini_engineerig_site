@@ -8,7 +8,7 @@ const WelcomeSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Side - Image with decorative accents */}
           <ImageSquare
-            src="/images/welcome-to-constructions.webp"
+            src="/image1.jpeg"
             alt="RCC and PSC Pole Manufacturing Facility"
             width={600}
             height={500}
@@ -42,8 +42,11 @@ const WelcomeSection = () => {
                 <strong>RCC poles</strong> (9m with 150kg & 300kg load
                 capacity), <strong>PSC poles</strong> (8m with 150kg capacity),
                 and <strong>RCC base plates</strong> — all crafted to deliver
-                exceptional strength and longevity.
+                exceptional strength and longevity. We use premium quality{" "}
+                <strong>Tata steel</strong> in our manufacturing process,
+                ensuring superior tensile strength and corrosion resistance.
               </p>
+
               <p className="text-base md:text-lg leading-relaxed opacity-90">
                 As a proud supplier to{" "}
                 <strong>TNEB (Tamil Nadu Electricity Board) yards</strong>, we

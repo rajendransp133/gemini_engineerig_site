@@ -178,10 +178,10 @@ const ContactPage = () => {
       {/* Hero Banner Section */}
       <section className="relative h-[280px] md:h-[320px] overflow-hidden">
         <Image
-          src="/images/breadcrumbs-bg.webp"
+          src="/pole1.jpg"
           alt="Contact Us Banner"
           fill
-          className="object-cover"
+          className=""
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#343f52]/90 to-[#343f52]/70" />

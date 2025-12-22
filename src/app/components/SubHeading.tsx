@@ -9,10 +9,10 @@ const SubHeading = ({
   rightText = "",
   icon = true,
 }: {
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
+  src?: string;
+  alt?: string;
+  width?: number;
+  height?: number;
   leftText?: string;
   rightText?: string;
   icon?: boolean;
@@ -21,10 +21,10 @@ const SubHeading = ({
     <div className="flex items-center gap-4 mb-6">
       {icon && (
         <Image
-          src={src}
-          alt={alt}
-          width={width}
-          height={height}
+          src={src || ""}
+          alt={alt || ""}
+          width={width || 0}
+          height={height || 0}
           className="w-10 h-10 md:w-12 md:h-12 object-contain"
         />
       )}

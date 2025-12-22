@@ -7,15 +7,12 @@ const GetQuote = () => {
       <div className="h-2 bg-amber-500 w-full" />
 
       {/* Main content with background image */}
-      <div
-        className="relative w-full py-16 md:py-20"
-        style={{
-          backgroundImage: "url('/images/breadcrumbs-bg.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
+      <div className="relative w-full py-16 md:py-20 overflow-hidden">
+        {/* Rotated background image */}
+        <div
+          className="absolute inset-0 bg-[url('/pole-2.jpeg')] bg-no-repeat bg-cover bg-center  "
+          style={{ transformOrigin: "center" }}
+        />
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/60" />
 
