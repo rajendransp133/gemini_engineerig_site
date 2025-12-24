@@ -47,7 +47,7 @@ const ContactUs = () => {
                 <div className="flex flex-col">
                   <span className="text-gray-500 text-sm">Email</span>
                   <span className="text-gray-700 text-base font-medium">
-                    asmanikandan@gmail.com
+                    geminienggworks@gmail.com
                   </span>
                 </div>
               </div>
@@ -58,12 +58,12 @@ const ContactUs = () => {
                   <FiPhoneCall className="w-6 h-6 text-white" />
                 </div>
                 <div className="flex flex-col">
-                  <a
-                    href="tel:+919443211374"
-                    className="text-gray-600 text-base hover:text-[#eba10e] transition-colors"
-                  >
+                  <div className="text-gray-600 text-base hover:text-[#eba10e] transition-colors">
                     +91 94432 11374
-                  </a>
+                  </div>
+                  <div className="text-gray-600 hover:text-[#eba10e] transition-colors duration-300 text-base no-underline">
+                    +91 75400 44061
+                  </div>
                 </div>
               </div>
             </div>
@@ -89,11 +89,11 @@ const ContactUs = () => {
       <div className="relative mt-16 h-24 w-full">
         <div className="absolute bottom-0 left-0 animate-truck-move">
           <Image
-            src="/images/vehicle-2.svg"
+            src="/images/vehicle-1.svg"
             alt="JCB Truck"
             width={150}
             height={58}
-            className="object-contain"
+            className="object-contain -scale-x-100"
           />
         </div>
       </div>

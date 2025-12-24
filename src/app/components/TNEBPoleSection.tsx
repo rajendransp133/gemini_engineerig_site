@@ -113,7 +113,7 @@ const TNEBPoleSection = () => {
                     <Image
                       src="/tneb.jpg"
                       alt="Tamil Nadu Electricity Board"
-                      width={280}
+                      width={380}
                       height={200}
                       className="rounded-xl object-contain"
                     />
@@ -123,7 +123,7 @@ const TNEBPoleSection = () => {
                 </div>
 
                 {/* Stats grid */}
-                <div className="grid grid-cols-2 gap-4">
+                {/* <div className="grid grid-cols-2 gap-4">
                   <div className="text-center p-4 bg-white/5 rounded-xl">
                     <div className="text-2xl font-bold text-[#eba10e] mb-1">
                       TNEB
@@ -148,7 +148,7 @@ const TNEBPoleSection = () => {
                     </div>
                     <div className="text-gray-400 text-sm">Quality Tested</div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -157,10 +157,9 @@ const TNEBPoleSection = () => {
         {/* Bottom highlight bar */}
         <div className="mt-16 flex flex-wrap justify-center gap-4 md:gap-8">
           {[
-            "100% Compliance with TNEB Norms",
+            "Compliance with TNEB Norms",
             "ISI Grade Raw Materials",
             "High-Output Production Capacity",
-            "On-Time Delivery",
             "Government Tenders",
           ].map((item, index) => (
             <div

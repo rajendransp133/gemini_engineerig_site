@@ -8,10 +8,10 @@ const WelcomeSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Side - Image with decorative accents */}
           <ImageSquare
-            src="/image1.jpeg"
+            src="/imagess6.jpeg"
             alt="RCC and PSC Pole Manufacturing Facility"
-            width={600}
-            height={500}
+            width={500}
+            height={1000}
           />
 
           {/* Right Side - Content */}
@@ -33,7 +33,7 @@ const WelcomeSection = () => {
                 Engineering Works has been a trusted name in the manufacturing
                 of high-quality electric poles. With over 25 years of
                 experience, we have established ourselves as a leading pole
-                casting yard in Pudukkottai, Tamil Nadu.
+                manufacturing company in Pudukkottai, Tamil Nadu.
               </p>
               <p className="text-base md:text-lg leading-relaxed opacity-90">
                 Our state-of-the-art manufacturing facility produces durable,
@@ -41,19 +41,17 @@ const WelcomeSection = () => {
                 industry standards. We specialize in manufacturing{" "}
                 <strong>RCC poles</strong> (9m with 150kg & 300kg load
                 capacity), <strong>PSC poles</strong> (8m with 150kg capacity),
-                and <strong>RCC base plates</strong> — all crafted to deliver
-                exceptional strength and longevity. We use premium quality{" "}
-                <strong>Tata steel</strong> in our manufacturing process,
-                ensuring superior tensile strength and corrosion resistance.
+                and <strong>RCC base plates(450mm*450mm*75mm)</strong> — all
+                crafted to deliver exceptional strength and longevity.
               </p>
 
               <p className="text-base md:text-lg leading-relaxed opacity-90">
                 As a proud supplier to{" "}
                 <strong>TNEB (Tamil Nadu Electricity Board) yards</strong>, we
-                serve power distribution companies, contractors, and rural
-                electrification projects across the region. Our commitment to
-                quality and timely delivery has made us a preferred partner for
-                government and private infrastructure projects.
+                serve power distribution companies and contractors across
+                regions. Our commitment to quality and timely delivery has made
+                us a preferred partner for government and private infrastructure
+                projects.
               </p>
             </div>
           </div>

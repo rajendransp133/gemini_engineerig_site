@@ -86,7 +86,7 @@ const Footer = () => {
                 <span className="flex-1 h-[2px] bg-[#eba10e] max-w-[60px]"></span>
               </h3>
               <div className="space-y-4">
-                {/* Address */}
+                {/* Address 1 */}
                 <div className="flex items-start gap-3">
                   <IoLocationOutline className="w-5 h-5 text-[#eba10e] flex-shrink-0 mt-1" />
                   <p className="text-gray-600 text-sm">
@@ -95,24 +95,32 @@ const Footer = () => {
                   </p>
                 </div>
 
-                {/* Owner */}
-                <div className="flex items-center gap-3">
+                {/* Address 2 */}
+                <div className="flex items-start gap-3">
+                  <IoLocationOutline className="w-5 h-5 text-[#eba10e] flex-shrink-0 mt-1" />
+                  <p className="text-gray-600 text-sm">
+                    1157 housing unit, periya nagar, Pudukkottai - 622003
+                  </p>
+                </div>
+
+                {/* Email */}
+                <div className="flex items-end gap-3">
                   <MdOutlineEmail className="w-5 h-5 text-[#eba10e] flex-shrink-0" />
                   <span className="text-gray-600 text-base">
-                    Prop: AS. Manikandan
+                    geminienggworks@gmail.com
                   </span>
                 </div>
 
                 {/* Phone Numbers */}
-                <div className="flex items-start gap-3">
+                <div className="flex items-center gap-3 ">
                   <FiPhoneCall className="w-5 h-5 text-[#eba10e] flex-shrink-0 mt-1" />
                   <div className="flex flex-col gap-1">
-                    <a
-                      href="tel:+919443211374"
-                      className="text-gray-600 hover:text-[#eba10e] transition-colors duration-300 text-base no-underline"
-                    >
+                    <div className="text-gray-600 hover:text-[#eba10e] transition-colors duration-300 text-base no-underline">
                       +91 94432 11374
-                    </a>
+                    </div>
+                    <div className="text-gray-600 hover:text-[#eba10e] transition-colors duration-300 text-base no-underline">
+                      +91 75400 44061
+                    </div>
                   </div>
                 </div>
               </div>

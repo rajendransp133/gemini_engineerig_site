@@ -6,7 +6,7 @@ const features = [
   {
     title: "Premium Quality Materials",
     description:
-      "We use high-grade cement, sand, aggregates, and steel reinforcement to manufacture poles that exceed IS 1678:1998 standards. Our concrete mix ensures maximum compressive strength while steel rods provide superior tensile strength.",
+      "We use high-grade cement, sand, aggregates, and steel reinforcement to manufacture poles that meets industry standards. Our concrete mix ensures maximum compressive strength while steel rods provide superior tensile strength.",
   },
   {
     title: "25+ Years of Experience",
@@ -16,7 +16,7 @@ const features = [
   {
     title: "Durable & Long-Lasting",
     description:
-      "Our RCC and PSC poles are corrosion-free, termite-resistant, and require minimal maintenance. With a lifespan of 40-50 years, they offer excellent value for power distribution and electrification projects.",
+      "Our RCC and PSC poles are corrosion-free,  and require minimal maintenance. With a lifespan of 40-50 years, they offer excellent value for power distribution and electrification projects.We use premium quality Tata steel/HTS wire  in our manufacturing process, ensuring superior tensile strength .",
   },
   {
     title: "Competitive Pricing & Timely Delivery",

@@ -7,14 +7,9 @@ const stats = [
     bgColor: "#e8c872",
   },
   {
-    number: "1000+",
+    number: "1L+",
     label: "Poles Manufactured",
-    bgColor: "#d9cdb8",
-  },
-  {
-    number: "100+",
-    label: "Satisfied Clients",
-    bgColor: "#e8c872",
+    bgColor: "#f6d799",
   },
 ];
 

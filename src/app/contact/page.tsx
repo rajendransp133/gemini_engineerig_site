@@ -155,19 +155,21 @@ const ContactPage = () => {
       title: "Visit Us",
       content:
         "SFNO. 27/6F2 Ganesh Nagar, Sathiyamangalam, Kuluthur TK Vellanur, Pudukkottai - 622501",
-      link: null,
+    },
+    {
+      icon: IoLocationOutline,
+      title: "Visit Us",
+      content: "1157 housing unit, periya nagar, Pudukkottai - 622003",
     },
     {
       icon: MdOutlineEmail,
       title: "Email Us",
-      content: "asmanikandan@gmail.com",
-      link: "mailto:asmanikandan@gmail.com",
+      content: "geminienggworks@gmail.com",
     },
     {
       icon: FiPhoneCall,
       title: "Call Us",
       content: "+91 94432 11374",
-      link: "tel:+919443211374",
     },
   ];
 
@@ -448,18 +450,10 @@ const ContactPage = () => {
                         <h4 className="text-base font-bold text-[#343f52] mb-1">
                           {info.title}
                         </h4>
-                        {info.link ? (
-                          <a
-                            href={info.link}
-                            className="text-gray-600 text-sm leading-relaxed"
-                          >
-                            {info.content}
-                          </a>
-                        ) : (
-                          <p className="text-gray-600 text-sm leading-relaxed">
-                            {info.content}
-                          </p>
-                        )}
+
+                        <p className="text-gray-600 text-sm leading-relaxed">
+                          {info.content}
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -476,9 +470,9 @@ const ContactPage = () => {
                     <IoLocationOutline className="w-5 h-5 text-[#eba10e]" />
                     Find Us On Map
                   </h4>
-                  <div className="h-[200px] rounded-xl overflow-hidden">
+                  <div className="h-[300px] rounded-xl overflow-hidden">
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.5!2d78.7853814!3d10.4763535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baa83888347f56d%3A0xe2b955cc24a956e9!2sGemini%20Engineering%20works!5e0!3m2!1sen!2sin!4v1703145600000!5m2!1sen!2sin"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d430.8795071984582!2d78.81199227757332!3d10.37328164290525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0079b42ffa8f95%3A0xbf002be9b28e7ac6!2sSambamtha%20vinayagar%20temple!5e1!3m2!1sen!2sin!4v1766496162409!5m2!1sen!2sin"
                       width="100%"
                       height="100%"
                       style={{ border: 0 }}
@@ -487,7 +481,7 @@ const ContactPage = () => {
                       referrerPolicy="no-referrer-when-downgrade"
                       title="Gemini Engineering Works Location - Pudukkottai"
                       className="rounded-xl"
-                    />
+                    ></iframe>
                   </div>
                 </div>
               </div>
@@ -497,11 +491,11 @@ const ContactPage = () => {
       </main>
 
       {/* Animated JCB Truck */}
-      <div className="relative h-24 w-full overflow-hidden ">
+      <div className="relative h-40 w-full overflow-hidden ">
         <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
-        <div className="absolute bottom-0 left-0 animate-truck-move">
+        <div className="absolute -bottom-2   left-0 animate-truck-move">
           <Image
-            src="/images/vehicle-1.svg"
+            src="/images/vehicle-3.svg"
             alt="JCB Truck"
             width={150}
             height={58}

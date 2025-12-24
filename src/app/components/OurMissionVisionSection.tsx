@@ -41,7 +41,7 @@ const OurMissionVisionSection = () => {
             </h2>
           </div>
           <p className="text-[#343f52] text-lg opacity-80">
-            Powering India&apos;s Infrastructure Since 1999
+            Powering Infrastructure Since 1999
           </p>
         </div>
 
