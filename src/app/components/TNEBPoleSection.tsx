@@ -43,58 +43,46 @@ const TNEBPoleSection = () => {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Content */}
-          <div className="order-2 lg:order-1">
-            {/* Title */}
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-              TNEB Standard
-              <span className="block text-[#eba10e]">Pole Manufacturing</span>
-            </h2>
+        {/* Title */}
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+          TNEB Standard
+          <span className="block text-[#eba10e]">Pole Manufacturing</span>
+        </h2>
 
-            {/* Description */}
-            <p className="text-gray-300 text-lg leading-relaxed mb-8">
-              We specialize in the high-volume production of electric poles
-              designed strictly according to{" "}
-              <span className="text-[#eba10e] font-semibold">
-                Tamil Nadu Electricity Board (TNEB)
-              </span>{" "}
-              specifications.
-            </p>
+        {/* Description */}
+        <p className="text-gray-300 text-lg leading-relaxed mb-10 max-w-3xl">
+          We specialize in the high-volume production of electric poles designed
+          strictly according to{" "}
+          <span className="text-[#eba10e] font-semibold">
+            Tamil Nadu Electricity Board (TNEB)
+          </span>{" "}
+          specifications.
+        </p>
 
-            {/* Features List */}
-            <div className="space-y-5">
-              {features.map((feature, index) => (
-                <div
-                  key={index}
-                  className="flex gap-4 p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10"
-                >
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#eba10e] to-[#f5c04a] flex items-center justify-center">
-                      <feature.icon className="w-5 h-5 text-white" />
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-white font-semibold text-lg mb-1">
-                      {feature.title}
-                    </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                      {feature.description}
-                    </p>
+        {/* Features and Visual Grid */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Features List */}
+          <div className="space-y-5 order-2 lg:order-1">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="flex gap-4 p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10"
+              >
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#eba10e] to-[#f5c04a] flex items-center justify-center">
+                    <feature.icon className="w-5 h-5 text-white" />
                   </div>
                 </div>
-              ))}
-            </div>
-
-            {/* CTA Button */}
-            <div className="mt-10">
-              <Link
-                href="/contact"
-                className="inline-flex items-center bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-3 rounded-md transition-colors duration-300 no-underline"
-              >
-                Request a Quote
-              </Link>
-            </div>
+                <div>
+                  <h3 className="text-white font-semibold text-lg mb-1">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* Right Visual */}
@@ -108,50 +96,28 @@ const TNEBPoleSection = () => {
               {/* Visual card */}
               <div className="relative bg-gradient-to-br from-[#2a3a50] to-[#1f2d3f] rounded-2xl p-8 border border-white/10">
                 {/* TNEB Logo */}
-                <div className="flex justify-center mb-8">
-                  <div className="relative">
-                    <Image
-                      src="/tneb.jpg"
-                      alt="Tamil Nadu Electricity Board"
-                      width={380}
-                      height={200}
-                      className="rounded-xl object-contain"
-                    />
-                    {/* Glowing effect */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-[#eba10e]/20 rounded-full blur-3xl -z-10" />
-                  </div>
+                <div className="relative flex justify-center">
+                  <Image
+                    src="/tneb.jpg"
+                    alt="Tamil Nadu Electricity Board"
+                    width={380}
+                    height={200}
+                    className="rounded-xl object-contain"
+                  />
                 </div>
-
-                {/* Stats grid */}
-                {/* <div className="grid grid-cols-2 gap-4">
-                  <div className="text-center p-4 bg-white/5 rounded-xl">
-                    <div className="text-2xl font-bold text-[#eba10e] mb-1">
-                      TNEB
-                    </div>
-                    <div className="text-gray-400 text-sm">Certified</div>
-                  </div>
-                  <div className="text-center p-4 bg-white/5 rounded-xl">
-                    <div className="text-2xl font-bold text-[#eba10e] mb-1">
-                      IS:1678
-                    </div>
-                    <div className="text-gray-400 text-sm">Standards</div>
-                  </div>
-                  <div className="text-center p-4 bg-white/5 rounded-xl">
-                    <div className="text-2xl font-bold text-[#eba10e] mb-1">
-                      Bulk
-                    </div>
-                    <div className="text-gray-400 text-sm">Production</div>
-                  </div>
-                  <div className="text-center p-4 bg-white/5 rounded-xl">
-                    <div className="text-2xl font-bold text-[#eba10e] mb-1">
-                      100%
-                    </div>
-                    <div className="text-gray-400 text-sm">Quality Tested</div>
-                  </div>
-                </div> */}
               </div>
             </div>
           </div>
+        </div>
+
+        {/* CTA Button */}
+        <div className="mt-10">
+          <Link
+            href="/contact"
+            className="inline-flex items-center bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-3 rounded-md transition-colors duration-300 no-underline"
+          >
+            Request a Quote
+          </Link>
         </div>
 
         {/* Bottom highlight bar */}

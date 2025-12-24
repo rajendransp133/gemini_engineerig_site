@@ -1,11 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import LogoIcon from "./LogoIcon";
-import { MdPhoneInTalk } from "react-icons/md";
-import { MdOutlineMailOutline } from "react-icons/md";
+import { MdOutlineEmail } from "react-icons/md";
+import { FiPhoneCall } from "react-icons/fi";
 import { FaXmark } from "react-icons/fa6";
 import { FaBars } from "react-icons/fa6";
 
@@ -98,35 +97,9 @@ const Navbar = () => {
       >
         {/* Sidebar Header */}
         <div className="px-5 py-5 flex items-center justify-between">
-          <Link
-            href="/"
-            onClick={() => setIsOpen(false)}
-            className="flex items-center gap-3 no-underline"
-          >
-            <Image
-              src="/images/logo.png"
-              alt="Gemini Engineering Works Logo"
-              width={40}
-              height={40}
-              className="object-contain"
-            />
-            <div className="flex flex-col">
-              <span
-                className={`text-xl font-bold tracking-tight transition-colors duration-300 ${
-                  scrolled ? "text-[#343f52]" : "text-white drop-shadow-lg"
-                }`}
-              >
-                Gemini
-              </span>
-              {/* <span
-                className={`text-[10px] uppercase tracking-[0.2em] font-medium transition-colors duration-300 ${
-                  scrolled ? "text-amber-600" : "text-amber-400"
-                }`}
-              >
-                Engineering Works
-              </span> */}
-            </div>
-          </Link>
+          <div onClick={() => setIsOpen(false)}>
+            <LogoIcon />
+          </div>
           <button
             onClick={() => setIsOpen(false)}
             aria-label="Close menu"
@@ -173,13 +146,13 @@ const Navbar = () => {
           <div className="flex flex-col gap-3 ">
             {/* Owner */}
             <div className="flex items-center gap-3 text-gray-600">
-              <MdOutlineMailOutline className="w-5 h-5 text-amber-500" />
+              <MdOutlineEmail className="w-5 h-5 text-amber-500" />
               <span className="text-sm">Prop: AS. Manikandan</span>
             </div>
 
             {/* Phone Numbers */}
             <div className="flex items-start gap-3">
-              <MdPhoneInTalk className="w-5 h-5 text-amber-500 mt-0.5" />
+              <FiPhoneCall className="w-5 h-5 text-amber-500 mt-0.5" />
               <div className="flex flex-col gap-1">
                 <div className="text-sm text-gray-600 no-underline transition-colors duration-300 hover:text-amber-600">
                   +91 94432 11374

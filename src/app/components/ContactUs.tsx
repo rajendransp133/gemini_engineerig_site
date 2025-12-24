@@ -28,7 +28,7 @@ const ContactUs = () => {
 
             {/* Contact Details */}
             <div className="space-y-6">
-              {/* Address */}
+              {/* Address 1 */}
               <div className="flex items-center gap-4">
                 <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#eba10e] to-[#f5c04a] flex items-center justify-center shadow-md flex-shrink-0">
                   <IoLocationOutline className="w-7 h-7 text-white" />
@@ -36,6 +36,16 @@ const ContactUs = () => {
                 <p className="text-gray-600 text-base">
                   SFNO. 27/6F2 Ganesh Nagar, Sathiyamangalam, Kuluthur TK
                   Vellanur, Pudukkottai - 622501
+                </p>
+              </div>
+
+              {/* Address 2 */}
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#eba10e] to-[#f5c04a] flex items-center justify-center shadow-md flex-shrink-0">
+                  <IoLocationOutline className="w-7 h-7 text-white" />
+                </div>
+                <p className="text-gray-600 text-base">
+                  1157 housing unit, periya nagar, Pudukkottai - 622003
                 </p>
               </div>
 
