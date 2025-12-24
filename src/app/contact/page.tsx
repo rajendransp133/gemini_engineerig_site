@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
 import { FiPhoneCall } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -133,20 +134,47 @@ const ContactPage = () => {
     }
 
     setIsSubmitting(true);
-    // Simulate submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log("Form submitted:", formData);
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    setFormData({
-      fullName: "",
-      phone: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
-    // Hide success message after 5 seconds
-    setTimeout(() => setIsSuccess(false), 5000);
+
+    try {
+      // Send form data via FormSubmit
+      const response = await fetch(
+        "https://formsubmit.co/ajax/rajendransp133@gmail.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.fullName,
+            email: formData.email,
+            phone: formData.phone || "Not provided",
+            subject: formData.subject,
+            _subject: `New Contact: ${formData.subject}`,
+            message: formData.message,
+          }),
+        }
+      );
+
+      if (response.ok) {
+        setIsSuccess(true);
+        setFormData({
+          fullName: "",
+          phone: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+        // Hide success message after 5 seconds
+        setTimeout(() => setIsSuccess(false), 5000);
+      } else {
+        setErrors({ submit: "Failed to send message. Please try again." });
+      }
+    } catch {
+      setErrors({ submit: "Failed to send message. Please try again." });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -420,16 +448,45 @@ const ContactPage = () => {
                   </div>
                 )}
 
+                {/* Error Message */}
+                {errors.submit && (
+                  <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl flex items-center gap-3">
+                    <svg
+                      className="w-5 h-5 flex-shrink-0"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <p className="text-sm font-medium">{errors.submit}</p>
+                  </div>
+                )}
+
                 {/* Submit Button */}
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">
                   <p className="text-gray-400 text-sm">* Required fields</p>
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-3 rounded-md transition-colors duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
-                  >
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </button>
+                  <div className="flex flex-col sm:flex-row items-center gap-3">
+                    <a
+                      href="https://wa.me/917448531133"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5a] text-white font-semibold px-6 py-3 rounded-md transition-colors duration-300"
+                    >
+                      <FaWhatsapp className="w-5 h-5" />
+                      Contact via WhatsApp
+                    </a>
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-3 rounded-md transition-colors duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+                    >
+                      {isSubmitting ? "Sending..." : "Send Message"}
+                    </button>
+                  </div>
                 </div>
               </form>
             </div>

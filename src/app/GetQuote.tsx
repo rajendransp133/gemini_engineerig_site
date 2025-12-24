@@ -10,7 +10,7 @@ const GetQuote = () => {
       <div className="relative w-full py-16 md:py-20 overflow-hidden">
         {/* Rotated background image */}
         <div
-          className="absolute inset-0 bg-[url('/pole-2.jpeg')] bg-no-repeat bg-cover bg-center  "
+          className="absolute inset-0 bg-[url('/image7.jpg')] bg-no-repeat bg-cover bg-center   "
           style={{ transformOrigin: "center" }}
         />
         {/* Dark overlay */}
