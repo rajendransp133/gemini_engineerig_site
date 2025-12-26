@@ -123,7 +123,7 @@ const TNEBPoleSection = () => {
         {/* Bottom highlight bar */}
         <div className="mt-16 flex flex-wrap justify-center gap-4 md:gap-8">
           {[
-            "Compliance with TNEB Norms",
+            "100% Compliance with TNEB Norms",
             "ISI Grade Raw Materials",
             "High-Output Production Capacity",
             "Government Tenders",

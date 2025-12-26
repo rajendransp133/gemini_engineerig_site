@@ -37,8 +37,8 @@ const Footer = () => {
       <div className="relative">
         {/* Background Image for Left Side */}
         <div
-          className="absolute left-0 bottom-0 w-[400px] h-full bg-no-repeat bg-left-bottom bg-contain pointer-events-none hidden lg:block"
-          style={{ backgroundImage: "url('/images/bg-3.svg')" }}
+          className="absolute left-0 bottom-0 w-[400px] h-full bg-no-repeat opacity-20 bg-left-bottom bg-contain pointer-events-none hidden lg:block"
+          style={{ backgroundImage: "url('/images/bg-3.svg') " }}
         />
 
         <div className="container mx-auto px-4 lg:px-8 py-12 lg:py-16">
@@ -119,7 +119,7 @@ const Footer = () => {
                       +91 94432 11374
                     </div>
                     <div className="text-gray-600 hover:text-[#eba10e] transition-colors duration-300 text-base no-underline">
-                      +91 75400 44061
+                      +91 63744 48522
                     </div>
                   </div>
                 </div>

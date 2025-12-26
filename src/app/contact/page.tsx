@@ -257,17 +257,14 @@ const ContactPage = () => {
                     className="object-contain"
                   />
                   <h2 className="text-xl md:text-2xl font-bold">
-                    <span className="text-[#343f52]">Let&apos;s Power </span>
+                    <span className="text-[#343f52]">Powering </span>
                     <span className="text-[#eba10e] italic">
-                      Your Infrastructure{" "}
+                      Infrastructure{" "}
                     </span>
                     <span className="text-[#343f52]">Together</span>
                   </h2>
                 </div>
-                <p className="text-gray-500 text-sm">
-                  Have a project in mind? Send us a message and our team will
-                  get back to you shortly
-                </p>
+                <p className="text-gray-500 text-sm">Reach Out for Enquiries</p>
               </div>
 
               {/* Form Body */}

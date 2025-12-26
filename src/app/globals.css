@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Quintessential&display=swap");
 @import "tailwindcss";
 @import "flowbite-react/plugin/tailwindcss";
 @source "../../.flowbite-react/class-list.json";
@@ -57,4 +57,10 @@ a {
 
 .animate-truck-move {
   animation: truckMove 25s linear infinite;
+}
+
+.quintessential-regular {
+  font-family: "Quintessential", serif;
+  font-weight: 400;
+  font-style: normal;
 }

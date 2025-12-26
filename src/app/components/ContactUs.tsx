@@ -23,7 +23,7 @@ const ContactUs = () => {
             />
 
             <p className="text-lg text-gray-600 mb-8 font-light tracking-wide">
-              We Are Just A Click Away
+              Reach Out for Enquiries
             </p>
 
             {/* Contact Details */}
@@ -72,7 +72,7 @@ const ContactUs = () => {
                     +91 94432 11374
                   </div>
                   <div className="text-gray-600 hover:text-[#eba10e] transition-colors duration-300 text-base no-underline">
-                    +91 75400 44061
+                    +91 63744 48522
                   </div>
                 </div>
               </div>

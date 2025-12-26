@@ -62,14 +62,6 @@ const products: Product[] = [
         title: "Section Dimensions",
         description: "Bottom depth 355 mm, top depth 185 mm, breadth 100 mm.",
       },
-      {
-        title: "Depth of Planting",
-        description: "1500 mm.",
-      },
-      {
-        title: "Design Standard",
-        description: "REC standard design.",
-      },
     ],
     image: "/images/products/psc-pole-9m-300kg.webp",
   },
@@ -79,7 +71,7 @@ const products: Product[] = [
     subtitle: "Pre-Stressed Concrete",
     tagline: "text here",
     description:
-      "Pre-Stressed Concrete (PSC) poles offer superior strength-to-weight ratio. Our 8-metre PSC poles with 150kg working load are perfect for rural electrification projects and agricultural applications. The pre-stressing technique provides enhanced load-bearing capacity while keeping the poles lightweight for easier handling and installation.",
+      "Pre-Stressed Concrete (PSC) poles offer superior strength-to-weight ratio. Our 8-metre PSC poles with 150kg working load are perfect for electrification projects. The pre-stressing technique provides enhanced load-bearing capacity for easier handling and installation.",
     features: [
       {
         title: "Pre-Stressed Design",
@@ -92,9 +84,8 @@ const products: Product[] = [
           "Easier to transport and install compared to traditional RCC poles.",
       },
       {
-        title: "Cost-Effective",
-        description:
-          "Perfect balance of quality and affordability for rural projects.",
+        title: "Working Load",
+        description: "150kg .",
       },
     ],
     image: "/images/products/psc-pole.webp",

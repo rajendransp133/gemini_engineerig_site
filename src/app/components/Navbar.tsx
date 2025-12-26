@@ -158,7 +158,7 @@ const Navbar = () => {
                   +91 94432 11374
                 </div>
                 <div className="text-sm text-gray-600 no-underline transition-colors duration-300 hover:text-amber-600">
-                  +91 75400 44061
+                  +91 63744 48522
                 </div>
               </div>
             </div>
