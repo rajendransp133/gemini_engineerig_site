@@ -197,7 +197,7 @@ const ContactPage = () => {
     {
       icon: FiPhoneCall,
       title: "Call Us",
-      content: "+91 94432 11374",
+      content: "+91 63744 48522",
     },
   ];
 

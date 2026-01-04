@@ -39,10 +39,11 @@ const WelcomeSection = () => {
                 Our state-of-the-art manufacturing facility produces durable,
                 reliable, and cost-effective poles that meet the highest
                 industry standards. We specialize in manufacturing{" "}
-                <strong>RCC poles</strong> (9m with 150kg & 300kg load
-                capacity), <strong>PSC poles</strong> (8m with 150kg capacity),
-                and <strong>RCC base plates(450mm*450mm*75mm)</strong> — all
-                crafted to deliver exceptional strength and longevity.
+                <strong>RCC poles</strong> (9m with 150kg working load
+                capacity), <strong>PSC poles</strong> (8m with 200kg working
+                load capacity and 9m with 300kg working load capacity), and{" "}
+                <strong>RCC base plates(450mm*450mm*75mm)</strong> — all crafted
+                to deliver exceptional strength and longevity.
               </p>
 
               <p className="text-base md:text-lg leading-relaxed opacity-90">

@@ -68,9 +68,9 @@ const ContactUs = () => {
                   <FiPhoneCall className="w-6 h-6 text-white" />
                 </div>
                 <div className="flex flex-col">
-                  <div className="text-gray-600 text-base hover:text-[#eba10e] transition-colors">
+                  {/* <div className="text-gray-600 text-base hover:text-[#eba10e] transition-colors">
                     +91 94432 11374
-                  </div>
+                  </div> */}
                   <div className="text-gray-600 hover:text-[#eba10e] transition-colors duration-300 text-base no-underline">
                     +91 63744 48522
                   </div>

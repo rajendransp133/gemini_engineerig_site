@@ -7,7 +7,7 @@ const stats = [
     bgColor: "#e8c872",
   },
   {
-    number: "1L+",
+    number: "3L+",
     label: "Poles Manufactured",
     bgColor: "#f6d799",
   },

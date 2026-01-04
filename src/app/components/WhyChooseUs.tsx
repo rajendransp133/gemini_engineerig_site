@@ -16,7 +16,7 @@ const features = [
   {
     title: "Durable & Long-Lasting",
     description:
-      "Our RCC and PSC poles are corrosion-free,  and require minimal maintenance. With a lifespan of 40-50 years, they offer excellent value for power distribution and electrification projects.We use premium quality Tata steel/HTS wire  in our manufacturing process, ensuring superior tensile strength .",
+      "Our RCC and PSC poles are corrosion-free,  and require minimal maintenance. With a lifespan of 30-40 years, they offer excellent value for power distribution and electrification projects.We use premium quality Tata steel/HTS wire  in our manufacturing process, ensuring superior tensile strength .",
   },
   {
     title: "Competitive Pricing & Timely Delivery",

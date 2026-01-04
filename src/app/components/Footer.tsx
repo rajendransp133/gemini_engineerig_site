@@ -54,9 +54,6 @@ const Footer = () => {
                 electric poles since 1999. We deliver high-quality, durable
                 poles for power distribution and electrification projects.
               </p>
-              <div className="text-sm text-gray-500">
-                <span className="font-medium">GSTIN:</span> 33AFQPM3686K1ZT
-              </div>
             </div>
 
             {/* Quick Links Section */}
@@ -115,9 +112,9 @@ const Footer = () => {
                 <div className="flex items-center gap-3 ">
                   <FiPhoneCall className="w-5 h-5 text-[#eba10e] flex-shrink-0 mt-1" />
                   <div className="flex flex-col gap-1">
-                    <div className="text-gray-600 hover:text-[#eba10e] transition-colors duration-300 text-base no-underline">
+                    {/* <div className="text-gray-600 hover:text-[#eba10e] transition-colors duration-300 text-base no-underline">
                       +91 94432 11374
-                    </div>
+                    </div> */}
                     <div className="text-gray-600 hover:text-[#eba10e] transition-colors duration-300 text-base no-underline">
                       +91 63744 48522
                     </div>

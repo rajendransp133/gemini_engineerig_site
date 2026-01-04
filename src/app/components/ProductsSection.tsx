@@ -9,7 +9,6 @@ import Link from "next/link";
 interface Product {
   title: string;
   subtitle: string;
-  tagline: string;
   description: string;
   features: {
     title: string;
@@ -22,7 +21,6 @@ const products: Product[] = [
   {
     title: "9 Metre RCC Poles (150kg)",
     subtitle: "Standard Duty",
-    tagline: "text here",
     description:
       "The 9-metre RCC Square  Pole with 150kg working load is ideal for standard electrical distribution  projects. Manufactured with M25 grade concrete and 0.285m³ concrete volume per pole. Features  design with 12.5cm×12.5cm top and 22.5cm×22.5cm bottom dimensions. Each pole weighs approximately 700kg with 1.70m planting depth.",
     features: [
@@ -46,7 +44,6 @@ const products: Product[] = [
   {
     title: "9.0 Metre PSC Pole (300kg WL)",
     subtitle: "REC Standard Design",
-    tagline: "",
     description:
       "The 9.0 metre PSC pole is designed for a working load of 300 kg and manufactured as per REC standard drawings. Pole dimensions include an overall length of 9.0 m, bottom depth of 355 mm, top depth of 185 mm, breadth of 100 mm, and a depth of planting of 1500 mm.",
     features: [
@@ -67,11 +64,10 @@ const products: Product[] = [
   },
 
   {
-    title: "PSC Poles (8m, 150kg)",
+    title: "PSC Poles (8m, 200kg)",
     subtitle: "Pre-Stressed Concrete",
-    tagline: "text here",
     description:
-      "Pre-Stressed Concrete (PSC) poles offer superior strength-to-weight ratio. Our 8-metre PSC poles with 150kg working load are perfect for electrification projects. The pre-stressing technique provides enhanced load-bearing capacity for easier handling and installation.",
+      "Pre-Stressed Concrete (PSC) poles offer superior strength-to-weight ratio. Our 8-metre PSC poles with 200kg working load are perfect for electrification projects. The pre-stressing technique provides enhanced load-bearing capacity for easier handling and installation.",
     features: [
       {
         title: "Pre-Stressed Design",
@@ -85,7 +81,7 @@ const products: Product[] = [
       },
       {
         title: "Working Load",
-        description: "150kg .",
+        description: "200kg .",
       },
     ],
     image: "/images/products/psc-pole.webp",
@@ -93,7 +89,6 @@ const products: Product[] = [
   {
     title: "RCC Base Plates",
     subtitle: "450mm × 450mm × 75mm",
-    tagline: "text here",
     description:
       "High-quality RCC base plates designed to provide stable foundation support for electric poles. Manufactured with M15 grade concrete and reinforced with HTS wire 4mm thick . Each base plate weighs approximately 37.40kg with 0.0152m³ concrete volume, ensuring perfect compatibility with all our pole types.",
     features: [
@@ -161,9 +156,6 @@ const ProductModal = ({
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1.5 sm:mb-2 leading-tight">
                 {product.title}
               </h2>
-              <p className="text-white/90 text-xs sm:text-sm">
-                {product.tagline}
-              </p>
             </div>
           </div>
 
@@ -317,9 +309,6 @@ const ProductsSection = () => {
                 </h3>
 
                 {/* Tagline */}
-                <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                  {product.tagline}
-                </p>
 
                 {/* Divider */}
                 <div className="w-12 h-px bg-gradient-to-r from-[#eba10e] to-transparent mb-6" />

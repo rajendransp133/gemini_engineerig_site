@@ -154,9 +154,9 @@ const Navbar = () => {
             <div className="flex items-start gap-3">
               <FiPhoneCall className="w-5 h-5 text-amber-500 mt-0.5" />
               <div className="flex flex-col gap-1">
-                <div className="text-sm text-gray-600 no-underline transition-colors duration-300 hover:text-amber-600">
+                {/* <div className="text-sm text-gray-600 no-underline transition-colors duration-300 hover:text-amber-600">
                   +91 94432 11374
-                </div>
+                </div> */}
                 <div className="text-sm text-gray-600 no-underline transition-colors duration-300 hover:text-amber-600">
                   +91 63744 48522
                 </div>
