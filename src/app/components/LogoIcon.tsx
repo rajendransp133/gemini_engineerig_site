@@ -5,7 +5,7 @@ const LogoIcon = () => {
   return (
     <Link href="/" className="flex items-start gap-1">
       <Image
-        src="/GEMINI ENGINEERING WORKS.png"
+        src="/GEMINI ENGINEERING WORKS 2.png"
         alt="Gemini Engineering Works Logo"
         width={300}
         height={300}
