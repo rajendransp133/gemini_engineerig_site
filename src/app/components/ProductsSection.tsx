@@ -45,43 +45,47 @@ const products: Product[] = [
     title: "9.0 Metre PSC Pole (300kg WL)",
     subtitle: "REC Standard Design",
     description:
-      "The 9.0 metre PSC pole is designed for a working load of 300 kg and manufactured as per REC standard drawings. Pole dimensions include an overall length of 9.0 m, bottom depth of 355 mm, top depth of 185 mm, breadth of 100 mm, and a depth of planting of 1500 mm.",
+      "The 9.0 metre PSC pole is designed for a working load of 300 kg with a factor of safety of 2.0. Manufactured with M40 grade concrete and reinforced with 16 Nos. of 4mm HTS wires (all tensioned). Each pole requires 0.243m³ of concrete and approximately 117.86kg of cement. The pole weighs approximately 607kg with section dimensions of 18.5cm × 10.0cm at the top and 35.5cm × 10.0cm at the bottom, with a uniform thickness of 10.0cm throughout.",
     features: [
       {
-        title: "Overall Length",
-        description: "9.0 metres.",
+        title: "Dimensions & Weight",
+        description:
+          "9.00m length. Top: 18.5cm × 10.0cm, Bottom: 35.5cm × 10.0cm. Weight: 607kg (approx).",
       },
       {
-        title: "Working Load",
-        description: "300 kg.",
+        title: "Load Capacity",
+        description:
+          "300kg working load with 2.0 factor of safety. Ultimate tensile strength: 175Kg/mm².",
       },
       {
-        title: "Section Dimensions",
-        description: "Bottom depth 355 mm, top depth 185 mm, breadth 100 mm.",
+        title: "Specifications",
+        description:
+          "M40 concrete (0.243m³ per pole). 16 Nos. of 4mm HTS wires (tensioned). 20mm clear cover.",
       },
     ],
     image: "/images/products/psc-pole-9m-300kg.webp",
   },
 
   {
-    title: "PSC Poles (8m, 200kg)",
+    title: "8.00m PSC Pole (200kg WL)",
     subtitle: "Pre-Stressed Concrete",
     description:
-      "Pre-Stressed Concrete (PSC) poles offer superior strength-to-weight ratio. Our 8-metre PSC poles with 200kg working load are perfect for electrification projects. The pre-stressing technique provides enhanced load-bearing capacity for easier handling and installation.",
+      "The 8.00m PSC pole is designed for a working load of 200kg with a factor of safety of 2.5. Manufactured with M42 grade concrete and reinforced with 14 Nos. of 4mm HTS wires (12 tensioned, 2 untensioned). Each pole requires 0.156m³ of concrete and approximately 75.951kg of cement. The pole weighs approximately 378kg with section dimensions of 14.5cm × 9cm at the top and 29.0cm × 9cm at the bottom, with a uniform thickness of 9.0cm throughout.",
     features: [
       {
-        title: "Pre-Stressed Design",
+        title: "Dimensions & Weight",
         description:
-          "Advanced manufacturing technique for extra strength and durability.",
+          "8.00m length. Top: 14.5cm × 9cm, Bottom: 29.0cm × 9cm. Thickness: 9.0cm. Weight: 378kg (approx).",
       },
       {
-        title: "Lightweight",
+        title: "Load Capacity",
         description:
-          "Easier to transport and install compared to traditional RCC poles.",
+          "200kg working load with 2.5 factor of safety. Ultimate tensile strength: 175Kg/mm².",
       },
       {
-        title: "Working Load",
-        description: "200kg .",
+        title: "Specifications",
+        description:
+          "M42 concrete (0.156m³ per pole). 14 Nos. of 4mm HTS wires (12 tensioned, 2 untensioned). Cement: 75.951kg per pole.",
       },
     ],
     image: "/images/products/psc-pole.webp",

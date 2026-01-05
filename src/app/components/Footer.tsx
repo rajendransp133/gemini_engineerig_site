@@ -138,6 +138,7 @@ const Footer = () => {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
+                  allow="geolocation; microphone; camera; fullscreen"
                   title="Gemini Engineering Works - Pudukkottai"
                 />
               </div>
