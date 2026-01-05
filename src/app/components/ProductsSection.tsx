@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { FaCheckCircle } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
@@ -260,6 +260,23 @@ const ProductsSection = () => {
     setSelectedProduct(null);
     document.body.style.overflow = "unset";
   };
+
+  // Handle ESC key to close modal
+  useEffect(() => {
+    const handleEscKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && isModalOpen) {
+        closeModal();
+      }
+    };
+
+    if (isModalOpen) {
+      document.addEventListener("keydown", handleEscKey);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleEscKey);
+    };
+  }, [isModalOpen]);
 
   return (
     <section className="py-16 md:py-24 bg-gray-50">

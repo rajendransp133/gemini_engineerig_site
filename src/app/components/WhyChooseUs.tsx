@@ -76,7 +76,7 @@ const WhyChooseUs = () => {
             </div>
           </div>
           <ImageSquare
-            src="/images4.webp"
+            src="/stack1.webp"
             alt="RCC and PSC Pole Manufacturing"
             width={600}
             height={500}

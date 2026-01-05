@@ -8,7 +8,7 @@ const WelcomeSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Side - Image with decorative accents */}
           <ImageSquare
-            src="/image6.jpeg"
+            src="/home.webp"
             alt="RCC and PSC Pole Manufacturing Facility"
             width={500}
             height={1000}

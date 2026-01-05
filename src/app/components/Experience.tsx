@@ -62,7 +62,7 @@ const Experience = () => {
             {/* Main Image */}
             <div className="relative w-72 h-56 md:w-96 md:h-72 overflow-hidden">
               <Image
-                src="/image5.jpg"
+                src="/stack2.webp"
                 alt="Construction site with cranes"
                 fill
                 className="object-cover"

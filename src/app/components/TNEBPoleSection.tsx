@@ -98,7 +98,7 @@ const TNEBPoleSection = () => {
                 {/* TNEB Logo */}
                 <div className="relative flex justify-center">
                   <Image
-                    src="/tneb.jpg"
+                    src="/tneb.webp"
                     alt="Tamil Nadu Electricity Board"
                     width={380}
                     height={200}

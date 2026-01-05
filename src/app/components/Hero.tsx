@@ -6,9 +6,9 @@ import { useRouter } from "next/navigation";
 
 const Hero = () => {
   const slides = [
-    { src: "/image2.jpeg", alt: "PSC Pole Casting Yard" },
-    { src: "/baseplate.jpeg", alt: "Quality Pole Manufacturing" },
-    { src: "/image3.jpeg", alt: "Electric Pole Production" },
+    { src: "/hero1.webp", alt: "PSC Pole Casting Yard" },
+    { src: "/hero2.webp", alt: "Quality Pole Manufacturing" },
+    { src: "/hero3.webp", alt: "Electric Pole Production" },
   ];
 
   const router = useRouter();

@@ -208,7 +208,7 @@ const ContactPage = () => {
       {/* Hero Banner Section */}
       <section className="relative h-[280px] md:h-[320px] overflow-hidden">
         <Image
-          src="/pole1.jpg"
+          src="/stack4.webp"
           alt="Contact Us Banner"
           fill
           className=""
@@ -401,7 +401,7 @@ const ContactPage = () => {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    rows={5}
+                    rows={8}
                     className={`peer w-full px-5 py-4 bg-gray-50 border-2 rounded-xl text-[#343f52] placeholder-transparent focus:outline-none focus:bg-white transition-all duration-300 resize-none ${
                       errors.message
                         ? "border-red-400 focus:border-red-500"
