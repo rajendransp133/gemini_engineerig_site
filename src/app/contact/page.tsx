@@ -180,13 +180,13 @@ const ContactPage = () => {
   const contactInfo = [
     {
       icon: IoLocationOutline,
-      title: "Visit Us",
+      title: "Site",
       content:
         "SFNO. 27/6F2 Ganesh Nagar, Sathiyamangalam, Kuluthur TK Vellanur, Pudukkottai - 622501",
     },
     {
       icon: IoLocationOutline,
-      title: "Visit Us",
+      title: "Office",
       content: "1157 housing unit, periya nagar, Pudukkottai - 622003",
     },
     {
