@@ -26,7 +26,7 @@ const ImageSquare = ({
           alt={alt}
           width={width}
           height={height}
-          className="w-full h-110   object-cover shadow-lg"
+          className="w-full h-auto object-contain md:object-cover shadow-lg"
         />
       </div>
 
