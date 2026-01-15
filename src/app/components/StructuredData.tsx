@@ -1,5 +1,5 @@
 const StructuredData = () => {
-  const baseUrl = "https://geminiengineeringworks.com";
+  const baseUrl = "https://geminiengineeringworks.in";
 
   // Organization Schema with comprehensive details
   const organizationSchema = {

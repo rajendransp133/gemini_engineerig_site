@@ -1,5 +1,5 @@
 const ContactStructuredData = () => {
-  const baseUrl = "https://geminiengineeringworks.com";
+  const baseUrl = "https://geminiengineeringworks.in";
 
   // ContactPage Schema
   const contactPageSchema = {

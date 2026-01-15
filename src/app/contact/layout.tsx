@@ -24,11 +24,11 @@ export const metadata: Metadata = {
     title: "Contact Us - Gemini Engineering Works",
     description:
       "Get in touch with Gemini Engineering Works for high-quality PSC & RCC electric poles. Competitive pricing and timely delivery guaranteed.",
-    url: "https://geminiengineeringworks.com/contact",
+    url: "https://geminiengineeringworks.in/contact",
     type: "website",
   },
   alternates: {
-    canonical: "https://geminiengineeringworks.com/contact",
+    canonical: "https://geminiengineeringworks.in/contact",
   },
   robots: {
     index: true,

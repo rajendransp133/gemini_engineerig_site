@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://geminiengineeringworks.com"), // Update with your actual domain
+  metadataBase: new URL("https://geminiengineeringworks.in/"), // Update with your actual domain
   title: {
     default:
       "Buy RCC & PSC Electric Poles Online | Gemini Engineering Works - Pudukkottai, Tamil Nadu",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://geminiengineeringworks.com", // Update with your actual domain
+    url: "https://geminiengineeringworks.in/", // Update with your actual domain
     siteName: "Gemini Engineering Works",
     title: "Buy RCC & PSC Electric Poles Online | Gemini Engineering Works",
     description:
@@ -96,7 +96,7 @@ export const metadata: Metadata = {
     // bing: "your-bing-verification-code",
   },
   alternates: {
-    canonical: "https://geminiengineeringworks.com", // Update with your actual domain
+    canonical: "https://geminiengineeringworks.in/", // Update with your actual domain
   },
   category: "Manufacturing",
   icons: {

@@ -47,11 +47,11 @@ export const metadata: Metadata = {
     title: "Buy RCC & PSC Electric Poles Online | Gemini Engineering Works",
     description:
       "Buy RCC & PSC electric poles online from Gemini Engineering Works. Leading manufacturer since 1999. Purchase high-quality poles with competitive pricing. Bulk orders welcome.",
-    url: "https://geminiengineeringworks.com",
+    url: "https://geminiengineeringworks.in",
     type: "website",
   },
   alternates: {
-    canonical: "https://geminiengineeringworks.com",
+    canonical: "https://geminiengineeringworks.in",
   },
 };
 
