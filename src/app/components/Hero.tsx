@@ -6,9 +6,18 @@ import { useRouter } from "next/navigation";
 
 const Hero = () => {
   const slides = [
-    { src: "/hero1.webp", alt: "PSC Pole Casting Yard" },
-    { src: "/hero2.webp", alt: "Quality Pole Manufacturing" },
-    { src: "/hero3.webp", alt: "Electric Pole Production" },
+    {
+      src: "/hero1.webp",
+      alt: "PSC Pole Casting Yard at Gemini Engineering Works manufacturing facility in Pudukkottai",
+    },
+    {
+      src: "/hero2.webp",
+      alt: "Quality Pole Manufacturing process showing RCC and PSC electric poles",
+    },
+    {
+      src: "/hero3.webp",
+      alt: "Electric Pole Production line at Gemini Engineering Works, Tamil Nadu",
+    },
   ];
 
   const router = useRouter();

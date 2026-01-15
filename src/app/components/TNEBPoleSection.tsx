@@ -27,7 +27,10 @@ const features = [
 
 const TNEBPoleSection = () => {
   return (
-    <section className="relative py-16 md:py-24 overflow-hidden">
+    <section
+      className="relative py-16 md:py-24 overflow-hidden"
+      aria-labelledby="tneb-heading"
+    >
       {/* Background with diagonal pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#1a2332] via-[#243044] to-[#1a2332]">
         {/* Geometric pattern overlay */}
@@ -44,7 +47,10 @@ const TNEBPoleSection = () => {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+        <h2
+          id="tneb-heading"
+          className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight"
+        >
           TNEB Standard
           <span className="block text-[#eba10e]">Pole Manufacturing</span>
         </h2>
@@ -99,7 +105,7 @@ const TNEBPoleSection = () => {
                 <div className="relative flex justify-center">
                   <Image
                     src="/tneb.webp"
-                    alt="Tamil Nadu Electricity Board"
+                    alt="Tamil Nadu Electricity Board (TNEB) logo - Official supplier certification"
                     width={380}
                     height={200}
                     className="rounded-xl object-contain"

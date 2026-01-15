@@ -15,7 +15,7 @@ const stats = [
 
 const Experience = () => {
   return (
-    <section className="py-16" style={{ backgroundColor: "#eef1f5" }}>
+    <section className="py-16" style={{ backgroundColor: "#eef1f5" }} aria-label="Company Experience and Statistics">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-30">
           {/* Left Side - Stats */}
@@ -63,7 +63,7 @@ const Experience = () => {
             <div className="relative w-72 h-56 md:w-96 md:h-72 overflow-hidden">
               <Image
                 src="/stack2.webp"
-                alt="Construction site with cranes"
+                alt="Gemini Engineering Works manufacturing facility showing electric pole production and quality control"
                 fill
                 className="object-cover"
               />

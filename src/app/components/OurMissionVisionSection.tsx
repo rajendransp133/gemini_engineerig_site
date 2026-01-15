@@ -23,19 +23,22 @@ const OurMissionVisionSection = () => {
   ];
 
   return (
-    <section className="py-20 px-4 ">
+    <section className="py-20 px-4" aria-labelledby="mission-vision-heading">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
-        <div className="text-center mb-16">
+        <header className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-4">
             <Image
               src="/images/civil_hat.webp"
-              alt="Construction Hat"
+              alt="Construction hat icon representing mission and vision"
               width={50}
               height={50}
               className="object-contain"
             />
-            <h2 className="text-3xl md:text-4xl font-bold">
+            <h2
+              id="mission-vision-heading"
+              className="text-3xl md:text-4xl font-bold"
+            >
               <span className="text-[#343f52]">Our </span>
               <span className="text-[#eba10e]">Mission & Vision</span>
             </h2>
@@ -43,7 +46,7 @@ const OurMissionVisionSection = () => {
           <p className="text-[#343f52] text-lg opacity-80">
             Powering Infrastructure Since 1999
           </p>
-        </div>
+        </header>
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
@@ -56,7 +59,7 @@ const OurMissionVisionSection = () => {
               <div className="w-20 h-20 mx-auto mb-6 bg-white rounded-lg flex items-center justify-center">
                 <Image
                   src={card.icon}
-                  alt={card.title}
+                  alt={`${card.title} icon`}
                   width={50}
                   height={50}
                   className="object-contain"

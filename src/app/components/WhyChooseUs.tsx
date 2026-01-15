@@ -27,7 +27,10 @@ const features = [
 
 const WhyChooseUs = () => {
   return (
-    <section className="py-16 md:py-24 bg-white relative overflow-hidden">
+    <section
+      className="py-16 md:py-24 bg-white relative overflow-hidden"
+      aria-labelledby="why-choose-heading"
+    >
       {/* Background SVG */}
       <div
         className="absolute -top-0 right-0 w-1/2 h-full pointer-events-none"
@@ -45,17 +48,21 @@ const WhyChooseUs = () => {
             <div className="flex flex-col ">
               <SubHeading
                 src="/images/civil_hat.webp"
-                alt="Construction hat"
+                alt="Construction hat icon"
                 width={48}
                 height={48}
                 leftText="Why Choose"
                 rightText=""
               />
-              <SubHeading
-                leftText="Gemini "
-                rightText="Engineering Works?"
-                icon={false}
-              />
+              <h2
+                id="why-choose-heading"
+                className="text-3xl md:text-4xl lg:text-5xl font-semibold"
+              >
+                <span style={{ color: "#343f52" }}>Gemini </span>
+                <span style={{ color: "#eba10e" }} className="italic">
+                  Engineering Works?
+                </span>
+              </h2>
             </div>
 
             {/* Description paragraphs */}
@@ -77,7 +84,7 @@ const WhyChooseUs = () => {
           </div>
           <ImageSquare
             src="/stack1.webp"
-            alt="RCC and PSC Pole Manufacturing"
+            alt="RCC and PSC Pole Manufacturing facility at Gemini Engineering Works showing quality production process"
             width={600}
             height={500}
           />

@@ -2,16 +2,20 @@ import Link from "next/link";
 
 const GetQuote = () => {
   return (
-    <section className="relative w-full">
+    <section
+      className="relative w-full"
+      aria-label="Get Quote for Electric Poles"
+    >
       {/* Yellow top border */}
-      <div className="h-2 bg-amber-500 w-full" />
+      <div className="h-2 bg-amber-500 w-full" aria-hidden="true" />
 
       {/* Main content with background image */}
       <div className="relative w-full py-16 md:py-20 overflow-hidden">
         {/* Rotated background image */}
         <div
-          className="absolute inset-0 bg-[url('/stack3.webp')] bg-no-repeat bg-cover bg-center   "
+          className="absolute inset-0 bg-[url('/stack3.webp')] bg-no-repeat bg-cover bg-center"
           style={{ transformOrigin: "center" }}
+          aria-hidden="true"
         />
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/60" />

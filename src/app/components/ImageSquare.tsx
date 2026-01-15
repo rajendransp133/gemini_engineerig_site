@@ -27,6 +27,8 @@ const ImageSquare = ({
           width={width}
           height={height}
           className="w-full h-auto object-contain md:object-cover shadow-lg"
+          loading="lazy"
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
 
