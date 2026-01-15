@@ -100,8 +100,8 @@ export const metadata: Metadata = {
   },
   category: "Manufacturing",
   icons: {
-    icon: "/logo.webp",
-    apple: "/logo.webp",
+    icon: "/icon.svg",
+    apple: "/icon.svg",
   },
 };
 
