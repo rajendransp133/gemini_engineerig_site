@@ -12,7 +12,7 @@ const StructuredData = () => {
     logo: `${baseUrl}/logo.webp`,
     image: `${baseUrl}/logo.webp`,
     description:
-      "Buy RCC & PSC electric poles online from Gemini Engineering Works in Pudukkottai, Tamil Nadu. Leading manufacturer since 1999. Purchase high-quality poles with competitive pricing. Order RCC poles (9m, 150kg), PSC poles (8m-9m, 200-300kg), and RCC base plates. Bulk orders welcome.",
+      "Buy PSC poles and RCC poles in Tamil Nadu from Gemini Engineering Works, Pudukkottai. Leading manufacturer since 1999. Buy PSC pole tamilnadu, buy PSC pole TamilNadu, buy RCC pole tamil nadu, buy RCC pole Tamilnadu. Order RCC poles (9m, 150kg), PSC poles (8m-9m, 200-300kg). TNEB approved supplier. Bulk orders welcome.",
     foundingDate: "1999",
     founder: {
       "@type": "Person",
@@ -61,6 +61,16 @@ const StructuredData = () => {
       "TNEB Standards",
       "Infrastructure Development",
       "Power Distribution",
+      "Buy PSC Poles Tamil Nadu",
+      "Buy PSC Poles Tamilnadu",
+      "Buy PSC Poles TamilNadu",
+      "Buy RCC Poles Tamil Nadu",
+      "Buy RCC Poles Tamilnadu",
+      "Buy RCC Poles TamilNadu",
+      "Electric Pole Suppliers Tamil Nadu",
+      "Electric Pole Suppliers Tamilnadu",
+      "PSC Pole Price Tamil Nadu",
+      "RCC Pole Price Tamilnadu",
     ],
     slogan: "Planting the Seeds of Light",
   };
@@ -71,6 +81,8 @@ const StructuredData = () => {
     "@type": "LocalBusiness",
     "@id": `${baseUrl}/#localbusiness`,
     name: "Gemini Engineering Works",
+    description:
+      "Buy PSC poles and RCC poles in Tamil Nadu. Buy PSC pole tamilnadu, buy RCC pole TamilNadu. Leading PSC pole and RCC pole manufacturer in Pudukkottai, Tamilnadu since 1999. TNEB approved supplier.",
     image: `${baseUrl}/logo.webp`,
     url: baseUrl,
     telephone: "+91-63744-48522",
@@ -110,9 +122,9 @@ const StructuredData = () => {
     {
       "@context": "https://schema.org",
       "@type": "Product",
-      name: "9 Metre RCC Pole (150kg)",
+      name: "9 Metre RCC Pole (150kg) - Buy RCC Pole Tamil Nadu",
       description:
-        "The 9-metre RCC Square Pole with 150kg working load is ideal for standard electrical distribution projects. Manufactured with M25 grade concrete and 0.285m³ concrete volume per pole.",
+        "Buy 9-metre RCC Pole in Tamil Nadu with 150kg working load. Ideal for electrical distribution projects in Tamilnadu. Manufactured with M25 grade concrete. Buy RCC poles from Gemini Engineering Works, Pudukkottai.",
       brand: {
         "@type": "Brand",
         name: "Gemini Engineering Works",
@@ -187,9 +199,9 @@ const StructuredData = () => {
     {
       "@context": "https://schema.org",
       "@type": "Product",
-      name: "9.0 Metre PSC Pole (300kg WL)",
+      name: "9.0 Metre PSC Pole (300kg WL) - Buy PSC Pole Tamil Nadu",
       description:
-        "The 9.0 metre PSC pole is designed for a working load of 300 kg with a factor of safety of 2.0. Manufactured with M40 grade concrete and reinforced with 16 Nos. of 4mm HTS wires.",
+        "Buy 9.0 metre PSC pole in Tamil Nadu with 300kg working load. Buy PSC poles tamilnadu from Gemini Engineering Works. M40 grade concrete, reinforced with 16 Nos. of 4mm HTS wires. TNEB approved.",
       brand: {
         "@type": "Brand",
         name: "Gemini Engineering Works",
@@ -259,9 +271,9 @@ const StructuredData = () => {
     {
       "@context": "https://schema.org",
       "@type": "Product",
-      name: "8.00m PSC Pole (200kg WL)",
+      name: "8.00m PSC Pole (200kg WL) - Buy PSC Pole Tamilnadu",
       description:
-        "The 8.00m PSC pole is designed for a working load of 200kg with a factor of safety of 2.5. Manufactured with M42 grade concrete and reinforced with 14 Nos. of 4mm HTS wires.",
+        "Buy 8.00m PSC pole in Tamilnadu with 200kg working load. Buy PSC poles tamil nadu from Gemini Engineering Works, Pudukkottai. M42 grade concrete, reinforced with 14 Nos. of 4mm HTS wires.",
       brand: {
         "@type": "Brand",
         name: "Gemini Engineering Works",
@@ -336,9 +348,9 @@ const StructuredData = () => {
     {
       "@context": "https://schema.org",
       "@type": "Product",
-      name: "RCC Base Plate 450mm × 450mm × 75mm",
+      name: "RCC Base Plate 450mm × 450mm × 75mm - Tamil Nadu",
       description:
-        "High-quality RCC base plates designed to provide stable foundation support for electric poles. Manufactured with M15 grade concrete and reinforced with HTS wire 4mm thick.",
+        "Buy RCC base plates in Tamil Nadu for electric pole foundation support. High-quality base plates manufactured in Tamilnadu with M15 grade concrete and HTS wire reinforcement.",
       brand: {
         "@type": "Brand",
         name: "Gemini Engineering Works",
@@ -401,21 +413,27 @@ const StructuredData = () => {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    serviceType: "Electric Pole Manufacturing",
+    serviceType: "PSC & RCC Pole Manufacturing Tamil Nadu",
     provider: {
       "@type": "ManufacturingBusiness",
       name: "Gemini Engineering Works",
     },
-    areaServed: {
-      "@type": "Country",
-      name: "India",
-    },
+    areaServed: [
+      {
+        "@type": "State",
+        name: "Tamil Nadu",
+      },
+      {
+        "@type": "Country",
+        name: "India",
+      },
+    ],
     description:
-      "Manufacturing of high-quality PSC and RCC electric poles for power distribution, electrification projects, and infrastructure development. Compliant with IS 1678:1998 standards and TNEB specifications.",
+      "Buy PSC poles and RCC poles in Tamil Nadu. Manufacturing of high-quality PSC and RCC electric poles in Tamilnadu for power distribution and infrastructure development. IS 1678:1998 compliant, TNEB approved.",
     offers: {
       "@type": "Offer",
       description:
-        "Bulk supply of electric poles for government and private projects",
+        "Buy PSC poles and RCC poles in Tamil Nadu. Bulk supply for government and private projects.",
     },
   };
 
@@ -504,6 +522,70 @@ const StructuredData = () => {
           text: "Yes, we provide delivery services for purchased poles. We can arrange transportation to your location. Contact us at +91 63744 48522 to discuss delivery options and get a quote including delivery charges.",
         },
       },
+      {
+        "@type": "Question",
+        name: "Where can I buy PSC poles in Tamil Nadu?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "You can buy PSC poles in Tamil Nadu from Gemini Engineering Works, Pudukkottai. We are a leading PSC pole manufacturer in Tamilnadu since 1999. Contact us at +91 63744 48522 to buy PSC poles. We offer 8m PSC poles (200kg) and 9m PSC poles (300kg).",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Where can I buy RCC poles in Tamilnadu?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Buy RCC poles in Tamilnadu from Gemini Engineering Works, located in Pudukkottai, Tamil Nadu. We manufacture high-quality 9m RCC poles with 150kg working load. Call +91 63744 48522 to place your order for RCC poles.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Which is the best PSC pole manufacturer in Tamil Nadu?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Gemini Engineering Works is a trusted PSC pole manufacturer in Tamil Nadu with over 25 years of experience. Based in Pudukkottai, we are TNEB approved and have manufactured over 3 lakh poles. Buy PSC poles in tamilnadu from us for quality and reliability.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Which is the best RCC pole supplier in Tamilnadu?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Gemini Engineering Works is among the best RCC pole suppliers in Tamilnadu. Located in Pudukkottai, Tamil Nadu, we manufacture IS 1678:1998 compliant RCC poles. Buy RCC poles in tamil nadu from us for competitive pricing and quality assurance.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Where to buy PSC poles in TamilNadu?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Buy PSC poles in TamilNadu from Gemini Engineering Works, Pudukkottai. We are TNEB approved PSC pole manufacturers in Tamil Nadu since 1999. Buy PSC pole tamilnadu, buy PSC poles Tamilnadu. Call +91 63744 48522 for best prices.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Where to buy RCC poles in TamilNadu?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Buy RCC poles in TamilNadu from Gemini Engineering Works. We are leading RCC pole manufacturers in Tamilnadu, Tamil Nadu. Buy RCC pole tamilnadu, buy RCC poles TamilNadu with best quality. Call +91 63744 48522.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What is PSC pole price in Tamil Nadu?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "PSC pole price in Tamil Nadu varies based on size and specifications. Buy PSC poles in tamilnadu from Gemini Engineering Works for competitive pricing. We offer 8m PSC poles (200kg) and 9m PSC poles (300kg). Contact +91 63744 48522 for PSC pole price tamilnadu.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What is RCC pole price in Tamilnadu?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "RCC pole price in Tamilnadu depends on specifications and quantity. Buy RCC poles in TamilNadu from Gemini Engineering Works for best rates. We manufacture 9m RCC poles (150kg). Contact +91 63744 48522 for RCC pole price tamil nadu.",
+        },
+      },
     ],
   };
 
@@ -513,18 +595,18 @@ const StructuredData = () => {
     "@type": "WebPage",
     "@id": `${baseUrl}/#webpage`,
     url: baseUrl,
-    name: "Buy RCC & PSC Electric Poles Online | Gemini Engineering Works",
+    name: "Buy PSC & RCC Poles in Tamil Nadu | Gemini Engineering Works",
     description:
-      "Buy RCC & PSC electric poles online in Pudukkottai, Tamil Nadu. Purchase high-quality poles with competitive pricing. Order RCC poles (9m, 150kg), PSC poles (8m-9m, 200-300kg). Bulk orders welcome. Call +91 63744 48522.",
+      "Buy PSC poles and RCC poles in Tamil Nadu from Gemini Engineering Works. Buy PSC pole tamilnadu, buy RCC pole tamil nadu. Order RCC poles (9m, 150kg), PSC poles (8m-9m, 200-300kg) in Tamilnadu. TNEB approved. Call +91 63744 48522.",
     inLanguage: "en-IN",
     isPartOf: {
       "@type": "WebSite",
-      name: "Gemini Engineering Works - Buy Electric Poles Online",
+      name: "Gemini Engineering Works - Buy PSC & RCC Poles Tamil Nadu",
       url: baseUrl,
     },
     about: {
       "@type": "Thing",
-      name: "Buy Electric Poles",
+      name: "Buy PSC Poles and RCC Poles in Tamil Nadu",
     },
     primaryImageOfPage: {
       "@type": "ImageObject",
@@ -550,9 +632,9 @@ const StructuredData = () => {
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "Electric Pole Products",
+    name: "Buy PSC & RCC Poles in Tamil Nadu",
     description:
-      "Complete range of RCC and PSC electric poles manufactured by Gemini Engineering Works",
+      "Buy PSC poles and RCC poles in Tamil Nadu. Complete range of electric poles manufactured by Gemini Engineering Works, Pudukkottai, Tamilnadu.",
     itemListElement: [
       {
         "@type": "ListItem",
@@ -597,7 +679,9 @@ const StructuredData = () => {
   const storeSchema = {
     "@context": "https://schema.org",
     "@type": "Store",
-    name: "Gemini Engineering Works",
+    name: "Gemini Engineering Works - Buy PSC & RCC Poles Tamil Nadu",
+    description:
+      "Buy PSC poles and RCC poles in Tamil Nadu. Leading electric pole manufacturer in Pudukkottai, Tamilnadu since 1999. TNEB approved supplier.",
     image: `${baseUrl}/logo.webp`,
     "@id": `${baseUrl}/#store`,
     url: baseUrl,

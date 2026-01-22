@@ -157,18 +157,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Scroll to Top Button */}
-      <button
-        onClick={scrollToTop}
-        className={`fixed bottom-6 right-6 w-12 h-12 rounded-full bg-[#eba10e] text-white flex items-center justify-center shadow-lg cursor-pointer border-none transition-all duration-300 hover:bg-[#d4910d] hover:scale-110 z-50 ${
-          showScrollTop
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-4 pointer-events-none"
-        }`}
-        aria-label="Scroll to top"
-      >
-        <FaArrowUp className="w-5 h-5" />
-      </button>
+      
     </footer>
   );
 };

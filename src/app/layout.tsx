@@ -1,50 +1,129 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://geminiengineeringworks.in/"), // Update with your actual domain
+  metadataBase: new URL("https://geminiengineeringworks.in/"),
   title: {
     default:
-      "Buy RCC & PSC Electric Poles Online | Gemini Engineering Works - Pudukkottai, Tamil Nadu",
+      "Buy PSC & RCC Poles in Tamil Nadu | Gemini Engineering Works, Pudukkottai",
     template: "%s | Gemini Engineering Works",
   },
   description:
-    "Buy RCC & PSC electric poles online from Gemini Engineering Works in Pudukkottai, Tamil Nadu. Leading manufacturer since 1999. Purchase high-quality poles with competitive pricing. Order RCC poles (9m, 150kg), PSC poles (8m-9m, 200-300kg), and RCC base plates. Bulk orders welcome. Call +91 63744 48522.",
+    "Buy PSC poles and RCC poles in Tamil Nadu from Gemini Engineering Works, Pudukkottai. Leading manufacturer since 1999. Order RCC poles (9m, 150kg), PSC poles (8m-9m, 200-300kg) in Tamilnadu. TNEB approved supplier. Bulk orders welcome. Call +91 63744 48522.",
   keywords: [
-    "buy rcc pole",
+    // PSC pole - buy variations with ALL location spellings
     "buy psc pole",
-    "buy electric pole",
-    "buy pole",
-    "buy rcc poles online",
+    "buy psc poles",
+    "buy psc pole tamil nadu",
+    "buy psc pole tamilnadu",
+    "buy psc pole TamilNadu",
+    "buy psc pole Tamilnadu",
+    "buy psc poles tamil nadu",
+    "buy psc poles tamilnadu",
+    "buy psc poles TamilNadu",
     "buy psc poles online",
-    "purchase rcc pole",
-    "purchase psc pole",
+    "buy psc poles in tamil nadu",
+    "buy psc poles in tamilnadu",
+    "psc pole suppliers tamil nadu",
+    "psc pole suppliers tamilnadu",
+    "psc poles tamilnadu",
+    "psc poles TamilNadu",
+    "psc pole price tamil nadu",
+    "psc pole price tamilnadu",
+    // RCC pole - buy variations with ALL location spellings
+    "buy rcc pole",
+    "buy rcc poles",
+    "buy rcc pole tamil nadu",
+    "buy rcc pole tamilnadu",
+    "buy rcc pole TamilNadu",
+    "buy rcc pole Tamilnadu",
+    "buy rcc poles tamil nadu",
+    "buy rcc poles tamilnadu",
+    "buy rcc poles TamilNadu",
+    "buy rcc poles online",
+    "buy rcc poles in tamil nadu",
+    "buy rcc poles in tamilnadu",
+    "rcc pole suppliers tamil nadu",
+    "rcc pole suppliers tamilnadu",
+    "rcc poles tamilnadu",
+    "rcc poles TamilNadu",
+    "rcc pole price tamil nadu",
+    "rcc pole price tamilnadu",
+    // Electric pole variations
+    "buy electric pole",
+    "buy electric poles tamil nadu",
+    "buy electric pole tamilnadu",
+    "buy electric pole TamilNadu",
+    "electric pole manufacturers tamil nadu",
+    "electric pole manufacturers tamilnadu",
+    "electric pole manufacturers TamilNadu",
+    "electric poles tamilnadu",
+    "electric poles TamilNadu",
+    // Concrete pole variations
+    "buy concrete pole tamil nadu",
+    "buy concrete poles tamilnadu",
+    "concrete pole manufacturers tamil nadu",
+    "concrete pole suppliers tamilnadu",
+    "concrete poles TamilNadu",
+    // Purchase and order variations
+    "purchase rcc pole tamil nadu",
+    "purchase psc pole tamilnadu",
     "purchase electric pole",
-    "order rcc pole",
-    "order psc pole",
+    "order rcc pole tamil nadu",
+    "order psc pole tamilnadu",
     "order electric pole",
-    "where to buy rcc pole",
-    "where to buy psc pole",
+    "where to buy rcc pole tamil nadu",
+    "where to buy psc pole tamilnadu",
     "where to buy electric pole",
+    // For sale variations
     "rcc pole for sale",
     "psc pole for sale",
     "electric pole for sale",
+    "rcc poles for sale tamil nadu",
+    "rcc poles for sale tamilnadu",
+    "psc poles for sale tamil nadu",
+    "psc poles for sale tamilnadu",
+    // Manufacturers and suppliers - ALL spellings
     "PSC pole manufacturers",
     "RCC pole manufacturers",
-    "electric pole manufacturers",
+    "PSC pole manufacturers tamil nadu",
+    "PSC pole manufacturers tamilnadu",
+    "PSC pole manufacturers TamilNadu",
+    "RCC pole manufacturers tamil nadu",
+    "RCC pole manufacturers tamilnadu",
+    "RCC pole manufacturers TamilNadu",
     "TNEB pole suppliers",
+    "TNEB pole suppliers tamil nadu",
+    "TNEB pole suppliers tamilnadu",
     "Pudukkottai pole manufacturers",
     "Tamil Nadu pole manufacturers",
-    "concrete pole manufacturers",
-    "electricity pole suppliers",
+    "TamilNadu pole manufacturers",
+    "Tamilnadu pole manufacturers",
+    "electricity pole suppliers tamilnadu",
     "infrastructure pole manufacturers",
+    // Price related keywords
+    "psc pole price",
+    "rcc pole price",
+    "electric pole price tamil nadu",
+    "psc pole rate tamilnadu",
+    "rcc pole rate tamil nadu",
+    // Product specific
     "RCC base plate manufacturers",
+    "RCC base plate tamil nadu",
     "9m RCC poles",
+    "9m RCC poles tamilnadu",
     "8m PSC poles",
+    "8m PSC poles tamil nadu",
     "9m PSC poles",
+    "9m PSC poles tamilnadu",
     "Gemini Engineering Works",
-    "pole manufacturing company",
-    "electric pole casting yard",
+    "pole manufacturing company tamil nadu",
+    "electric pole casting yard tamilnadu",
+    // Best/Top variations
+    "best psc pole manufacturers tamil nadu",
+    "best rcc pole suppliers tamilnadu",
+    "top electric pole manufacturers TamilNadu",
   ],
   authors: [{ name: "Gemini Engineering Works" }],
   creator: "Gemini Engineering Works",
@@ -57,11 +136,11 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://geminiengineeringworks.in/", // Update with your actual domain
+    url: "https://geminiengineeringworks.in/",
     siteName: "Gemini Engineering Works",
-    title: "Buy RCC & PSC Electric Poles Online | Gemini Engineering Works",
+    title: "Buy PSC & RCC Poles in Tamil Nadu | Gemini Engineering Works",
     description:
-      "Buy RCC & PSC electric poles online from Gemini Engineering Works. Leading manufacturer since 1999. Purchase high-quality poles with competitive pricing. Bulk orders welcome.",
+      "Buy PSC poles and RCC poles in Tamil Nadu from Gemini Engineering Works. Leading manufacturer since 1999 in Pudukkottai, Tamilnadu. TNEB approved. Bulk orders welcome.",
     images: [
       {
         url: "/logo.webp",
@@ -73,9 +152,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Buy RCC & PSC Electric Poles Online | Gemini Engineering Works",
+    title: "Buy PSC & RCC Poles in Tamil Nadu | Gemini Engineering Works",
     description:
-      "Buy RCC & PSC electric poles online. Leading manufacturer since 1999. Purchase high-quality poles with competitive pricing.",
+      "Buy PSC poles and RCC poles in Tamil Nadu. Leading manufacturer since 1999 in Pudukkottai, Tamilnadu. TNEB approved.",
     images: ["/logo.webp"],
   },
   robots: {
@@ -100,8 +179,8 @@ export const metadata: Metadata = {
   },
   category: "Manufacturing",
   icons: {
-    icon: "/icon.svg",
-    apple: "/icon.svg",
+    icon: "/icon.ico",
+    apple: "/icon.ico",
   },
 };
 
@@ -112,7 +191,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <WhatsAppButton />
+      </body>
     </html>
   );
 }

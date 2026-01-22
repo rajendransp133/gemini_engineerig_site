@@ -8,7 +8,6 @@ import ContactStructuredData from "./StructuredData";
 import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
 import { FiPhoneCall } from "react-icons/fi";
-import { FaWhatsapp } from "react-icons/fa";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -474,24 +473,13 @@ const ContactPage = () => {
                   {/* Submit Button */}
                   <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">
                     <p className="text-gray-400 text-sm">* Required fields</p>
-                    <div className="flex flex-col sm:flex-row items-center gap-3">
-                      <a
-                        href="https://wa.me/916374448522"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5a] text-white font-semibold px-6 py-3 rounded-md transition-colors duration-300"
-                      >
-                        <FaWhatsapp className="w-5 h-5" />
-                        Contact via WhatsApp
-                      </a>
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-3 rounded-md transition-colors duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
-                      >
-                        {isSubmitting ? "Sending..." : "Send Message"}
-                      </button>
-                    </div>
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-3 rounded-md transition-colors duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+                    >
+                      {isSubmitting ? "Sending..." : "Send Message"}
+                    </button>
                   </div>
                 </form>
               </div>
