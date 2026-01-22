@@ -125,6 +125,7 @@ const StructuredData = () => {
       name: "9 Metre RCC Pole (150kg) - Buy RCC Pole Tamil Nadu",
       description:
         "Buy 9-metre RCC Pole in Tamil Nadu with 150kg working load. Ideal for electrical distribution projects in Tamilnadu. Manufactured with M25 grade concrete. Buy RCC poles from Gemini Engineering Works, Pudukkottai.",
+      image: `${baseUrl}/logo.webp`,
       brand: {
         "@type": "Brand",
         name: "Gemini Engineering Works",
@@ -134,19 +135,12 @@ const StructuredData = () => {
       offers: {
         "@type": "Offer",
         availability: "https://schema.org/InStock",
-        priceCurrency: "INR",
         url: `${baseUrl}/#products`,
-        priceSpecification: {
-          "@type": "UnitPriceSpecification",
-          priceCurrency: "INR",
-          price: "Contact for pricing",
-        },
         seller: {
           "@type": "Organization",
           name: "Gemini Engineering Works",
         },
         itemCondition: "https://schema.org/NewCondition",
-        availabilityStarts: "1999-01-01",
       },
       additionalProperty: [
         {
@@ -202,6 +196,7 @@ const StructuredData = () => {
       name: "9.0 Metre PSC Pole (300kg WL) - Buy PSC Pole Tamil Nadu",
       description:
         "Buy 9.0 metre PSC pole in Tamil Nadu with 300kg working load. Buy PSC poles tamilnadu from Gemini Engineering Works. M40 grade concrete, reinforced with 16 Nos. of 4mm HTS wires. TNEB approved.",
+      image: `${baseUrl}/logo.webp`,
       brand: {
         "@type": "Brand",
         name: "Gemini Engineering Works",
@@ -211,19 +206,12 @@ const StructuredData = () => {
       offers: {
         "@type": "Offer",
         availability: "https://schema.org/InStock",
-        priceCurrency: "INR",
         url: `${baseUrl}/#products`,
-        priceSpecification: {
-          "@type": "UnitPriceSpecification",
-          priceCurrency: "INR",
-          price: "Contact for pricing",
-        },
         seller: {
           "@type": "Organization",
           name: "Gemini Engineering Works",
         },
         itemCondition: "https://schema.org/NewCondition",
-        availabilityStarts: "1999-01-01",
       },
       additionalProperty: [
         {
@@ -274,6 +262,7 @@ const StructuredData = () => {
       name: "8.00m PSC Pole (200kg WL) - Buy PSC Pole Tamilnadu",
       description:
         "Buy 8.00m PSC pole in Tamilnadu with 200kg working load. Buy PSC poles tamil nadu from Gemini Engineering Works, Pudukkottai. M42 grade concrete, reinforced with 14 Nos. of 4mm HTS wires.",
+      image: `${baseUrl}/logo.webp`,
       brand: {
         "@type": "Brand",
         name: "Gemini Engineering Works",
@@ -283,19 +272,12 @@ const StructuredData = () => {
       offers: {
         "@type": "Offer",
         availability: "https://schema.org/InStock",
-        priceCurrency: "INR",
         url: `${baseUrl}/#products`,
-        priceSpecification: {
-          "@type": "UnitPriceSpecification",
-          priceCurrency: "INR",
-          price: "Contact for pricing",
-        },
         seller: {
           "@type": "Organization",
           name: "Gemini Engineering Works",
         },
         itemCondition: "https://schema.org/NewCondition",
-        availabilityStarts: "1999-01-01",
       },
       additionalProperty: [
         {
@@ -351,6 +333,7 @@ const StructuredData = () => {
       name: "RCC Base Plate 450mm × 450mm × 75mm - Tamil Nadu",
       description:
         "Buy RCC base plates in Tamil Nadu for electric pole foundation support. High-quality base plates manufactured in Tamilnadu with M15 grade concrete and HTS wire reinforcement.",
+      image: `${baseUrl}/logo.webp`,
       brand: {
         "@type": "Brand",
         name: "Gemini Engineering Works",
@@ -360,19 +343,12 @@ const StructuredData = () => {
       offers: {
         "@type": "Offer",
         availability: "https://schema.org/InStock",
-        priceCurrency: "INR",
         url: `${baseUrl}/#products`,
-        priceSpecification: {
-          "@type": "UnitPriceSpecification",
-          priceCurrency: "INR",
-          price: "Contact for pricing",
-        },
         seller: {
           "@type": "Organization",
           name: "Gemini Engineering Works",
         },
         itemCondition: "https://schema.org/NewCondition",
-        availabilityStarts: "1999-01-01",
       },
       additionalProperty: [
         {
@@ -639,38 +615,26 @@ const StructuredData = () => {
       {
         "@type": "ListItem",
         position: 1,
-        item: {
-          "@type": "Product",
-          name: "9 Metre RCC Pole (150kg)",
-          url: `${baseUrl}/#products`,
-        },
+        name: "9 Metre RCC Pole (150kg)",
+        url: `${baseUrl}/#products`,
       },
       {
         "@type": "ListItem",
         position: 2,
-        item: {
-          "@type": "Product",
-          name: "9.0 Metre PSC Pole (300kg WL)",
-          url: `${baseUrl}/#products`,
-        },
+        name: "9.0 Metre PSC Pole (300kg WL)",
+        url: `${baseUrl}/#products`,
       },
       {
         "@type": "ListItem",
         position: 3,
-        item: {
-          "@type": "Product",
-          name: "8.00m PSC Pole (200kg WL)",
-          url: `${baseUrl}/#products`,
-        },
+        name: "8.00m PSC Pole (200kg WL)",
+        url: `${baseUrl}/#products`,
       },
       {
         "@type": "ListItem",
         position: 4,
-        item: {
-          "@type": "Product",
-          name: "RCC Base Plate 450mm × 450mm × 75mm",
-          url: `${baseUrl}/#products`,
-        },
+        name: "RCC Base Plate 450mm × 450mm × 75mm",
+        url: `${baseUrl}/#products`,
       },
     ],
   };
