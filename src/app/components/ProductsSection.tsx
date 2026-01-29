@@ -42,7 +42,7 @@ const products: Product[] = [
     image: "/images/products/rcc-pole-150kg.webp",
   },
   {
-    title: "9.0 Metre PSC Pole (300kg WL)",
+    title: "9 Metre PSC Pole (300kg WL)",
     subtitle: "REC Standard Design",
     description:
       "The 9.0 metre PSC pole is designed for a working load of 300 kg with a factor of safety of 2.0. Manufactured with M40 grade concrete and reinforced with 16 Nos. of 4mm HTS wires (all tensioned). Each pole requires 0.243m³ of concrete and approximately 117.86kg of cement. The pole weighs approximately 607kg with section dimensions of 18.5cm × 10.0cm at the top and 35.5cm × 10.0cm at the bottom, with a uniform thickness of 10.0cm throughout.",
@@ -67,7 +67,7 @@ const products: Product[] = [
   },
 
   {
-    title: "8.00m PSC Pole (200kg WL)",
+    title: "8m PSC Pole (200kg WL)",
     subtitle: "Pre-Stressed Concrete",
     description:
       "The 8.00m PSC pole is designed for a working load of 200kg with a factor of safety of 2.5. Manufactured with M42 grade concrete and reinforced with 14 Nos. of 4mm HTS wires (12 tensioned, 2 untensioned). Each pole requires 0.156m³ of concrete and approximately 75.951kg of cement. The pole weighs approximately 378kg with section dimensions of 14.5cm × 9cm at the top and 29.0cm × 9cm at the bottom, with a uniform thickness of 9.0cm throughout.",
