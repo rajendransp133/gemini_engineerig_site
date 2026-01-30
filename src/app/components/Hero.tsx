@@ -46,7 +46,7 @@ const Hero = () => {
       {/* Text overlay - positioned above the carousel */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pointer-events-none z-10">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 drop-shadow-lg">
-          PSC & RCC Electric Pole Manufacturers
+          PSC & RCC Electric Pole Manufacturers in Tamil Nadu
         </h1>
         <p className="text-lg md:text-xl text-white mb-8 drop-shadow-md max-w-3xl">
           ​Planting the Seeds of Light

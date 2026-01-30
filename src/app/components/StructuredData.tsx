@@ -12,7 +12,7 @@ const StructuredData = () => {
     logo: `${baseUrl}/logo.webp`,
     image: `${baseUrl}/logo.webp`,
     description:
-      "Buy PSC poles and RCC poles in Tamil Nadu from Gemini Engineering Works, Pudukkottai. Leading manufacturer since 1999. Buy PSC pole tamilnadu, buy PSC pole TamilNadu, buy RCC pole tamil nadu, buy RCC pole Tamilnadu. Order RCC poles (9m, 150kg), PSC poles (8m-9m, 200-300kg). TNEB approved supplier. Bulk orders welcome.",
+      "Buy PSC poles (PSCC) and RCC poles in Tamil Nadu from Gemini Engineering Works, Pudukkottai. Leading manufacturer since 1999. Supplying to Chennai, Coimbatore, Madurai, Trichy, Salem & all districts. Order RCC poles (9m, 150kg), PSC poles (8m-9m, 200-300kg), base plates. IS 1678, IS 2905, IS 7321 certified. TNEB approved supplier. Wholesale & bulk orders welcome.",
     foundingDate: "1999",
     founder: {
       "@type": "Person",
@@ -50,27 +50,94 @@ const StructuredData = () => {
       },
     ],
     sameAs: [],
-    areaServed: {
-      "@type": "Country",
-      name: "India",
-    },
+    areaServed: [
+      {
+        "@type": "Country",
+        name: "India",
+      },
+      {
+        "@type": "State",
+        name: "Tamil Nadu",
+      },
+      {
+        "@type": "City",
+        name: "Chennai",
+      },
+      {
+        "@type": "City",
+        name: "Coimbatore",
+      },
+      {
+        "@type": "City",
+        name: "Madurai",
+      },
+      {
+        "@type": "City",
+        name: "Tiruchirappalli",
+      },
+      {
+        "@type": "City",
+        name: "Salem",
+      },
+      {
+        "@type": "City",
+        name: "Tirunelveli",
+      },
+      {
+        "@type": "City",
+        name: "Vellore",
+      },
+      {
+        "@type": "City",
+        name: "Tirupur",
+      },
+      {
+        "@type": "City",
+        name: "Pudukkottai",
+      },
+    ],
     knowsAbout: [
       "Electric Pole Manufacturing",
       "RCC Pole Production",
       "PSC Pole Production",
+      "PSCC Pole Manufacturing",
+      "PCC Pole Production",
+      "Pre-stressed Concrete Poles",
+      "Reinforced Cement Concrete Poles",
       "TNEB Standards",
+      "IS 1678:1998 Standards",
+      "IS 2905 Standards",
+      "IS 7321 Standards",
       "Infrastructure Development",
       "Power Distribution",
+      "Rural Electrification",
+      "Street Lighting Poles",
+      "HT Line Poles",
+      "LT Line Poles",
       "Buy PSC Poles Tamil Nadu",
       "Buy PSC Poles Tamilnadu",
       "Buy PSC Poles TamilNadu",
       "Buy RCC Poles Tamil Nadu",
       "Buy RCC Poles Tamilnadu",
       "Buy RCC Poles TamilNadu",
+      "Buy PSCC Poles Tamil Nadu",
       "Electric Pole Suppliers Tamil Nadu",
       "Electric Pole Suppliers Tamilnadu",
+      "Electric Pole Suppliers Chennai",
+      "Electric Pole Suppliers Coimbatore",
+      "Electric Pole Suppliers Madurai",
+      "Electric Pole Suppliers Trichy",
+      "Electric Pole Suppliers Salem",
       "PSC Pole Price Tamil Nadu",
       "RCC Pole Price Tamilnadu",
+      "Buy Base Plate Tamil Nadu",
+      "Buy Base Plate Tamilnadu",
+      "Buy RCC Base Plate Tamil Nadu",
+      "Base Plate Manufacturer Tamilnadu",
+      "Electric Pole Base Plate Supplier",
+      "Pole Foundation Plate",
+      "Electric Pole Wholesale",
+      "Bulk Electric Poles Supplier",
     ],
     slogan: "Planting the Seeds of Light",
   };
@@ -82,7 +149,7 @@ const StructuredData = () => {
     "@id": `${baseUrl}/#localbusiness`,
     name: "Gemini Engineering Works",
     description:
-      "Buy PSC poles and RCC poles in Tamil Nadu. Buy PSC pole tamilnadu, buy RCC pole TamilNadu. Leading PSC pole and RCC pole manufacturer in Pudukkottai, Tamilnadu since 1999. TNEB approved supplier.",
+      "Buy PSC poles (PSCC/pre-stressed concrete) and RCC poles (reinforced cement concrete) in Tamil Nadu. TNEB approved manufacturer in Pudukkottai since 1999. Supplying Chennai, Coimbatore, Madurai, Trichy, Salem & all Tamil Nadu districts. Street lighting poles, HT/LT line poles, rural electrification poles. IS 1678, IS 2905 certified.",
     image: `${baseUrl}/logo.webp`,
     url: baseUrl,
     telephone: "+91-63744-48522",
@@ -122,9 +189,9 @@ const StructuredData = () => {
     {
       "@context": "https://schema.org",
       "@type": "Product",
-      name: "9 Metre RCC Pole (150kg) - Buy RCC Pole Tamil Nadu",
+      name: "9 Metre RCC Pole (150kg) - Buy RCC Pole Tamil Nadu | Reinforced Cement Concrete Pole",
       description:
-        "Buy 9-metre RCC Pole in Tamil Nadu with 150kg working load. Ideal for electrical distribution projects in Tamilnadu. Manufactured with M25 grade concrete. Buy RCC poles from Gemini Engineering Works, Pudukkottai.",
+        "Buy 9-metre RCC Pole (Reinforced Cement Concrete Pole) in Tamil Nadu with 150kg working load. Ideal for LT line distribution, street lighting & rural electrification projects. IS 1678:1998 certified. M25 grade concrete. Supplying Chennai, Coimbatore, Madurai, Trichy, Salem. Buy RCC poles from Gemini Engineering Works, Pudukkottai.",
       image: `${baseUrl}/logo.webp`,
       brand: {
         "@type": "Brand",
@@ -192,9 +259,9 @@ const StructuredData = () => {
     {
       "@context": "https://schema.org",
       "@type": "Product",
-      name: "9 Metre PSC Pole (300kg WL) - Buy PSC Pole Tamil Nadu",
+      name: "9 Metre PSC Pole (300kg WL) - Buy PSCC Pole Tamil Nadu | Pre-stressed Concrete Pole",
       description:
-        "Buy 9.0 metre PSC pole in Tamil Nadu with 300kg working load. Buy PSC poles tamilnadu from Gemini Engineering Works. M40 grade concrete, reinforced with 16 Nos. of 4mm HTS wires. TNEB approved.",
+        "Buy 9.0 metre PSC pole (PSCC/Pre-stressed Cement Concrete pole) in Tamil Nadu with 300kg working load. Ideal for HT/LT line distribution & power transmission. IS 1678, IS 2905 certified. M40 grade concrete, 16 Nos. of 4mm HTS wires. TNEB approved. Supplying Chennai, Coimbatore, Madurai, Trichy, Salem. Buy PSC poles from Gemini Engineering Works, Pudukkottai.",
       image: `${baseUrl}/logo.webp`,
       brand: {
         "@type": "Brand",
@@ -257,9 +324,9 @@ const StructuredData = () => {
     {
       "@context": "https://schema.org",
       "@type": "Product",
-      name: "8m PSC Pole (200kg WL) - Buy PSC Pole Tamilnadu",
+      name: "8m PSC Pole (200kg WL) - Buy PSCC Pole Tamilnadu | Pre-stressed Concrete Pole",
       description:
-        "Buy 8.00m PSC pole in Tamilnadu with 200kg working load. Buy PSC poles tamil nadu from Gemini Engineering Works, Pudukkottai. M42 grade concrete, reinforced with 14 Nos. of 4mm HTS wires.",
+        "Buy 8.00m PSC pole (PSCC/Pre-stressed Cement Concrete pole) in Tamilnadu with 200kg working load. Ideal for street lighting, LT line distribution & rural electrification. IS 1678, IS 2905 certified. M42 grade concrete, 14 Nos. of 4mm HTS wires. Supplying Chennai, Coimbatore, Madurai, Trichy, Salem. Buy PSC poles from Gemini Engineering Works, Pudukkottai.",
       image: `${baseUrl}/logo.webp`,
       brand: {
         "@type": "Brand",
@@ -327,9 +394,9 @@ const StructuredData = () => {
     {
       "@context": "https://schema.org",
       "@type": "Product",
-      name: "RCC Base Plate 450mm × 450mm × 75mm - Tamil Nadu",
+      name: "RCC Base Plate 450mm × 450mm × 75mm - Buy Pole Foundation Plate Tamil Nadu",
       description:
-        "Buy RCC base plates in Tamil Nadu for electric pole foundation support. High-quality base plates manufactured in Tamilnadu with M15 grade concrete and HTS wire reinforcement.",
+        "Buy base plate (pole foundation plate/anchor plate) in Tamil Nadu for electric pole foundation support. Buy RCC base plates in Chennai, Coimbatore, Madurai, Trichy, Salem & all Tamilnadu districts from Gemini Engineering Works. High-quality concrete base plates for PSC and RCC pole installation. M15 grade concrete, HTS wire reinforcement.",
       image: `${baseUrl}/logo.webp`,
       brand: {
         "@type": "Brand",
@@ -399,9 +466,37 @@ const StructuredData = () => {
         "@type": "Country",
         name: "India",
       },
+      {
+        "@type": "City",
+        name: "Chennai",
+      },
+      {
+        "@type": "City",
+        name: "Coimbatore",
+      },
+      {
+        "@type": "City",
+        name: "Madurai",
+      },
+      {
+        "@type": "City",
+        name: "Tiruchirappalli",
+      },
+      {
+        "@type": "City",
+        name: "Salem",
+      },
+      {
+        "@type": "City",
+        name: "Tirunelveli",
+      },
+      {
+        "@type": "City",
+        name: "Pudukkottai",
+      },
     ],
     description:
-      "Buy PSC poles and RCC poles in Tamil Nadu. Manufacturing of high-quality PSC and RCC electric poles in Tamilnadu for power distribution and infrastructure development. IS 1678:1998 compliant, TNEB approved.",
+      "Buy PSC poles (PSCC/pre-stressed concrete) and RCC poles (reinforced cement concrete) in Tamil Nadu. Manufacturing high-quality electric poles for power distribution, street lighting, HT/LT lines, and rural electrification. Supplying Chennai, Coimbatore, Madurai, Trichy, Salem & all Tamil Nadu districts. IS 1678, IS 2905, IS 7321 certified. TNEB approved.",
     offers: {
       "@type": "Offer",
       description:
@@ -419,7 +514,7 @@ const StructuredData = () => {
         name: "What types of electric poles do you manufacture?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "We manufacture RCC (Reinforced Cement Concrete) poles and PSC (Prestressed Concrete) poles. Our product range includes 9m RCC poles with 150kg working load, 8m PSC poles with 200kg working load, 9m PSC poles with 300kg working load, and RCC base plates (450mm × 450mm × 75mm).",
+          text: "We manufacture RCC poles (Reinforced Cement Concrete poles) and PSC poles (PSCC/Pre-stressed Cement Concrete poles). Our product range includes 9m RCC poles with 150kg working load for street lighting and LT distribution, 8m PSC poles with 200kg working load, 9m PSC poles with 300kg working load for HT/LT distribution, and RCC base plates (pole foundation plates) 450mm × 450mm × 75mm. All poles suitable for rural electrification and power distribution projects.",
         },
       },
       {
@@ -427,7 +522,7 @@ const StructuredData = () => {
         name: "Are your poles compliant with industry standards?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes, all our poles are manufactured as per IS 1678:1998 standards and undergo rigorous load testing, bending tests, and crack resistance tests before dispatch. We also comply with TNEB (Tamil Nadu Electricity Board) specifications.",
+          text: "Yes, all our PSC (PSCC) and RCC poles are manufactured as per IS 1678:1998, IS 2905, and IS 7321 Indian Standards. They undergo rigorous load testing, bending tests, and crack resistance tests before dispatch. We also comply with TNEB (Tamil Nadu Electricity Board) specifications. Our pre-stressed concrete poles and reinforced cement concrete poles meet all BIS certification requirements.",
         },
       },
       {
@@ -606,6 +701,30 @@ const StructuredData = () => {
           text: "Yes, purchasing poles for TNEB projects is easy with Gemini Engineering Works. We are TNEB approved suppliers. Purchase PSC poles and RCC poles that meet all TNEB specifications. Call +91 63744 48522 to purchase poles for your TNEB contracted projects in Tamilnadu.",
         },
       },
+      {
+        "@type": "Question",
+        name: "Where can I buy base plate in Tamil Nadu?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Buy base plate in Tamil Nadu from Gemini Engineering Works, Pudukkottai. We manufacture high-quality RCC base plates (450mm × 450mm × 75mm) with M15 grade concrete. Buy base plate tamilnadu for electric pole foundation. Call +91 63744 48522 to buy base plates.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Where to buy RCC base plate in Tamilnadu?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Buy RCC base plate in Tamilnadu from Gemini Engineering Works. We are leading base plate manufacturers in Tamil Nadu. Buy base plate for PSC and RCC pole installation. Our base plates come with 4mm HTS wire reinforcement @ 50mm c/c. Call +91 63744 48522 to buy base plates.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What is the price of base plate in Tamil Nadu?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Base plate price in Tamil Nadu varies based on quantity. Buy base plate from Gemini Engineering Works at competitive prices. Our RCC base plates (450mm × 450mm × 75mm) weigh 37.40kg. Contact +91 63744 48522 for base plate price tamilnadu and bulk order discounts.",
+        },
+      },
     ],
   };
 
@@ -677,7 +796,7 @@ const StructuredData = () => {
       {
         "@type": "ListItem",
         position: 4,
-        name: "RCC Base Plate 450mm × 450mm × 75mm",
+        name: "RCC Base Plate 450mm × 450mm × 75mm - Buy Base Plate Tamil Nadu",
         url: `${baseUrl}/#products`,
       },
     ],

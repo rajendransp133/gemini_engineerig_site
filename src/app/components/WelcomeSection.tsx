@@ -35,18 +35,24 @@ const WelcomeSection = () => {
                 Founded in 1999 by <strong>AS. Manikandan</strong>, Gemini
                 Engineering Works has been a trusted name in the manufacturing
                 of high-quality electric poles. With over 25 years of
-                experience, we have established ourselves as a leading pole
-                manufacturing company in Pudukkottai, Tamil Nadu.
+                experience, we have established ourselves as a leading{" "}
+                <strong>PSC and RCC pole manufacturer in Tamil Nadu</strong>,
+                based in Pudukkottai.
               </p>
               <p className="text-base md:text-lg leading-relaxed opacity-90">
                 Our state-of-the-art manufacturing facility produces durable,
-                reliable, and cost-effective poles that meet the highest
-                industry standards. We specialize in manufacturing{" "}
-                <strong>RCC poles</strong> (9m with 150kg working load
-                capacity), <strong>PSC poles</strong> (8m with 200kg working
-                load capacity and 9m with 300kg working load capacity), and{" "}
-                <strong>RCC base plates (450mm × 450mm × 75mm)</strong> — all
-                crafted to deliver exceptional strength and longevity.
+                reliable, and cost-effective poles certified to{" "}
+                <strong>IS 1678:1998</strong> standards. We specialize in
+                manufacturing{" "}
+                <strong>RCC poles (Reinforced Cement Concrete poles)</strong> —
+                9m with 150kg working load capacity,{" "}
+                <strong>
+                  PSC poles (PSCC/Pre-stressed Cement Concrete poles)
+                </strong>{" "}
+                — 8m with 200kg and 9m with 300kg working load capacity, and{" "}
+                <strong>RCC base plates (pole foundation plates)</strong> 450mm
+                × 450mm × 75mm — ideal for street lighting, HT/LT line
+                distribution, and rural electrification projects.
               </p>
 
               <p className="text-base md:text-lg leading-relaxed opacity-90">
