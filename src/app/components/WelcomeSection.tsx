@@ -47,7 +47,7 @@ const WelcomeSection = () => {
                 <strong>RCC poles (Reinforced Cement Concrete poles)</strong> —
                 9m with 150kg working load capacity,{" "}
                 <strong>
-                  PSC poles (PSCC/Pre-stressed Cement Concrete poles)
+                  PSC poles (PSC/Pre-stressed Cement Concrete poles)
                 </strong>{" "}
                 — 8m with 200kg and 9m with 300kg working load capacity, and{" "}
                 <strong>RCC base plates (pole foundation plates)</strong> 450mm
