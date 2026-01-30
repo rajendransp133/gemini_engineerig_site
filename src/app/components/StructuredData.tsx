@@ -784,90 +784,6 @@ const StructuredData = () => {
     ],
   };
 
-  // OfferCatalog Schema - improves product visibility for purchase queries
-  const offerCatalogSchema = {
-    "@context": "https://schema.org",
-    "@type": "OfferCatalog",
-    name: "Purchase PSC & RCC Poles - Tamil Nadu",
-    description:
-      "Purchase PSC poles and RCC poles in Tamilnadu. Complete catalog of electric poles available for purchase from Gemini Engineering Works.",
-    url: `${baseUrl}/#products`,
-    itemListElement: [
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Product",
-          name: "PSC Pole 9m 300kg - Purchase in Tamilnadu",
-          description:
-            "Purchase 9 metre PSC pole with 300kg working load in Tamil Nadu. TNEB approved PSC pole available for purchase.",
-        },
-        seller: {
-          "@type": "Organization",
-          name: "Gemini Engineering Works",
-        },
-        areaServed: {
-          "@type": "State",
-          name: "Tamil Nadu",
-        },
-        availability: "https://schema.org/InStock",
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Product",
-          name: "PSC Pole 8m 200kg - Purchase in Tamil Nadu",
-          description:
-            "Purchase 8 metre PSC pole with 200kg working load in Tamilnadu. Available for bulk purchase from manufacturer.",
-        },
-        seller: {
-          "@type": "Organization",
-          name: "Gemini Engineering Works",
-        },
-        areaServed: {
-          "@type": "State",
-          name: "Tamil Nadu",
-        },
-        availability: "https://schema.org/InStock",
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Product",
-          name: "RCC Pole 9m 150kg - Purchase in Tamilnadu",
-          description:
-            "Purchase 9 metre RCC pole with 150kg working load in Tamil Nadu. Direct purchase from manufacturer in Pudukkottai.",
-        },
-        seller: {
-          "@type": "Organization",
-          name: "Gemini Engineering Works",
-        },
-        areaServed: {
-          "@type": "State",
-          name: "Tamil Nadu",
-        },
-        availability: "https://schema.org/InStock",
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Product",
-          name: "RCC Base Plate - Purchase in Tamil Nadu",
-          description:
-            "Purchase RCC base plates 450mm × 450mm × 75mm in Tamilnadu for pole foundation support.",
-        },
-        seller: {
-          "@type": "Organization",
-          name: "Gemini Engineering Works",
-        },
-        areaServed: {
-          "@type": "State",
-          name: "Tamil Nadu",
-        },
-        availability: "https://schema.org/InStock",
-      },
-    ],
-  };
-
   // Speakable Schema for Voice Search
   const speakableSchema = {
     "@context": "https://schema.org",
@@ -989,13 +905,6 @@ const StructuredData = () => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(howToPurchaseRCCSchema),
-        }}
-      />
-      {/* OfferCatalog Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(offerCatalogSchema),
         }}
       />
       {/* Speakable Schema */}
