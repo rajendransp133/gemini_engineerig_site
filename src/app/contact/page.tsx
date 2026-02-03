@@ -138,7 +138,7 @@ const ContactPage = () => {
     try {
       // Send form data via FormSubmit
       const response = await fetch(
-        "https://formsubmit.co/ajax/rajendransp133@gmail.com",
+        "https://formsubmit.co/ajax/geminienggworks@gmail.com",
         {
           method: "POST",
           headers: {
