@@ -381,7 +381,7 @@ const ProductsSection = () => {
         </div>
 
         {/* Specifications Note */}
-        <div className="mt-12 bg-amber-50 border border-amber-200 rounded-lg p-6 text-center">
+        <div className="hidden md:block mt-12 bg-amber-50 border border-amber-200 rounded-lg p-6 text-center">
           <p className="text-gray-700">
             <strong>Quality Assured:</strong> All our poles are manufactured as
             per{" "}
