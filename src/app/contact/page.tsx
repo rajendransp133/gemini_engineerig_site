@@ -210,7 +210,7 @@ const ContactPage = () => {
   return (
     <>
       <ContactStructuredData />
-      <div className="min-h-screen flex flex-col ">
+      <div className="min-h-screen flex flex-col gap-6">
         <Navbar />
 
         {/* Hero Banner Section */}
