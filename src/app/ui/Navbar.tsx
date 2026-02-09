@@ -90,27 +90,27 @@ const Navbar = () => {
 
       {/* Mobile Sidebar */}
       <aside
-        className={`fixed top-0 left-0 w-[min(320px,85vw)] h-screen bg-white z-[1002] transition-transform duration-500 ease-out flex flex-col shadow-[4px_0_40px_rgba(0,0,0,0.1)] ${
+        className={`fixed top-0 left-0 w-[min(300px,85vw)] sm:w-[min(380px,75vw)] md:w-[400px] h-screen bg-white z-[1002] transition-transform duration-500 ease-out flex flex-col shadow-[4px_0_40px_rgba(0,0,0,0.1)] ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
         style={{ paddingBottom: 'max(1.5rem, env(safe-area-inset-bottom, 0px))' }}
       >
         {/* Sidebar Header */}
-        <div className="px-5 py-5 flex items-center justify-between flex-shrink-0">
+        <div className="px-4 py-4 sm:px-6 sm:py-5 flex items-center justify-between flex-shrink-0">
           <div onClick={() => setIsOpen(false)}>
             <LogoIcon />
           </div>
           <button
             onClick={() => setIsOpen(false)}
             aria-label="Close menu"
-            className="bg-transparent border border-gray-300 cursor-pointer w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-gray-100"
+            className="bg-transparent border border-gray-300 cursor-pointer w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-gray-100"
           >
-            <FaXmark className="w-4 h-4 text-gray-500" />
+            <FaXmark className="w-4 h-4 sm:w-5 sm:h-5 text-gray-500" />
           </button>
         </div>
 
         {/* Sidebar Navigation */}
-        <nav className="flex-1 px-5 overflow-y-auto flex flex-col gap-3 min-h-0">
+        <nav className="flex-1 px-4 sm:px-6 overflow-y-auto flex flex-col gap-3 min-h-0">
           <ul className="list-none m-0 p-0 flex flex-col gap-2">
             {navLinks.map((link, index) => (
               <li
@@ -138,7 +138,7 @@ const Navbar = () => {
 
         {/* Sidebar Footer - Contact Info */}
         <div
-          className={`p-5 pb-8 transition-all duration-500 flex-shrink-0 ${
+          className={`p-4 pb-6 sm:p-5 sm:pb-8 transition-all duration-500 flex-shrink-0 ${
             isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
           style={{ transitionDelay: isOpen ? "0.5s" : "0s" }}

@@ -27,7 +27,7 @@ const Footer = () => {
             {/* Company Info Section */}
             <div className="lg:pl-4 relative z-10 flex flex-col gap-4">
               {/* Logo */}
-              <LogoIcon />
+              <LogoIcon variant="footer" />
 
               {/* Description */}
               <p className="text-gray-600 text-lg leading-relaxed font-light">
