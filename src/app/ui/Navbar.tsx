@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import LogoIcon from "./LogoIcon";
@@ -42,7 +41,7 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-500 ease-out bg-white shadow-[0_4px_30px_rgba(0,0,0,0.08)] ${
+        className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-500 ease-out bg-white shadow-[0_4px_30px_rgba(0,0,0,0.08)] animate-nav-slide-down ${
           scrolled ? "py-3" : "py-4"
         }`}
       >

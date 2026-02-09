@@ -10,7 +10,7 @@ import TNEBPoleSection from "./components/TNEBPoleSection";
 import Experience from "./components/Experience";
 import GetQuote from "./GetQuote";
 import ContactUs from "./components/ContactUs";
-import Footer from "./components/Footer";
+import Footer from "./ui/Footer";
 import StructuredData from "./components/StructuredData";
 
 export const metadata: Metadata = {

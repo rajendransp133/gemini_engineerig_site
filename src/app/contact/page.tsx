@@ -1,9 +1,7 @@
-"use client";
-
 import { useState } from "react";
 import Image from "next/image";
 import Navbar from "../ui/Navbar";
-import Footer from "../components/Footer";
+import Footer from "../ui/Footer";
 import ContactStructuredData from "./StructuredData";
 import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
@@ -471,41 +469,56 @@ const ContactPage = () => {
                   )}
 
                   {/* Form Validation Errors Summary */}
-                  {hasSubmitted && Object.keys(errors).filter(key => key !== 'submit' && errors[key]).length > 0 && (
-                    <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl">
-                      <div className="flex items-center gap-3 mb-2">
-                        <svg
-                          className="w-5 h-5 flex-shrink-0"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                        <p className="text-sm font-semibold roboto-font">Please fix the following errors:</p>
+                  {hasSubmitted &&
+                    Object.keys(errors).filter(
+                      (key) => key !== "submit" && errors[key]
+                    ).length > 0 && (
+                      <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl">
+                        <div className="flex items-center gap-3 mb-2">
+                          <svg
+                            className="w-5 h-5 flex-shrink-0"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                          <p className="text-sm font-semibold roboto-font">
+                            Please fix the following errors:
+                          </p>
+                        </div>
+                        <ul className="list-disc list-inside space-y-1 ml-8">
+                          {errors.fullName && (
+                            <li className="text-sm roboto-font">
+                              {errors.fullName}
+                            </li>
+                          )}
+                          {errors.phone && (
+                            <li className="text-sm roboto-font">
+                              {errors.phone}
+                            </li>
+                          )}
+                          {errors.email && (
+                            <li className="text-sm roboto-font">
+                              {errors.email}
+                            </li>
+                          )}
+                          {errors.subject && (
+                            <li className="text-sm roboto-font">
+                              {errors.subject}
+                            </li>
+                          )}
+                          {errors.message && (
+                            <li className="text-sm roboto-font">
+                              {errors.message}
+                            </li>
+                          )}
+                        </ul>
                       </div>
-                      <ul className="list-disc list-inside space-y-1 ml-8">
-                        {errors.fullName && (
-                          <li className="text-sm roboto-font">{errors.fullName}</li>
-                        )}
-                        {errors.phone && (
-                          <li className="text-sm roboto-font">{errors.phone}</li>
-                        )}
-                        {errors.email && (
-                          <li className="text-sm roboto-font">{errors.email}</li>
-                        )}
-                        {errors.subject && (
-                          <li className="text-sm roboto-font">{errors.subject}</li>
-                        )}
-                        {errors.message && (
-                          <li className="text-sm roboto-font">{errors.message}</li>
-                        )}
-                      </ul>
-                    </div>
-                  )}
+                    )}
 
                   {/* Submit Button */}
                   <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">
