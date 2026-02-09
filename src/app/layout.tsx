@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import WhatsAppButton from "./components/WhatsAppButton";
+import WhatsAppButton from "./ui/WhatsAppButton";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://geminiengineeringworks.in/"),

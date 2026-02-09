@@ -28,7 +28,7 @@ const GetQuote = () => {
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 italic">
                 Need Quality Electric Poles?
               </h2>
-              <p className="text-gray-200 text-sm sm:text-base max-w-2xl">
+              <p className="text-gray-200 text-sm  max-w-2xl roboto-font">
                 Partner with Gemini Engineering Works for durable RCC & PSC
                 poles. Contact us today for competitive pricing and timely
                 delivery!

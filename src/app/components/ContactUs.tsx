@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import SubHeading from "./SubHeading";
+import SubHeading from "../ui/SubHeading";
 import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
 import { FiPhoneCall } from "react-icons/fi";
@@ -13,18 +13,27 @@ const ContactUs = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left Side - Contact Info */}
           <div>
-            <SubHeading
-              src="/images/civil_hat.webp"
-              alt="Contact Us"
-              width={48}
-              height={48}
-              leftText="Contact "
-              rightText="Us"
-            />
-
-            <p className="text-lg text-gray-600 mb-8 font-light tracking-wide">
-              Reach Out for Enquiries
-            </p>
+            <header className=" mb-8">
+              <div className="flex  gap-3 mb-4">
+                <Image
+                  src="/images/civil_hat.webp"
+                  alt="Contact Us icon - Contact Us"
+                  width={50}
+                  height={50}
+                  className="object-contain"
+                />
+                <h2
+                  id="products-heading"
+                  className="text-3xl md:text-4xl font-bold"
+                >
+                  <span className="text-[#343f52]">Contact </span>
+                  <span className="text-[#eba10e]">Us</span>
+                </h2>
+              </div>
+              <p className="text-[#343f52] text-lg opacity-80 max-w-3xl mx-auto roboto-font">
+                Reach Out for Enquiries
+              </p>
+            </header>
 
             {/* Contact Details */}
             <div className="space-y-6">
@@ -55,8 +64,7 @@ const ContactUs = () => {
                   <MdOutlineEmail className="w-7 h-7 text-white" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-gray-500 text-sm">Email</span>
-                  <span className="text-gray-700 text-base font-medium">
+                  <span className="text-gray-700 text-base ">
                     geminienggworks@gmail.com
                   </span>
                 </div>

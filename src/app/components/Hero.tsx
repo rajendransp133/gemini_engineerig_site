@@ -1,8 +1,8 @@
 "use client";
 
 import { Carousel } from "flowbite-react";
-import Button from "./Button";
-import { useRouter } from "next/navigation";
+import Button from "../ui/Button";
+import Image from "next/image";
 
 const Hero = () => {
   const slides = [
@@ -20,7 +20,12 @@ const Hero = () => {
     },
   ];
 
-  const router = useRouter();
+  const scrollToProducts = () => {
+    const productsSection = document.getElementById("products");
+    if (productsSection) {
+      productsSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <div className="relative w-full h-[calc(100vh-82px)] overflow-hidden">
@@ -32,9 +37,11 @@ const Hero = () => {
       >
         {slides.map((slide, index) => (
           <div key={index} className="relative w-full h-full">
-            <img
+            <Image
               src={slide.src}
               alt={slide.alt}
+              width={1000}
+              height={1000}
               className="w-full h-full object-cover"
             />
             {/* Dark overlay for better text visibility */}
@@ -44,16 +51,16 @@ const Hero = () => {
       </Carousel>
 
       {/* Text overlay - positioned above the carousel */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pointer-events-none z-10">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 drop-shadow-lg">
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pointer-events-none z-10 gap-2">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 drop-shadow-lg">
           PSC & RCC Electric Pole Manufacturers in Tamil Nadu
         </h1>
-        <p className="text-lg md:text-xl text-white mb-8 drop-shadow-md max-w-3xl">
+        <p className="text-lg md:text-xl text-white mb-8 drop-shadow-md max-w-3xl roboto-font">
           ​Planting the Seeds of Light
         </p>
         <Button
-          className="pointer-events-auto cursor-pointer"
-          onClick={() => router.push("#products")}
+          className="pointer-events-auto cursor-pointer "
+          onClick={scrollToProducts}
         >
           View Our Products
         </Button>

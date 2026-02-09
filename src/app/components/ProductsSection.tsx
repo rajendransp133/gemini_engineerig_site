@@ -306,7 +306,7 @@ const ProductsSection = () => {
               <span className="text-[#eba10e]">Products</span>
             </h2>
           </div>
-          <p className="text-[#343f52] text-lg opacity-80 max-w-2xl mx-auto">
+          <p className="text-[#343f52] text-lg opacity-80 max-w-3xl mx-auto roboto-font">
             High-quality PSC & RCC electric poles manufactured to meet Indian
             Standard specifications
           </p>

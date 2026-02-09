@@ -1,5 +1,6 @@
-import ImageSquare from "./ImageSquare";
-import SubHeading from "./SubHeading";
+import { FaAngleRight } from "react-icons/fa";
+import ImageSquare from "../ui/ImageSquare";
+import SubHeading from "../ui/SubHeading";
 
 const WelcomeSection = () => {
   return (
@@ -27,42 +28,60 @@ const WelcomeSection = () => {
               height={48}
               leftText="Welcome to "
               rightText="Gemini Engineering Works"
+              noWrap={true}
             />
 
-            {/* Description paragraphs */}
-            <div className="space-y-6" style={{ color: "#343f52" }}>
-              <p className="text-base md:text-lg leading-relaxed opacity-90">
+            {/* Description */}
+            <div className="space-y-5" style={{ color: "#343f52" }}>
+              <p className="text-base md:text-lg leading-relaxed opacity-90 roboto-font">
                 Founded in 1999 by <strong>AS. Manikandan</strong>, Gemini
-                Engineering Works has been a trusted name in the manufacturing
-                of high-quality electric poles. With over 25 years of
-                experience, we have established ourselves as a leading{" "}
-                <strong>PSC and RCC pole manufacturer in Tamil Nadu</strong>,
-                based in Pudukkottai.
-              </p>
-              <p className="text-base md:text-lg leading-relaxed opacity-90">
-                Our state-of-the-art manufacturing facility produces durable,
-                reliable, and cost-effective poles certified to{" "}
-                <strong>IS 1678:1998</strong> standards. We specialize in
-                manufacturing{" "}
-                <strong>RCC poles (Reinforced Cement Concrete poles)</strong> —
-                9m with 150kg working load capacity,{" "}
-                <strong>
-                  PSC poles (PSC/Pre-stressed Cement Concrete poles)
-                </strong>{" "}
-                — 8m with 200kg and 9m with 300kg working load capacity, and{" "}
-                <strong>RCC base plates (pole foundation plates)</strong> 450mm
-                × 450mm × 75mm — ideal for street lighting, HT/LT line
-                distribution, and rural electrification projects.
+                Engineering Works is a leading{" "}
+                <strong>PSC &amp; RCC pole manufacturer in Tamil Nadu</strong>,
+                based in Pudukkottai with over 25 years of experience.
               </p>
 
-              <p className="text-base md:text-lg leading-relaxed opacity-90">
-                As a proud supplier to{" "}
-                <strong>TNEB (Tamil Nadu Electricity Board) yards</strong>, we
-                serve power distribution companies and contractors across
-                regions. Our commitment to quality and timely delivery has made
-                us a preferred partner for government and private infrastructure
-                projects.
-              </p>
+              {/* Product list */}
+              <ul className="space-y-3 roboto-font text-base md:text-lg">
+                <li className="flex items-start gap-3">
+                  <FaAngleRight
+                    className="mt-1.5 shrink-0 text-amber-500"
+                    size={18}
+                  />
+                  <span className="opacity-90">
+                    <strong>RCC Poles</strong> — 9&nbsp;m, 150&nbsp;kg working
+                    load
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FaAngleRight
+                    className="mt-1.5 shrink-0 text-amber-500"
+                    size={18}
+                  />
+                  <span className="opacity-90">
+                    <strong>PSC Poles</strong> — 8&nbsp;m, 200&nbsp;kg working
+                    load
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FaAngleRight
+                    className="mt-1.5 shrink-0 text-amber-500"
+                    size={18}
+                  />
+                  <span className="opacity-90">
+                    <strong>PSC Poles</strong> — 9&nbsp;m, 300&nbsp;kg working
+                    load
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FaAngleRight
+                    className="mt-1.5 shrink-0 text-amber-500"
+                    size={18}
+                  />
+                  <span className="opacity-90">
+                    <strong>RCC Base Plates</strong> — 450 × 450 × 75&nbsp;mm
+                  </span>
+                </li>
+              </ul>
             </div>
           </article>
         </div>

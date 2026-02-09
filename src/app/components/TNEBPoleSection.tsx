@@ -28,7 +28,7 @@ const features = [
 const TNEBPoleSection = () => {
   return (
     <section
-      className="relative py-16 md:py-24 overflow-hidden"
+      className="relative py-12 md:py-24 overflow-hidden"
       aria-labelledby="tneb-heading"
     >
       {/* Background with diagonal pattern */}
@@ -49,41 +49,38 @@ const TNEBPoleSection = () => {
         {/* Title */}
         <h2
           id="tneb-heading"
-          className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 leading-tight"
         >
-          TNEB Standard
-          <span className="block text-[#eba10e]">Pole Manufacturing</span>
+          TNEB Standard Pole Manufacturing
         </h2>
 
         {/* Description */}
-        <p className="text-gray-300 text-lg leading-relaxed mb-10 max-w-3xl">
+        <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-8 md:mb-10 max-w-2xl roboto-font">
           We specialize in the high-volume production of electric poles designed
           strictly according to{" "}
-          <span className="text-[#eba10e] font-semibold">
+          <span className="text-[#eba10e] font-semibold roboto-font">
             Tamil Nadu Electricity Board (TNEB)
           </span>{" "}
           specifications.
         </p>
 
         {/* Features and Visual Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
           {/* Features List */}
-          <div className="space-y-5 order-2 lg:order-1">
+          <div className="space-y-3 sm:space-y-5 order-2 lg:order-1">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="flex gap-4 p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10"
+                className="flex gap-3 sm:gap-4 p-3 sm:p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 items-center"
               >
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#eba10e] to-[#f5c04a] flex items-center justify-center">
-                    <feature.icon className="w-5 h-5 text-white" />
-                  </div>
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-[#eba10e] to-[#f5c04a] flex items-center justify-center flex-shrink-0">
+                  <feature.icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
-                <div>
-                  <h3 className="text-white font-semibold text-lg mb-1">
+                <div className="flex flex-col justify-center min-w-0">
+                  <h3 className="text-white font-semibold text-base sm:text-lg mb-0.5 sm:mb-1">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  <p className="text-gray-400 text-xs sm:text-sm leading-relaxed roboto-font line-clamp-2">
                     {feature.description}
                   </p>
                 </div>
@@ -95,12 +92,12 @@ const TNEBPoleSection = () => {
           <div className="order-1 lg:order-2 relative">
             {/* Main visual card */}
             <div className="relative">
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -left-4 w-24 h-24 border-l-4 border-t-4 border-[#eba10e]/40 rounded-tl-3xl" />
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 border-r-4 border-b-4 border-[#eba10e]/40 rounded-br-3xl" />
+              {/* Decorative elements - hidden on small mobile, visible from sm up */}
+              <div className="hidden sm:block absolute -top-4 -left-4 w-16 h-16 md:w-24 md:h-24 border-l-4 border-t-4 border-[#eba10e]/40 rounded-tl-3xl" />
+              <div className="hidden sm:block absolute -bottom-4 -right-4 w-16 h-16 md:w-24 md:h-24 border-r-4 border-b-4 border-[#eba10e]/40 rounded-br-3xl" />
 
               {/* Visual card */}
-              <div className="relative bg-gradient-to-br from-[#2a3a50] to-[#1f2d3f] rounded-2xl p-8 border border-white/10">
+              <div className="relative bg-gradient-to-br from-[#2a3a50] to-[#1f2d3f] rounded-2xl p-4 sm:p-6 md:p-8 border border-white/10">
                 {/* TNEB Logo */}
                 <div className="relative flex justify-center">
                   <Image
@@ -108,7 +105,7 @@ const TNEBPoleSection = () => {
                     alt="Tamil Nadu Electricity Board (TNEB) logo - Official supplier certification"
                     width={380}
                     height={200}
-                    className="rounded-xl object-contain"
+                    className="rounded-xl object-contain w-full max-w-[380px] h-auto"
                   />
                 </div>
               </div>
@@ -117,17 +114,17 @@ const TNEBPoleSection = () => {
         </div>
 
         {/* CTA Button */}
-        <div className="mt-10">
+        <div className="mt-8 md:mt-10">
           <Link
             href="/contact"
-            className="inline-flex items-center bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-3 rounded-md transition-colors duration-300 no-underline"
+            className="inline-flex items-center justify-center w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-3 rounded-md transition-colors duration-300 no-underline roboto-font"
           >
             Request a Quote
           </Link>
         </div>
 
         {/* Bottom highlight bar */}
-        <div className="mt-16 flex flex-wrap justify-center gap-4 md:gap-8">
+        <div className="mt-10 md:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
           {[
             "100% Compliance with TNEB Norms",
             "ISI Grade Raw Materials",
@@ -136,7 +133,7 @@ const TNEBPoleSection = () => {
           ].map((item, index) => (
             <div
               key={index}
-              className="flex items-center gap-2 text-gray-300 text-sm md:text-base"
+              className="flex items-center gap-2 text-gray-300 text-sm md:text-base roboto-font"
             >
               <FaCheckCircle className="text-[#eba10e] flex-shrink-0" />
               <span>{item}</span>

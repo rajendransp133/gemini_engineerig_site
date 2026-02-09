@@ -8,6 +8,7 @@ const SubHeading = ({
   leftText = "",
   rightText = "",
   icon = true,
+  noWrap = false,
 }: {
   src?: string;
   alt?: string;
@@ -16,9 +17,10 @@ const SubHeading = ({
   leftText?: string;
   rightText?: string;
   icon?: boolean;
+  noWrap?: boolean;
 }) => {
   return (
-    <div className="flex items-center gap-4 mb-6">
+    <div className="flex items-center gap-4 mb-6 items-center justify-center">
       {icon && (
         <Image
           src={src || ""}
@@ -28,11 +30,17 @@ const SubHeading = ({
           className="w-10 h-10 md:w-12 md:h-12 object-contain"
         />
       )}
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold">
-        <span style={{ color: "#343f52" }}>{leftText}</span>
-        <span style={{ color: "#eba10e" }} className="italic">
+      <h2
+        className={`text-2xl md:text-3xl lg:text-4xl font-semibold ${
+          noWrap
+            ? "flex flex-col items-start gap-2 justify-start w-full"
+            : " flex items-center gap-2"
+        }`}
+      >
+        <div style={{ color: "#343f52" }}>{leftText}</div>
+        <div style={{ color: "#eba10e" }} className="whitespace-nowrap">
           {rightText}
-        </span>
+        </div>
       </h2>
     </div>
   );

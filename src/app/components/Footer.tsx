@@ -7,7 +7,7 @@ import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
 import { FiPhoneCall } from "react-icons/fi";
 import { FaArrowUp } from "react-icons/fa6";
-import LogoIcon from "./LogoIcon";
+import LogoIcon from "../ui/LogoIcon";
 
 const Footer = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -67,7 +67,7 @@ const Footer = () => {
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-gray-600 hover:text-[#eba10e] transition-colors duration-300 text-base no-underline"
+                      className="text-gray-600 hover:text-[#eba10e] transition-colors duration-300 text-base no-underline roboto-font"
                     >
                       {link.name}
                     </Link>
@@ -86,7 +86,7 @@ const Footer = () => {
                 {/* Address 1 */}
                 <div className="flex items-start gap-3">
                   <IoLocationOutline className="w-5 h-5 text-[#eba10e] flex-shrink-0 mt-1" />
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-gray-600 text-sm roboto-font">
                     SFNO. 27/6F2 Ganesh Nagar, Sathiyamangalam, Kuluthur TK
                     Vellanur, Pudukkottai - 622501
                   </p>
@@ -95,7 +95,7 @@ const Footer = () => {
                 {/* Address 2 */}
                 <div className="flex items-start gap-3">
                   <IoLocationOutline className="w-5 h-5 text-[#eba10e] flex-shrink-0 mt-1" />
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-gray-600 text-sm roboto-font">
                     1157 housing unit, periya nagar, Pudukkottai - 622003
                   </p>
                 </div>
@@ -103,7 +103,7 @@ const Footer = () => {
                 {/* Email */}
                 <div className="flex items-end gap-3">
                   <MdOutlineEmail className="w-5 h-5 text-[#eba10e] flex-shrink-0" />
-                  <span className="text-gray-600 text-base">
+                  <span className="text-gray-600 text-base roboto-font">
                     geminienggworks@gmail.com
                   </span>
                 </div>
@@ -112,10 +112,7 @@ const Footer = () => {
                 <div className="flex items-center gap-3 ">
                   <FiPhoneCall className="w-5 h-5 text-[#eba10e] flex-shrink-0 mt-1" />
                   <div className="flex flex-col gap-1">
-                    {/* <div className="text-gray-600 hover:text-[#eba10e] transition-colors duration-300 text-base no-underline">
-                      +91 94432 11374
-                    </div> */}
-                    <div className="text-gray-600 hover:text-[#eba10e] transition-colors duration-300 text-base no-underline">
+                    <div className="text-gray-600 hover:text-[#eba10e] transition-colors duration-300 text-base no-underline roboto-font">
                       +91 63744 48522
                     </div>
                   </div>
@@ -150,14 +147,12 @@ const Footer = () => {
       {/* Copyright Bar */}
       <div className="border-t border-gray-300 bg-[#e8eaed]">
         <div className="container mx-auto px-4 lg:px-8 py-4">
-          <p className="text-center text-gray-600 text-sm">
+          <p className="text-center text-gray-600 text-sm roboto-font">
             © {new Date().getFullYear()} Gemini Engineering Works. All rights
             reserved. | PSC & RCC Pole Casting Yard, Pudukkottai
           </p>
         </div>
       </div>
-
-      
     </footer>
   );
 };

@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Navbar from "../components/Navbar";
+import Navbar from "../ui/Navbar";
 import Footer from "../components/Footer";
 import ContactStructuredData from "./StructuredData";
 import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
 import { FiPhoneCall } from "react-icons/fi";
+import SubHeading from "../ui/SubHeading";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -20,6 +21,7 @@ const ContactPage = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const [errors, setErrors] = useState<Record<string, string>>({});
 
@@ -102,6 +104,7 @@ const ContactPage = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setHasSubmitted(true);
 
     // Validate all fields before submission
     const newErrors: Record<string, string> = {};
@@ -115,6 +118,9 @@ const ContactPage = () => {
     // Check required fields
     if (!formData.fullName.trim()) {
       newErrors.fullName = "Full name is required";
+    }
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required";
     }
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
@@ -158,6 +164,7 @@ const ContactPage = () => {
 
       if (response.ok) {
         setIsSuccess(true);
+        setHasSubmitted(false);
         setFormData({
           fullName: "",
           phone: "",
@@ -229,7 +236,7 @@ const ContactPage = () => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-wide">
               Contact <span className="text-[#eba10e] italic">Us</span>
             </h1>
-            <p className="text-white/80 text-lg md:text-xl max-w-2xl">
+            <p className="text-white/80 text-lg md:text-xl max-w-2xl roboto-font">
               ​Planting the Seeds of Light
             </p>
 
@@ -239,7 +246,7 @@ const ContactPage = () => {
                 Home
               </a>
               <span>/</span>
-              <span className="text-[#eba10e]">Contact Us</span>
+              <span className="text-[#eba10e] roboto-font">Contact Us</span>
             </div>
           </div>
         </section>
@@ -252,24 +259,16 @@ const ContactPage = () => {
               {/* Contact Form */}
               <div className="lg:col-span-3 bg-white rounded-2xl overflow-hidden border border-gray-200">
                 {/* Form Header */}
-                <div className="p-8 border-b border-gray-100">
-                  <div className="flex items-center gap-3 mb-3">
-                    <Image
-                      src="/images/civil_hat.webp"
-                      alt="Construction Hat"
-                      width={45}
-                      height={45}
-                      className="object-contain"
-                    />
-                    <h2 className="text-xl md:text-2xl font-bold">
-                      <span className="text-[#343f52]">Powering </span>
-                      <span className="text-[#eba10e] italic">
-                        Infrastructure{" "}
-                      </span>
-                      <span className="text-[#343f52]">Together</span>
-                    </h2>
-                  </div>
-                  <p className="text-gray-500 text-sm">
+                <div className="p-8 border-b border-gray-100 flex flex-col items-start justify-start">
+                  <SubHeading
+                    src="/images/civil_hat.webp"
+                    alt="Construction Hat"
+                    width={45}
+                    height={45}
+                    leftText="Powering "
+                    rightText="Infrastructure Together"
+                  />
+                  <p className="text-gray-500 text-sm  roboto-font -mt-2">
                     Reach Out for Enquiries
                   </p>
                 </div>
@@ -285,7 +284,7 @@ const ContactPage = () => {
                         value={formData.fullName}
                         onChange={handleChange}
                         required
-                        className={`peer w-full px-5 py-4 bg-gray-50 border-2 rounded-xl text-[#343f52] placeholder-transparent focus:outline-none focus:bg-white transition-all duration-300 ${
+                        className={`peer w-full px-5 py-4 bg-gray-50 border-2 rounded-xl text-[#343f52] placeholder-transparent focus:outline-none focus:bg-white transition-all duration-300 roboto-font ${
                           errors.fullName
                             ? "border-red-400 focus:border-red-500"
                             : "border-gray-200 focus:border-[#eba10e]"
@@ -293,7 +292,7 @@ const ContactPage = () => {
                         placeholder="Full Name"
                       />
                       <label
-                        className={`absolute left-5 top-4 transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:bg-white peer-focus:px-2 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2 pointer-events-none ${
+                        className={`absolute left-5 top-4 transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:bg-white peer-focus:px-2 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2 pointer-events-none roboto-font ${
                           errors.fullName
                             ? "text-red-400 peer-focus:text-red-500"
                             : "text-gray-400 peer-focus:text-[#eba10e]"
@@ -301,7 +300,7 @@ const ContactPage = () => {
                       >
                         Full Name *
                       </label>
-                      {errors.fullName && (
+                      {hasSubmitted && errors.fullName && (
                         <p className="text-red-500 text-xs mt-1 ml-1">
                           {errors.fullName}
                         </p>
@@ -315,7 +314,8 @@ const ContactPage = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className={`peer w-full px-5 py-4 bg-gray-50 border-2 rounded-xl text-[#343f52] placeholder-transparent focus:outline-none focus:bg-white transition-all duration-300 ${
+                        required
+                        className={`peer w-full px-5 py-4 bg-gray-50 border-2 rounded-xl text-[#343f52] placeholder-transparent focus:outline-none focus:bg-white transition-all duration-300 roboto-font ${
                           errors.phone
                             ? "border-red-400 focus:border-red-500"
                             : "border-gray-200 focus:border-[#eba10e]"
@@ -323,15 +323,15 @@ const ContactPage = () => {
                         placeholder="Phone"
                       />
                       <label
-                        className={`absolute left-5 top-4 transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:bg-white peer-focus:px-2 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2 pointer-events-none ${
+                        className={`absolute left-5 top-4 transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:bg-white peer-focus:px-2 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2 pointer-events-none roboto-font ${
                           errors.phone
                             ? "text-red-400 peer-focus:text-red-500"
                             : "text-gray-400 peer-focus:text-[#eba10e]"
                         }`}
                       >
-                        Phone Number
+                        Phone Number *
                       </label>
-                      {errors.phone && (
+                      {hasSubmitted && errors.phone && (
                         <p className="text-red-500 text-xs mt-1 ml-1">
                           {errors.phone}
                         </p>
@@ -346,7 +346,7 @@ const ContactPage = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className={`peer w-full px-5 py-4 bg-gray-50 border-2 rounded-xl text-[#343f52] placeholder-transparent focus:outline-none focus:bg-white transition-all duration-300 ${
+                        className={`peer w-full px-5 py-4 bg-gray-50 border-2 rounded-xl text-[#343f52] placeholder-transparent focus:outline-none focus:bg-white transition-all duration-300 roboto-font ${
                           errors.email
                             ? "border-red-400 focus:border-red-500"
                             : "border-gray-200 focus:border-[#eba10e]"
@@ -354,7 +354,7 @@ const ContactPage = () => {
                         placeholder="Email"
                       />
                       <label
-                        className={`absolute left-5 top-4 transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:bg-white peer-focus:px-2 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2 pointer-events-none ${
+                        className={`absolute left-5 top-4 transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:bg-white peer-focus:px-2 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2 pointer-events-none roboto-font ${
                           errors.email
                             ? "text-red-400 peer-focus:text-red-500"
                             : "text-gray-400 peer-focus:text-[#eba10e]"
@@ -377,7 +377,7 @@ const ContactPage = () => {
                         value={formData.subject}
                         onChange={handleChange}
                         required
-                        className={`peer w-full px-5 py-4 bg-gray-50 border-2 rounded-xl text-[#343f52] placeholder-transparent focus:outline-none focus:bg-white transition-all duration-300 ${
+                        className={`peer w-full px-5 py-4 bg-gray-50 border-2 rounded-xl text-[#343f52] placeholder-transparent focus:outline-none focus:bg-white transition-all duration-300 roboto-font ${
                           errors.subject
                             ? "border-red-400 focus:border-red-500"
                             : "border-gray-200 focus:border-[#eba10e]"
@@ -385,7 +385,7 @@ const ContactPage = () => {
                         placeholder="Subject"
                       />
                       <label
-                        className={`absolute left-5 top-4 transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:bg-white peer-focus:px-2 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2 pointer-events-none ${
+                        className={`absolute left-5 top-4 transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:bg-white peer-focus:px-2 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2 pointer-events-none roboto-font ${
                           errors.subject
                             ? "text-red-400 peer-focus:text-red-500"
                             : "text-gray-400 peer-focus:text-[#eba10e]"
@@ -393,7 +393,7 @@ const ContactPage = () => {
                       >
                         Subject *
                       </label>
-                      {errors.subject && (
+                      {hasSubmitted && errors.subject && (
                         <p className="text-red-500 text-xs mt-1 ml-1">
                           {errors.subject}
                         </p>
@@ -409,7 +409,7 @@ const ContactPage = () => {
                       onChange={handleChange}
                       required
                       rows={8}
-                      className={`peer w-full px-5 py-4 bg-gray-50 border-2 rounded-xl text-[#343f52] placeholder-transparent focus:outline-none focus:bg-white transition-all duration-300 resize-none ${
+                      className={`peer w-full px-5 py-4 bg-gray-50 border-2 rounded-xl text-[#343f52] placeholder-transparent focus:outline-none focus:bg-white transition-all duration-300 resize-none roboto-font ${
                         errors.message
                           ? "border-red-400 focus:border-red-500"
                           : "border-gray-200 focus:border-[#eba10e]"
@@ -417,7 +417,7 @@ const ContactPage = () => {
                       placeholder="Message"
                     />
                     <label
-                      className={`absolute left-5 top-4 transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:bg-white peer-focus:px-2 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2 pointer-events-none ${
+                      className={`absolute left-5 top-4 transition-all duration-300 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:left-4 peer-focus:text-xs peer-focus:bg-white peer-focus:px-2 peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-4 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2 pointer-events-none roboto-font ${
                         errors.message
                           ? "text-red-400 peer-focus:text-red-500"
                           : "text-gray-400 peer-focus:text-[#eba10e]"
@@ -425,7 +425,7 @@ const ContactPage = () => {
                     >
                       Your Message *
                     </label>
-                    {errors.message && (
+                    {hasSubmitted && errors.message && (
                       <p className="text-red-500 text-xs mt-1 ml-1">
                         {errors.message}
                       </p>
@@ -470,13 +470,50 @@ const ContactPage = () => {
                     </div>
                   )}
 
+                  {/* Form Validation Errors Summary */}
+                  {hasSubmitted && Object.keys(errors).filter(key => key !== 'submit' && errors[key]).length > 0 && (
+                    <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl">
+                      <div className="flex items-center gap-3 mb-2">
+                        <svg
+                          className="w-5 h-5 flex-shrink-0"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        <p className="text-sm font-semibold roboto-font">Please fix the following errors:</p>
+                      </div>
+                      <ul className="list-disc list-inside space-y-1 ml-8">
+                        {errors.fullName && (
+                          <li className="text-sm roboto-font">{errors.fullName}</li>
+                        )}
+                        {errors.phone && (
+                          <li className="text-sm roboto-font">{errors.phone}</li>
+                        )}
+                        {errors.email && (
+                          <li className="text-sm roboto-font">{errors.email}</li>
+                        )}
+                        {errors.subject && (
+                          <li className="text-sm roboto-font">{errors.subject}</li>
+                        )}
+                        {errors.message && (
+                          <li className="text-sm roboto-font">{errors.message}</li>
+                        )}
+                      </ul>
+                    </div>
+                  )}
+
                   {/* Submit Button */}
                   <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">
                     <p className="text-gray-400 text-sm">* Required fields</p>
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-3 rounded-md transition-colors duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+                      className="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-3 rounded-md transition-colors duration-300 disabled:opacity-70 disabled:cursor-not-allowed roboto-font"
                     >
                       {isSubmitting ? "Sending..." : "Send Message"}
                     </button>
@@ -501,7 +538,7 @@ const ContactPage = () => {
                             {info.title}
                           </h4>
 
-                          <p className="text-gray-600 text-sm leading-relaxed">
+                          <p className="text-gray-600 text-sm leading-relaxed roboto-font">
                             {info.content}
                           </p>
                         </div>
