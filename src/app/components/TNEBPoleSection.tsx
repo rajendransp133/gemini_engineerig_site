@@ -44,23 +44,23 @@ const TNEBPoleSection = () => {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Title */}
-        <h2
-          id="tneb-heading"
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 leading-tight"
-        >
-          TNEB Standard Pole Manufacturing
-        </h2>
-
-        {/* Description */}
-        <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-8 md:mb-10 max-w-2xl roboto-font">
-          We specialize in the high-volume production of electric poles designed
-          strictly according to{" "}
-          <span className="text-[#eba10e] font-semibold roboto-font">
-            Tamil Nadu Electricity Board (TNEB)
-          </span>{" "}
-          specifications.
-        </p>
+        {/* Title & Description */}
+        <div className="text-center mb-10 md:mb-14">
+          <h2
+            id="tneb-heading"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 leading-tight"
+          >
+            TNEB Standard Pole Manufacturing
+          </h2>
+          <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-2xl mx-auto roboto-font">
+            We specialize in the high-volume production of electric poles designed
+            strictly according to{" "}
+            <span className="text-[#eba10e] font-semibold roboto-font">
+              Tamil Nadu Electricity Board (TNEB)
+            </span>{" "}
+            specifications.
+          </p>
+        </div>
 
         {/* Features and Visual Grid */}
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">

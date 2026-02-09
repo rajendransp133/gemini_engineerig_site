@@ -266,6 +266,7 @@ const ContactPage = () => {
                     height={45}
                     leftText="Powering "
                     rightText="Infrastructure Together"
+                    noWrap={true}
                   />
                   <p className="text-gray-500 text-sm  roboto-font -mt-2">
                     Reach Out for Enquiries

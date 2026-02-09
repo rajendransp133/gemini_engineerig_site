@@ -93,9 +93,10 @@ const Navbar = () => {
         className={`fixed top-0 left-0 w-[min(320px,85vw)] h-screen bg-white z-[1002] transition-transform duration-500 ease-out flex flex-col shadow-[4px_0_40px_rgba(0,0,0,0.1)] ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
+        style={{ paddingBottom: 'max(1.5rem, env(safe-area-inset-bottom, 0px))' }}
       >
         {/* Sidebar Header */}
-        <div className="px-5 py-5 flex items-center justify-between">
+        <div className="px-5 py-5 flex items-center justify-between flex-shrink-0">
           <div onClick={() => setIsOpen(false)}>
             <LogoIcon />
           </div>
@@ -109,7 +110,7 @@ const Navbar = () => {
         </div>
 
         {/* Sidebar Navigation */}
-        <nav className="flex-1 px-5 overflow-y-auto flex flex-col gap-3">
+        <nav className="flex-1 px-5 overflow-y-auto flex flex-col gap-3 min-h-0">
           <ul className="list-none m-0 p-0 flex flex-col gap-2">
             {navLinks.map((link, index) => (
               <li
@@ -137,7 +138,7 @@ const Navbar = () => {
 
         {/* Sidebar Footer - Contact Info */}
         <div
-          className={`p-5 transition-all duration-500 ${
+          className={`p-5 pb-8 transition-all duration-500 flex-shrink-0 ${
             isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
           style={{ transitionDelay: isOpen ? "0.5s" : "0s" }}
