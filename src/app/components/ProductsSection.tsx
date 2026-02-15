@@ -19,9 +19,9 @@ interface Product {
 
 const products: Product[] = [
   {
-    title: "9 Metre RCC Poles (150kg)",
+    title: "9m RCC Pole — TamilNadu",
     description:
-      "The 9-metre RCC Square Pole with 150kg working load is ideal for standard electrical distribution projects. Manufactured with M25 grade concrete and 0.285m³ concrete volume per pole. Features design with 12.5cm×12.5cm top and 22.5cm×22.5cm bottom dimensions. Each pole weighs approximately 700kg with 1.70m planting depth.",
+      "Buy 9-metre RCC pole (Reinforced Cement Concrete Pole) in TamilNadu with 150kg working load. Ideal for standard electrical distribution projects in TN. Manufactured with M25 grade concrete and 0.285m³ concrete volume per pole. Features design with 12.5cm×12.5cm top and 22.5cm×22.5cm bottom dimensions. Each pole weighs approximately 700kg with 1.70m planting depth. Buy RCC poles in Tamilnadu from Gemini Engineering Works, Pudukkottai.",
     features: [
       {
         title: "Load Capacity",
@@ -41,9 +41,9 @@ const products: Product[] = [
     image: "/images/products/rcc-pole-150kg.webp",
   },
   {
-    title: "9 Metre PSC Pole (300kg WL)",
+    title: "9m PSC Pole (300kg) — TN",
     description:
-      "The 9.0 metre PSC pole is designed for a working load of 300 kg with a factor of safety of 2.0. Manufactured with M40 grade concrete and reinforced with 16 Nos. of 4mm HTS wires (all tensioned). Each pole requires 0.243m³ of concrete and approximately 117.86kg of cement. The pole weighs approximately 607kg with section dimensions of 18.5cm × 10.0cm at the top and 35.5cm × 10.0cm at the bottom, with a uniform thickness of 10.0cm throughout.",
+      "Buy 9m PSC pole (Pre-stressed Concrete Pole) in Tamil Nadu with 300kg working load and factor of safety 2.0. Manufactured with M40 grade concrete and reinforced with 16 Nos. of 4mm HTS wires (all tensioned). Each pole requires 0.243m³ of concrete and approximately 117.86kg of cement. Weighs approximately 607kg with section dimensions of 18.5cm × 10.0cm at top and 35.5cm × 10.0cm at bottom. Buy PSC pole in Tamilnadu from Gemini Engineering Works.",
     features: [
       {
         title: "Dimensions & Weight",
@@ -65,9 +65,9 @@ const products: Product[] = [
   },
 
   {
-    title: "8m PSC Pole (200kg WL)",
+    title: "8m PSC Pole (200kg) — TN",
     description:
-      "The 8.00m PSC pole is designed for a working load of 200kg with a factor of safety of 2.5. Manufactured with M42 grade concrete and reinforced with 14 Nos. of 4mm HTS wires (12 tensioned, 2 untensioned). Each pole requires 0.156m³ of concrete and approximately 75.951kg of cement. The pole weighs approximately 378kg with section dimensions of 14.5cm × 9cm at the top and 29.0cm × 9cm at the bottom, with a uniform thickness of 9.0cm throughout.",
+      "Buy 8m PSC pole (Pre-stressed Concrete Pole) in Tamil Nadu with 200kg working load and factor of safety 2.5. Manufactured with M42 grade concrete and reinforced with 14 Nos. of 4mm HTS wires (12 tensioned, 2 untensioned). Each pole requires 0.156m³ of concrete and approximately 75.951kg of cement. Weighs approximately 378kg with section dimensions of 14.5cm × 9cm at top and 29.0cm × 9cm at bottom. Buy PSC poles in Tamilnadu from Gemini Engineering Works.",
     features: [
       {
         title: "Dimensions & Weight",
@@ -88,9 +88,9 @@ const products: Product[] = [
     image: "/images/products/psc-pole.webp",
   },
   {
-    title: "RCC Base Plates",
+    title: "Base Plate — Tamilnadu",
     description:
-      "High-quality RCC base plates designed to provide stable foundation support for electric poles. Manufactured with M15 grade concrete and reinforced with HTS wire 4mm thick. Each base plate weighs approximately 37.40kg with 0.0152m³ concrete volume, ensuring perfect compatibility with all our pole types.",
+      "Buy base plate (RCC baseplate) in Tamil Nadu for electric pole foundation support. High-quality baseplates manufactured with M15 grade concrete and reinforced with HTS wire 4mm thick. Each base plate weighs approximately 37.40kg with 0.0152m³ concrete volume. Buy baseplates in Tamilnadu for PSC and RCC pole installation from Gemini Engineering Works, Pudukkottai.",
     features: [
       {
         title: "Premium Specifications",
@@ -203,9 +203,7 @@ const ProductModal = ({
 
             {/* CTA */}
             <Link href="/contact" className="block no-underline">
-              <Button className="w-full cursor-pointer">
-                Get Quote
-              </Button>
+              <Button className="w-full cursor-pointer">Get Quote</Button>
             </Link>
           </div>
 
@@ -278,7 +276,7 @@ const ProductsSection = () => {
           <div className="flex items-center justify-center gap-3 mb-4">
             <Image
               src="/images/civil_hat.webp"
-              alt="Products icon - Buy PSC RCC electric poles in Tamilnadu"
+              alt="Buy RCC pole PSC pole electric poles baseplate in Tamil Nadu TN - Products"
               width={50}
               height={50}
               className="object-contain"
@@ -384,12 +382,12 @@ const ProductsSection = () => {
         {/* Specifications Note */}
         <div className="hidden md:block mt-12 bg-amber-50 border border-amber-200 rounded-lg p-6 text-center">
           <p className="text-gray-700">
-            <strong>Quality Assured:</strong> All our poles are manufactured as
-            per{" "}
+            <strong>Quality Assured:</strong> Buy RCC poles, PSC poles &amp;
+            baseplates manufactured as per{" "}
             <span className="font-semibold text-amber-700">IS 1678:1998</span>{" "}
-            standards and undergo rigorous load testing, bending tests, and
-            crack resistance tests before dispatch. TNEB &amp; TANGEDCO approved
-            supplier in Tamilnadu.
+            standards. All electric poles undergo rigorous load testing, bending
+            tests &amp; crack resistance tests before dispatch. TNEB &amp;
+            TANGEDCO approved supplier in Tamilnadu.
           </p>
         </div>
       </div>

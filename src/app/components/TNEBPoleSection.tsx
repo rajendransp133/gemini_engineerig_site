@@ -53,13 +53,12 @@ const TNEBPoleSection = () => {
             TNEB Standard Pole Manufacturing
           </h2>
           <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-2xl mx-auto roboto-font">
-            We specialize in the high-volume production of electric poles designed
-            strictly according to{" "}
+            We specialize in the high-volume production of electric poles
+            designed strictly according to{" "}
             <span className="text-[#eba10e] font-semibold roboto-font">
               Tamil Nadu Electricity Board (TNEB / TANGEDCO)
             </span>{" "}
-            specifications. Buy TNEB standard PSC &amp; RCC poles in Tamilnadu
-            from our Pudukkottai manufacturing facility.
+            specifications.
           </p>
         </div>
 

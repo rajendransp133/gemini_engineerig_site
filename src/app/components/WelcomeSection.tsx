@@ -13,7 +13,7 @@ const WelcomeSection = () => {
           {/* Left Side - Image with decorative accents */}
           <ImageSquare
             src="/home1.png"
-            alt="RCC and PSC Pole Manufacturing Facility at Gemini Engineering Works in Pudukkottai, Tamilnadu - Buy electric poles Tamil Nadu"
+            alt="Buy RCC pole and PSC pole in Tamil Nadu - Manufacturing facility at Gemini Engineering Works, Pudukkottai TN - Buy electric poles & baseplate Tamilnadu"
             width={500}
             height={1000}
           />
@@ -51,7 +51,17 @@ const WelcomeSection = () => {
                     size={18}
                   />
                   <span className="opacity-90">
-                    <strong>RCC Poles</strong> — 9&nbsp;m, 150&nbsp;kg working
+                    <strong>Buy RCC Poles</strong> — 9&nbsp;m, 150&nbsp;kg working
+                    load 
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FaAngleRight
+                    className="mt-1.5 shrink-0 text-amber-500"
+                    size={18}
+                  />
+                  <span className="opacity-90">
+                    <strong>Buy PSC Poles</strong> — 8&nbsp;m, 200&nbsp;kg working
                     load
                   </span>
                 </li>
@@ -61,7 +71,7 @@ const WelcomeSection = () => {
                     size={18}
                   />
                   <span className="opacity-90">
-                    <strong>PSC Poles</strong> — 8&nbsp;m, 200&nbsp;kg working
+                    <strong>Buy PSC Poles</strong> — 9&nbsp;m, 300&nbsp;kg working
                     load
                   </span>
                 </li>
@@ -71,17 +81,8 @@ const WelcomeSection = () => {
                     size={18}
                   />
                   <span className="opacity-90">
-                    <strong>PSC Poles</strong> — 9&nbsp;m, 300&nbsp;kg working
-                    load
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <FaAngleRight
-                    className="mt-1.5 shrink-0 text-amber-500"
-                    size={18}
-                  />
-                  <span className="opacity-90">
-                    <strong>RCC Base Plates</strong> — 450 × 450 × 75&nbsp;mm
+                    <strong>Buy Base Plates</strong> — RCC 450 × 450 × 75&nbsp;mm
+                    for pole foundation
                   </span>
                 </li>
               </ul>

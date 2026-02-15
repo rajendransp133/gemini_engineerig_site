@@ -8,15 +8,15 @@ const Hero = () => {
   const slides = [
     {
       src: "/hero1.webp",
-      alt: "PSC Pole Casting Yard at Gemini Engineering Works manufacturing facility in Pudukkottai, Tamilnadu",
+      alt: "Buy PSC poles in Tamil Nadu - PSC Pole casting yard at Gemini Engineering Works, Pudukkottai TN",
     },
     {
       src: "/hero2.webp",
-      alt: "Quality RCC and PSC electric pole manufacturing process in Tamilnadu",
+      alt: "Buy RCC pole in Tamilnadu - Quality RCC and PSC electric pole manufacturing in TN",
     },
     {
       src: "/hero3.webp",
-      alt: "Electric Pole Production line at Gemini Engineering Works, Tamil Nadu - Buy PSC RCC poles Tamilnadu",
+      alt: "Buy electric poles in Tamil Nadu - Electric pole production at Gemini Engineering Works TN - Buy RCC PSC poles & baseplate",
     },
   ];
 
