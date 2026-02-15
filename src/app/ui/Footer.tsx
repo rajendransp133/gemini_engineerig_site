@@ -3,7 +3,6 @@ import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
 import { FiPhoneCall } from "react-icons/fi";
 import LogoIcon from "./LogoIcon";
-import ShareButtons from "../components/ShareButtons";
 
 const Footer = () => {
   const quickLinks = [
