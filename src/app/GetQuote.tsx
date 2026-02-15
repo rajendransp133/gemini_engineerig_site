@@ -30,8 +30,8 @@ const GetQuote = () => {
               </h2>
               <p className="text-gray-200 text-sm  max-w-2xl roboto-font">
                 Partner with Gemini Engineering Works — leading RCC & PSC pole
-                manufacturer in Tamilnadu. Contact us today for competitive
-                pricing and timely delivery across Tamil Nadu!
+                manufacturer in Tamilnadu. Contact us for competitive pricing
+                and timely delivery across Tamil Nadu!
               </p>
             </div>
 

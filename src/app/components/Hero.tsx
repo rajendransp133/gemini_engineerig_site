@@ -64,8 +64,7 @@ const Hero = () => {
         </h1>
 
         <p className="animate-fade-in-up animation-delay-800 text-lg md:text-xl text-white/90 mb-8 drop-shadow-md max-w-3xl roboto-font tracking-wide">
-          Planting the Seeds of Light — Trusted Pole Supplier Across Tamilnadu
-          Since 1999
+          Planting the Seeds of Light
         </p>
 
         <Button
