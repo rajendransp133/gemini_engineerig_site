@@ -21,7 +21,7 @@ const ContactUs = () => {
                   className="object-contain"
                 />
                 <h2
-                  id="products-heading"
+                  id="contact-heading"
                   className="text-3xl md:text-4xl font-bold"
                 >
                   <span className="text-[#343f52]">Contact </span>
@@ -62,9 +62,12 @@ const ContactUs = () => {
                   <MdOutlineEmail className="w-7 h-7 text-white" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-gray-700 text-base ">
+                  <a
+                    href="mailto:geminienggworks@gmail.com"
+                    className="text-gray-700 text-base hover:text-[#eba10e] transition-colors no-underline"
+                  >
                     geminienggworks@gmail.com
-                  </span>
+                  </a>
                 </div>
               </div>
 
@@ -77,9 +80,12 @@ const ContactUs = () => {
                   {/* <div className="text-gray-600 text-base hover:text-[#eba10e] transition-colors">
                     +91 94432 11374
                   </div> */}
-                  <div className="text-gray-600 hover:text-[#eba10e] transition-colors duration-300 text-base no-underline">
+                  <a
+                    href="tel:+916374448522"
+                    className="text-gray-600 hover:text-[#eba10e] transition-colors duration-300 text-base no-underline"
+                  >
                     +91 63744 48522
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -96,7 +102,7 @@ const ContactUs = () => {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               allow="geolocation; microphone; camera; fullscreen"
-              title="Gemini Engineering Works Location - Pudukkottai"
+              title="Gemini Engineering Works Location - Pudukkottai, Tamilnadu - PSC RCC Pole Manufacturer"
             />
           </div>
         </div>

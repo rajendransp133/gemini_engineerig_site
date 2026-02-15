@@ -8,15 +8,15 @@ const Hero = () => {
   const slides = [
     {
       src: "/hero1.webp",
-      alt: "PSC Pole Casting Yard at Gemini Engineering Works manufacturing facility in Pudukkottai",
+      alt: "PSC Pole Casting Yard at Gemini Engineering Works manufacturing facility in Pudukkottai, Tamilnadu",
     },
     {
       src: "/hero2.webp",
-      alt: "Quality Pole Manufacturing process showing RCC and PSC electric poles",
+      alt: "Quality RCC and PSC electric pole manufacturing process in Tamilnadu",
     },
     {
       src: "/hero3.webp",
-      alt: "Electric Pole Production line at Gemini Engineering Works, Tamil Nadu",
+      alt: "Electric Pole Production line at Gemini Engineering Works, Tamil Nadu - Buy PSC RCC poles Tamilnadu",
     },
   ];
 
@@ -64,7 +64,8 @@ const Hero = () => {
         </h1>
 
         <p className="animate-fade-in-up animation-delay-800 text-lg md:text-xl text-white/90 mb-8 drop-shadow-md max-w-3xl roboto-font tracking-wide">
-          Planting the Seeds of Light
+          Planting the Seeds of Light — Trusted Pole Supplier Across Tamilnadu
+          Since 1999
         </p>
 
         <Button

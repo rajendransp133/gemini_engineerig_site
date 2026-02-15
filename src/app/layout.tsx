@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import WhatsAppButton from "./ui/WhatsAppButton";
+
+const roboto = Roboto({
+  weight: ["300", "400", "500", "700"],
+  subsets: ["latin"],
+  variable: "--font-roboto",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://geminiengineeringworks.in/"),
@@ -227,6 +235,132 @@ export const metadata: Metadata = {
     "RCC base plate price",
     "base plate for PSC pole",
     "base plate for RCC pole",
+    // TN abbreviation variants
+    "buy psc pole TN",
+    "buy psc poles TN",
+    "buy rcc pole TN",
+    "buy rcc poles TN",
+    "buy electric pole TN",
+    "psc pole manufacturers TN",
+    "rcc pole manufacturers TN",
+    "electric pole suppliers TN",
+    "psc pole price TN",
+    "rcc pole price TN",
+    "TNEB pole manufacturers TN",
+    "buy base plate TN",
+    // TANGEDCO keywords (current name of TNEB)
+    "TANGEDCO pole suppliers",
+    "TANGEDCO pole manufacturers",
+    "TANGEDCO approved pole manufacturer",
+    "TANGEDCO approved PSC pole",
+    "TANGEDCO approved RCC pole",
+    "TANGEDCO pole suppliers tamilnadu",
+    "TANGEDCO pole price",
+    "TANGEDCO standard electric pole",
+    // Local Tamil terms (high local intent)
+    "current kambam",
+    "minsara kambam",
+    "current pole tamilnadu",
+    "current pole manufacturer",
+    "EB pole tamilnadu",
+    "EB pole manufacturers tamil nadu",
+    "EB pole supplier",
+    "buy EB pole tamilnadu",
+    "EB pole price",
+    // Government scheme keywords
+    "DDUGJY poles supplier tamilnadu",
+    "Saubhagya scheme poles",
+    "rural electrification scheme poles",
+    "RGGVY poles supplier tamil nadu",
+    "PM KUSUM scheme poles",
+    "government tender electric poles tamilnadu",
+    "TNEB tender pole supplier",
+    "TANGEDCO tender pole manufacturer",
+    // Nearby district keywords
+    "PSC pole Thanjavur",
+    "RCC pole Thanjavur",
+    "electric pole Thanjavur",
+    "PSC pole Sivagangai",
+    "RCC pole Sivagangai",
+    "PSC pole Dindigul",
+    "RCC pole Dindigul",
+    "PSC pole Karur",
+    "RCC pole Karur",
+    "PSC pole Ramanathapuram",
+    "RCC pole Ramanathapuram",
+    "PSC pole Nagapattinam",
+    "RCC pole Nagapattinam",
+    "PSC pole Ariyalur",
+    "RCC pole Ariyalur",
+    "PSC pole Perambalur",
+    "electric pole Erode",
+    "PSC pole Theni",
+    "electric pole Thoothukudi",
+    "RCC pole Virudhunagar",
+    "PSC pole Cuddalore",
+    "RCC pole Villupuram",
+    "PSC pole Kanchipuram",
+    "electric pole Tiruvannamalai",
+    // Neighbouring state keywords
+    "PSC pole Kerala",
+    "RCC pole Kerala",
+    "electric pole supplier Kerala",
+    "PSC pole Karnataka",
+    "RCC pole Karnataka",
+    "buy PSC pole Pondicherry",
+    "RCC pole Puducherry",
+    "electric pole supplier Andhra Pradesh",
+    // Comparison & informational keywords
+    "PSC pole vs RCC pole",
+    "difference between PSC and RCC pole",
+    "which is better PSC or RCC pole",
+    "concrete pole vs steel pole",
+    "wooden pole vs concrete pole",
+    "PSC pole advantages",
+    "RCC pole advantages",
+    "PSC pole lifespan",
+    "RCC pole lifespan",
+    "electric pole weight",
+    "electric pole specifications",
+    // Cost & budget keywords
+    "cheapest electric pole tamilnadu",
+    "affordable PSC pole tamil nadu",
+    "low cost RCC pole tamilnadu",
+    "electric pole cost per unit",
+    "PSC pole price per piece",
+    "RCC pole rate per piece",
+    "electric pole price list 2026",
+    "PSC pole price list 2026",
+    "RCC pole rate list tamilnadu",
+    "electric pole quotation online",
+    "bulk pole price tamilnadu",
+    "wholesale electric pole price",
+    // Application-specific keywords
+    "CCTV pole manufacturer tamilnadu",
+    "highway lighting pole manufacturer",
+    "overhead line poles",
+    "11kv line poles",
+    "33kv line poles",
+    "440v line poles",
+    "transformer pole tamilnadu",
+    "electricity distribution pole",
+    // Long-tail question keywords
+    "how much does an electric pole cost in tamil nadu",
+    "how to buy electric pole in tamilnadu",
+    "who manufactures electric poles in tamil nadu",
+    "electric pole manufacturer near pudukkottai",
+    "where to buy concrete pole near me",
+    "best electric pole company in tamilnadu",
+    "how to order poles for TNEB project",
+    "what is the price of 9m PSC pole",
+    "what is the weight of RCC pole",
+    // Common misspellings & alternate terms
+    "buy PCC pole tamilnadu",
+    "buy PCC poles tamil nadu",
+    "cement pole tamilnadu",
+    "buy cement pole tamil nadu",
+    "cement pole manufacturer",
+    "buy cement pole",
   ],
   authors: [{ name: "Gemini Engineering Works" }],
   creator: "Gemini Engineering Works",
@@ -293,7 +427,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={roboto.variable}>
       <body>
         {children}
         <WhatsAppButton />

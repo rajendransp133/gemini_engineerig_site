@@ -21,7 +21,7 @@ const products: Product[] = [
   {
     title: "9 Metre RCC Poles (150kg)",
     description:
-      "The 9-metre RCC Square  Pole with 150kg working load is ideal for standard electrical distribution  projects. Manufactured with M25 grade concrete and 0.285m³ concrete volume per pole. Features  design with 12.5cm×12.5cm top and 22.5cm×22.5cm bottom dimensions. Each pole weighs approximately 700kg with 1.70m planting depth.",
+      "The 9-metre RCC Square Pole with 150kg working load is ideal for standard electrical distribution projects. Manufactured with M25 grade concrete and 0.285m³ concrete volume per pole. Features design with 12.5cm×12.5cm top and 22.5cm×22.5cm bottom dimensions. Each pole weighs approximately 700kg with 1.70m planting depth.",
     features: [
       {
         title: "Load Capacity",
@@ -90,7 +90,7 @@ const products: Product[] = [
   {
     title: "RCC Base Plates",
     description:
-      "High-quality RCC base plates designed to provide stable foundation support for electric poles. Manufactured with M15 grade concrete and reinforced with HTS wire 4mm thick . Each base plate weighs approximately 37.40kg with 0.0152m³ concrete volume, ensuring perfect compatibility with all our pole types.",
+      "High-quality RCC base plates designed to provide stable foundation support for electric poles. Manufactured with M15 grade concrete and reinforced with HTS wire 4mm thick. Each base plate weighs approximately 37.40kg with 0.0152m³ concrete volume, ensuring perfect compatibility with all our pole types.",
     features: [
       {
         title: "Premium Specifications",
@@ -278,7 +278,7 @@ const ProductsSection = () => {
           <div className="flex items-center justify-center gap-3 mb-4">
             <Image
               src="/images/civil_hat.webp"
-              alt="Products icon - Electric pole manufacturing"
+              alt="Products icon - Buy PSC RCC electric poles in Tamilnadu"
               width={50}
               height={50}
               className="object-contain"
@@ -292,8 +292,9 @@ const ProductsSection = () => {
             </h2>
           </div>
           <p className="text-[#343f52] text-lg opacity-80 max-w-3xl mx-auto roboto-font">
-            High-quality PSC & RCC electric poles manufactured to meet Indian
-            Standard specifications
+            High-quality PSC & RCC electric poles manufactured in Tamilnadu to
+            meet Indian Standard specifications — available for purchase across
+            Tamil Nadu
           </p>
         </header>
 
@@ -353,12 +354,12 @@ const ProductsSection = () => {
 
                 {/* CTA */}
                 <div className="flex items-center justify-between">
-                  <span className="text-[#eba10e] font-semibold text-sm group-hover:text-amber-600 transition-colors">
+                  <span className="text-[#343f52] font-semibold text-sm group-hover:text-amber-600 transition-colors">
                     View Details
                   </span>
                   <div className="w-8 h-8 rounded-full bg-amber-50 group-hover:bg-[#eba10e] flex items-center justify-center transition-all duration-300">
                     <svg
-                      className="w-3.5 h-3.5 text-[#eba10e] group-hover:text-white group-hover:translate-x-0.5 transition-all duration-300"
+                      className="w-3.5 h-3.5 text-[#eba10e] group-hover:text-white  transition-all duration-300"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -387,7 +388,8 @@ const ProductsSection = () => {
             per{" "}
             <span className="font-semibold text-amber-700">IS 1678:1998</span>{" "}
             standards and undergo rigorous load testing, bending tests, and
-            crack resistance tests before dispatch.
+            crack resistance tests before dispatch. TNEB &amp; TANGEDCO approved
+            supplier in Tamilnadu.
           </p>
         </div>
       </div>

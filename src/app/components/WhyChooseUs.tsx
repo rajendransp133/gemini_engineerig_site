@@ -11,12 +11,12 @@ const features = [
   {
     title: "25+ Years of Experience",
     description:
-      "Since 1999, Gemini Engineering Works has been a trusted name in pole manufacturing. Our expertise and experience ensure consistent quality and reliability in every pole we produce.",
+      "Since 1999, Gemini Engineering Works has been a trusted name in pole manufacturing across Tamilnadu. Our expertise and experience ensure consistent quality and reliability in every pole we produce.",
   },
   {
     title: "Durable & Long-Lasting",
     description:
-      "Our RCC and PSC poles are corrosion-free,  and require minimal maintenance. With a lifespan of 30-40 years, they offer excellent value for power distribution and electrification projects.We use premium quality Tata steel/HTS wire  in our manufacturing process, ensuring superior tensile strength .",
+      "Our RCC and PSC poles are corrosion-free, and require minimal maintenance. With a lifespan of 30-40 years, they offer excellent value for power distribution and electrification projects. We use premium quality Tata steel/HTS wire in our manufacturing process, ensuring superior tensile strength.",
   },
   {
     title: "Competitive Pricing & Timely Delivery",
@@ -46,6 +46,7 @@ const WhyChooseUs = () => {
           <div className="lg:pl-8">
             {/* Hat icon and title */}
             <SubHeading
+              id="why-choose-heading"
               src="/images/civil_hat.webp"
               alt="Construction hat icon"
               width={48}
@@ -74,7 +75,7 @@ const WhyChooseUs = () => {
           </div>
           <ImageSquare
             src="/stack1.webp"
-            alt="RCC and PSC Pole Manufacturing facility at Gemini Engineering Works showing quality production process"
+            alt="RCC and PSC Pole Manufacturing facility at Gemini Engineering Works Tamilnadu showing quality production process"
             width={600}
             height={500}
           />

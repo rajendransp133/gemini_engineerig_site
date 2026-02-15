@@ -29,23 +29,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
       images: [`${baseUrl}/logo.webp`],
     },
-    {
-      url: `${baseUrl}/#about`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/#products`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.95,
-      images: [
-        `${baseUrl}/stack1.webp`,
-        `${baseUrl}/stack2.webp`,
-        `${baseUrl}/stack3.webp`,
-        `${baseUrl}/stack4.webp`,
-      ],
-    },
   ];
 }

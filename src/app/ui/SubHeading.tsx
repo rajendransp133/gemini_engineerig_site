@@ -9,6 +9,7 @@ const SubHeading = ({
   rightText = "",
   icon = true,
   noWrap = false,
+  id,
 }: {
   src?: string;
   alt?: string;
@@ -18,6 +19,7 @@ const SubHeading = ({
   rightText?: string;
   icon?: boolean;
   noWrap?: boolean;
+  id?: string;
 }) => {
   return (
     <div className="flex items-center gap-4 mb-6 items-center justify-center">
@@ -31,6 +33,7 @@ const SubHeading = ({
         />
       )}
       <h2
+        id={id}
         className={`text-2xl md:text-3xl lg:text-4xl font-semibold ${
           noWrap
             ? "flex flex-col items-start gap-2 justify-start w-full"

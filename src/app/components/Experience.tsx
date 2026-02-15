@@ -63,7 +63,7 @@ const Experience = () => {
             <div className="relative w-72 h-56 md:w-96 md:h-72 overflow-hidden">
               <Image
                 src="/stack2.webp"
-                alt="Gemini Engineering Works manufacturing facility showing electric pole production and quality control"
+                alt="Gemini Engineering Works electric pole manufacturing facility in Tamilnadu showing production and quality control"
                 fill
                 className="object-cover"
               />

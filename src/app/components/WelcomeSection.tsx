@@ -13,7 +13,7 @@ const WelcomeSection = () => {
           {/* Left Side - Image with decorative accents */}
           <ImageSquare
             src="/home1.png"
-            alt="RCC and PSC Pole Manufacturing Facility at Gemini Engineering Works in Pudukkottai, Tamil Nadu"
+            alt="RCC and PSC Pole Manufacturing Facility at Gemini Engineering Works in Pudukkottai, Tamilnadu - Buy electric poles Tamil Nadu"
             width={500}
             height={1000}
           />
@@ -22,6 +22,7 @@ const WelcomeSection = () => {
           <article className="lg:pl-8">
             {/* Hat icon and title */}
             <SubHeading
+              id="welcome-heading"
               src="/images/civil_hat.webp"
               alt="Construction hat icon"
               width={48}
@@ -37,7 +38,9 @@ const WelcomeSection = () => {
                 Founded in 1999 by <strong>AS. Manikandan</strong>, Gemini
                 Engineering Works is a leading{" "}
                 <strong>PSC &amp; RCC pole manufacturer in Tamil Nadu</strong>,
-                based in Pudukkottai with over 25 years of experience.
+                based in Pudukkottai with over 25 years of experience. We are a
+                trusted electric pole supplier across Tamilnadu, serving
+                TNEB &amp; TANGEDCO projects in all districts.
               </p>
 
               {/* Product list */}

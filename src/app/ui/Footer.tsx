@@ -23,7 +23,7 @@ const Footer = () => {
         />
 
         <div className="container mx-auto px-4 lg:px-8 py-12 lg:py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
             {/* Company Info Section */}
             <div className="lg:pl-4 relative z-10 flex flex-col gap-4">
               {/* Logo */}
@@ -32,8 +32,9 @@ const Footer = () => {
               {/* Description */}
               <p className="text-gray-600 text-lg leading-relaxed font-light">
                 Gemini Engineering Works is a trusted manufacturer of PSC & RCC
-                electric poles since 1999. We deliver high-quality, durable
-                poles for power distribution and electrification projects.
+                electric poles in Tamilnadu since 1999. Buy quality poles for
+                power distribution and electrification projects across Tamil
+                Nadu.
               </p>
             </div>
 
@@ -101,25 +102,23 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Google Map Section */}
+            {/* Location Link Section - Map kept in Contact section for performance */}
             <div>
               <h3 className="text-[#1a1f2e] text-lg font-semibold mb-6 flex items-center gap-3 uppercase tracking-wider">
                 Our Location
                 <span className="flex-1 h-[2px] bg-[#eba10e] max-w-[60px]"></span>
               </h3>
-              <div className="w-full h-[180px] rounded-lg overflow-hidden shadow-md">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.5!2d78.7853814!3d10.4763535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baa83888347f56d%3A0xe2b955cc24a956e9!2sGemini%20Engineering%20works!5e0!3m2!1sen!2sin!4v1703145600000!5m2!1sen!2sin"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  allow="geolocation; microphone; camera; fullscreen"
-                  title="Gemini Engineering Works - Pudukkottai"
-                />
-              </div>
+              <a
+                href="https://maps.google.com/?q=10.4763535,78.7853814"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-gray-600 hover:text-[#eba10e] transition-colors text-sm roboto-font no-underline"
+              >
+                View on Google Maps →
+              </a>
+              <p className="text-gray-600 text-sm roboto-font mt-2">
+                SFNO. 27/6F2 Ganesh Nagar, Sathiyamangalam, Pudukkottai - 622501
+              </p>
             </div>
           </div>
         </div>
@@ -130,7 +129,7 @@ const Footer = () => {
         <div className="container mx-auto px-4 lg:px-8 py-4">
           <p className="text-center text-gray-600 text-sm roboto-font">
             © {new Date().getFullYear()} Gemini Engineering Works. All rights
-            reserved. | PSC & RCC Pole Casting Yard, Pudukkottai
+            reserved. | PSC & RCC Pole Manufacturers, Pudukkottai, Tamilnadu
           </p>
         </div>
       </div>
