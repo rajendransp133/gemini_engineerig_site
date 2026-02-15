@@ -204,7 +204,7 @@ const ProductModal = ({
             {/* CTA */}
             <Link href="/contact" className="block no-underline">
               <Button className="w-full cursor-pointer">
-                Contact Us for Pricing
+                Get Quote
               </Button>
             </Link>
           </div>

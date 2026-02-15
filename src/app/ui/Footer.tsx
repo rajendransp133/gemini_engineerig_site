@@ -3,13 +3,14 @@ import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
 import { FiPhoneCall } from "react-icons/fi";
 import LogoIcon from "./LogoIcon";
+import ShareButtons from "../components/ShareButtons";
 
 const Footer = () => {
   const quickLinks = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/#about" },
     { name: "Products", href: "/#products" },
-    { name: "Contact Us", href: "/contact" },
+    { name: "Get Quote", href: "/contact" },
   ];
 
   return (
@@ -58,10 +59,10 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Contact Us Section */}
+            {/* Reach Us Section */}
             <div>
               <h3 className="text-[#1a1f2e] text-lg font-semibold mb-6 flex items-center gap-3 uppercase tracking-wider">
-                Contact Us
+                Reach Us
                 <span className="flex-1 h-[2px] bg-[#eba10e] max-w-[60px]"></span>
               </h3>
               <div className="space-y-4">
@@ -101,6 +102,8 @@ const Footer = () => {
                 </div>
               </div>
             </div>
+
+            {/* Social Share */}
 
             {/* Location Link Section - Map kept in Contact section for performance */}
             <div>
