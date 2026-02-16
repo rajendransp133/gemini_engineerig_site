@@ -19,7 +19,7 @@ interface Product {
 
 const products: Product[] = [
   {
-    title: "9m RCC Pole — TamilNadu",
+    title: "9m RCC Pole ",
     description:
       "Buy 9-metre RCC pole (Reinforced Cement Concrete Pole) in TamilNadu with 150kg working load. Ideal for standard electrical distribution projects in TN. Manufactured with M25 grade concrete and 0.285m³ concrete volume per pole. Features design with 12.5cm×12.5cm top and 22.5cm×22.5cm bottom dimensions. Each pole weighs approximately 700kg with 1.70m planting depth. Buy RCC poles in Tamilnadu from Gemini Engineering Works, Pudukkottai.",
     features: [
@@ -41,7 +41,7 @@ const products: Product[] = [
     image: "/images/products/rcc-pole-150kg.webp",
   },
   {
-    title: "9m PSC Pole (300kg) — TN",
+    title: "9m PSC Pole (300kg) ",
     description:
       "Buy 9m PSC pole (Pre-stressed Concrete Pole) in Tamil Nadu with 300kg working load and factor of safety 2.0. Manufactured with M40 grade concrete and reinforced with 16 Nos. of 4mm HTS wires (all tensioned). Each pole requires 0.243m³ of concrete and approximately 117.86kg of cement. Weighs approximately 607kg with section dimensions of 18.5cm × 10.0cm at top and 35.5cm × 10.0cm at bottom. Buy PSC pole in Tamilnadu from Gemini Engineering Works.",
     features: [
@@ -65,7 +65,7 @@ const products: Product[] = [
   },
 
   {
-    title: "8m PSC Pole (200kg) — TN",
+    title: "8m PSC Pole (200kg) ",
     description:
       "Buy 8m PSC pole (Pre-stressed Concrete Pole) in Tamil Nadu with 200kg working load and factor of safety 2.5. Manufactured with M42 grade concrete and reinforced with 14 Nos. of 4mm HTS wires (12 tensioned, 2 untensioned). Each pole requires 0.156m³ of concrete and approximately 75.951kg of cement. Weighs approximately 378kg with section dimensions of 14.5cm × 9cm at top and 29.0cm × 9cm at bottom. Buy PSC poles in Tamilnadu from Gemini Engineering Works.",
     features: [
@@ -88,7 +88,7 @@ const products: Product[] = [
     image: "/images/products/psc-pole.webp",
   },
   {
-    title: "Base Plate — Tamilnadu",
+    title: "Base Plate ",
     description:
       "Buy base plate (RCC baseplate) in Tamil Nadu for electric pole foundation support. High-quality baseplates manufactured with M15 grade concrete and reinforced with HTS wire 4mm thick. Each base plate weighs approximately 37.40kg with 0.0152m³ concrete volume. Buy baseplates in Tamilnadu for PSC and RCC pole installation from Gemini Engineering Works, Pudukkottai.",
     features: [
@@ -108,6 +108,48 @@ const products: Product[] = [
       },
     ],
     image: "/images/products/base-plate.webp",
+  },
+  {
+    title: "Hollow Block — 4inch & 6inch",
+    description:
+      "Buy hollow blocks in Tamil Nadu in 4inch and 6inch sizes. High-quality concrete hollow blocks manufactured for construction projects.  ",
+    features: [
+      {
+        title: "Available Sizes",
+        description:
+          "4inch and 6inch hollow blocks for various construction needs.",
+      },
+
+      {
+        title: "Quality",
+        description:
+          "Manufactured with quality concrete for strength and durability.",
+      },
+    ],
+    image: "/images/products/hollow-block.webp",
+  },
+  {
+    title: "Fencing Post with HTS Wire",
+    description:
+      "Buy fencing posts with HTS wire reinforcement in Tamil Nadu. Pre-stressed concrete fencing posts manufactured with high tensile strength(HTS) wire for durability and longevity. Ideal for boundary fencing, agricultural fencing, and compound walls",
+    features: [
+      {
+        title: "HTS Wire Reinforcement",
+        description:
+          "Reinforced with high tensile strength(HTS) wire for superior durability.",
+      },
+      {
+        title: "Applications",
+        description:
+          "Ideal for boundary fencing, agricultural fencing, and compound walls.",
+      },
+      {
+        title: "Long-lasting",
+        description:
+          "Pre-stressed concrete construction ensures longevity and resistance to weathering.",
+      },
+    ],
+    image: "/images/products/fencing-post-hts.webp",
   },
 ];
 
@@ -297,7 +339,7 @@ const ProductsSection = () => {
         </header>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
           {products.map((product, index) => (
             <div
               key={index}

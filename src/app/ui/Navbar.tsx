@@ -93,7 +93,9 @@ const Navbar = () => {
         className={`fixed top-0 left-0 w-[min(300px,85vw)] sm:w-[min(380px,75vw)] md:w-[400px] h-screen bg-white z-[1002] transition-transform duration-500 ease-out flex flex-col shadow-[4px_0_40px_rgba(0,0,0,0.1)] ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
-        style={{ paddingBottom: 'max(1.5rem, env(safe-area-inset-bottom, 0px))' }}
+        style={{
+          paddingBottom: "max(1.5rem, env(safe-area-inset-bottom, 0px))",
+        }}
       >
         {/* Sidebar Header */}
         <div className="px-4 py-4 sm:px-6 sm:py-5 flex items-center justify-between flex-shrink-0">
