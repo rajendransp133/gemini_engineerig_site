@@ -112,7 +112,7 @@ const products: Product[] = [
   {
     title: "Hollow Block — 4inch & 6inch",
     description:
-      "Buy hollow blocks in Tamil Nadu in 4inch and 6inch sizes. High-quality concrete hollow blocks manufactured for construction projects.  ",
+      "Buy hollow blocks (4inch and 6inch sizes). High-quality concrete hollow blocks manufactured for construction projects.  ",
     features: [
       {
         title: "Available Sizes",
@@ -129,14 +129,13 @@ const products: Product[] = [
     image: "/images/products/hollow-block.webp",
   },
   {
-    title: "Fencing Post with HTS Wire",
+    title: "Fencing Post ",
     description:
-      "Buy fencing posts with HTS wire reinforcement in Tamil Nadu. Pre-stressed concrete fencing posts manufactured with high tensile strength(HTS) wire for durability and longevity. Ideal for boundary fencing, agricultural fencing, and compound walls",
+      "Pre-stressed concrete fencing posts manufactured with high tensile strength(HTS) wire for durability and longevity. Ideal for boundary fencing, agricultural fencing, and compound walls",
     features: [
       {
-        title: "HTS Wire Reinforcement",
-        description:
-          "Reinforced with high tensile strength(HTS) wire for superior durability.",
+        title: "Curing Peroid",
+        description: "28 days curing peroid",
       },
       {
         title: "Applications",
@@ -144,9 +143,8 @@ const products: Product[] = [
           "Ideal for boundary fencing, agricultural fencing, and compound walls.",
       },
       {
-        title: "Long-lasting",
-        description:
-          "Pre-stressed concrete construction ensures longevity and resistance to weathering.",
+        title: "Cement Grade",
+        description: "OPC-53  grade cement",
       },
     ],
     image: "/images/products/fencing-post-hts.webp",
