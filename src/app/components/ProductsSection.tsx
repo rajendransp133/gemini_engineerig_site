@@ -41,7 +41,7 @@ const products: Product[] = [
       },
     ],
     image: "/images/products/rcc-pole-150kg.webp",
-    redirectImage: "/Government_e_Marketplace_Logo.png",
+    redirectImage: "/Government_e_Marketplace_Logo.jpg",
     redirectLink:
       "https://mkp.gem.gov.in/reinforced-concrete-poles-overhead-power-telecommunication-lines-785/reinforced-concrete-poles/p-5116877-77720843346-cat.html#variant_id=5116877-77720843346",
   },
@@ -113,7 +113,7 @@ const products: Product[] = [
       },
     ],
     image: "/images/products/base-plate.webp",
-    redirectImage: "/Government_e_Marketplace_Logo.png",
+    redirectImage: "/Government_e_Marketplace_Logo.jpg",
     redirectLink:
       "https://mkp.gem.gov.in/rcc-base-plate-tn-generation-distribution-corporation/na/p-5116877-74352046336-cat.html#variant_id=5116877-74352046336",
   },
