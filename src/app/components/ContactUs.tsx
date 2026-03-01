@@ -37,7 +37,7 @@ const ContactUs = () => {
             <div className="space-y-6">
               {/* Address 1 */}
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#eba10e] to-[#f5c04a] flex items-center justify-center shadow-md flex-shrink-0">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#eba10e] to-[#f5c04a] flex items-center justify-center  flex-shrink-0">
                   <IoLocationOutline className="w-7 h-7 text-white" />
                 </div>
                 <p className="text-gray-600 text-base">
@@ -48,7 +48,7 @@ const ContactUs = () => {
 
               {/* Address 2 */}
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#eba10e] to-[#f5c04a] flex items-center justify-center shadow-md flex-shrink-0">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#eba10e] to-[#f5c04a] flex items-center justify-center flex-shrink-0">
                   <IoLocationOutline className="w-7 h-7 text-white" />
                 </div>
                 <p className="text-gray-600 text-base">
@@ -58,7 +58,7 @@ const ContactUs = () => {
 
               {/* GSTIN */}
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#eba10e] to-[#f5c04a] flex items-center justify-center shadow-md flex-shrink-0">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#eba10e] to-[#f5c04a] flex items-center justify-center  flex-shrink-0">
                   <MdOutlineEmail className="w-7 h-7 text-white" />
                 </div>
                 <div className="flex flex-col">
@@ -73,7 +73,7 @@ const ContactUs = () => {
 
               {/* Phone Numbers */}
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#eba10e] to-[#f5c04a] flex items-center justify-center shadow-md flex-shrink-0">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#eba10e] to-[#f5c04a] flex items-center justify-center  flex-shrink-0">
                   <FiPhoneCall className="w-6 h-6 text-white" />
                 </div>
                 <div className="flex flex-col">
@@ -92,7 +92,7 @@ const ContactUs = () => {
           </div>
 
           {/* Right Side - Google Map */}
-          <div className="w-full h-[350px] lg:h-[400px] rounded-lg overflow-hidden shadow-lg">
+          <div className="w-full h-[350px] lg:h-[400px] rounded-lg overflow-hidden ">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.5!2d78.7853814!3d10.4763535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baa83888347f56d%3A0xe2b955cc24a956e9!2sGemini%20Engineering%20works!5e0!3m2!1sen!2sin!4v1703145600000!5m2!1sen!2sin"
               width="100%"

@@ -39,7 +39,7 @@ const GetQuote = () => {
             <div className="flex-shrink-0">
               <Link
                 href="/contact"
-                className="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-3 rounded-md transition-colors duration-300 shadow-lg whitespace-nowrap inline-block"
+                className="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-3 rounded-md transition-colors duration-300  whitespace-nowrap inline-block"
               >
                 Get Quote
               </Link>

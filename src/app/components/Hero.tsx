@@ -59,11 +59,11 @@ const Hero = () => {
         {/* Decorative golden accent line */}
         <div className="animate-line-reveal animation-delay-400 w-14 h-[3px] bg-amber-500 rounded-full mb-5" />
 
-        <h1 className="animate-fade-in-up animation-delay-600 text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 drop-shadow-lg">
+        <h1 className="animate-fade-in-up animation-delay-600 text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 ">
           PSC & RCC Electric Pole Manufacturers in Tamil Nadu
         </h1>
 
-        <p className="animate-fade-in-up animation-delay-800 text-lg md:text-xl text-white/90 mb-8 drop-shadow-md max-w-3xl roboto-font tracking-wide">
+        <p className="animate-fade-in-up animation-delay-800 text-lg md:text-xl text-white/90 mb-8  max-w-3xl roboto-font tracking-wide">
           Planting the Seeds of Light
         </p>
 

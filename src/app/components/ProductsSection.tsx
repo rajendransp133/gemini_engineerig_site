@@ -182,7 +182,7 @@ const ProductModal = ({
       {/* Modal */}
       <div className="fixed inset-0 z-[1001] flex items-center justify-center p-3 sm:p-4 md:p-6 pointer-events-none">
         <div
-          className="relative bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[95vh] sm:max-h-[90vh] overflow-hidden pointer-events-auto animate-modal-in flex flex-col"
+          className="relative bg-white rounded-2xl  max-w-lg w-full max-h-[95vh] sm:max-h-[90vh] overflow-hidden pointer-events-auto animate-modal-in flex flex-col"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Card-style Dark Header */}
@@ -247,7 +247,7 @@ const ProductModal = ({
             </div>
 
             {product.redirectImage && (
-              <div className="mb-5  rounded-lg p-4 border border-blue-200 shadow-sm hover:shadow-md transition-shadow">
+              <div className="mb-5  rounded-lg p-4 border border-blue-200  ">
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex-1">
                     <h3 className="text-sm font-semibold text-gray-800 mb-1">
@@ -403,7 +403,7 @@ const ProductsSection = () => {
             <div
               key={index}
               onClick={() => openModal(product)}
-              className="relative bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-400 cursor-pointer group overflow-hidden hover:-translate-y-1.5 flex flex-col"
+              className="relative bg-white rounded-2xl   transition-all duration-400 cursor-pointer group overflow-hidden hover:-translate-y-1.5 flex flex-col"
             >
               {/* Top Header */}
               <div className="relative bg-[#343f52] px-5 pt-5 pb-8">

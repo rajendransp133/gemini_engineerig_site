@@ -41,7 +41,7 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-500 ease-out bg-white shadow-[0_4px_30px_rgba(0,0,0,0.08)] animate-nav-slide-down ${
+        className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-500 ease-out bg-white  animate-nav-slide-down ${
           scrolled ? "py-3" : "py-4"
         }`}
       >
@@ -90,7 +90,7 @@ const Navbar = () => {
 
       {/* Mobile Sidebar */}
       <aside
-        className={`fixed top-0 left-0 w-[min(300px,85vw)] sm:w-[min(380px,75vw)] md:w-[400px] h-screen bg-white z-[1002] transition-transform duration-500 ease-out flex flex-col shadow-[4px_0_40px_rgba(0,0,0,0.1)] ${
+        className={`fixed top-0 left-0 w-[min(300px,85vw)] sm:w-[min(380px,75vw)] md:w-[400px] h-screen bg-white z-[1002] transition-transform duration-500 ease-out flex flex-col  ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
         style={{
