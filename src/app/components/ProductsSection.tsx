@@ -15,6 +15,8 @@ interface Product {
     description: string;
   }[];
   image: string;
+  redirectImage?: string;
+  redirectLink?: string;
 }
 
 const products: Product[] = [
@@ -39,6 +41,9 @@ const products: Product[] = [
       },
     ],
     image: "/images/products/rcc-pole-150kg.webp",
+    redirectImage: "/Government_e_Marketplace_Logo.png",
+    redirectLink:
+      "https://mkp.gem.gov.in/reinforced-concrete-poles-overhead-power-telecommunication-lines-785/reinforced-concrete-poles/p-5116877-77720843346-cat.html#variant_id=5116877-77720843346",
   },
   {
     title: "9m PSC Pole (300kg) ",
@@ -108,6 +113,9 @@ const products: Product[] = [
       },
     ],
     image: "/images/products/base-plate.webp",
+    redirectImage: "/Government_e_Marketplace_Logo.png",
+    redirectLink:
+      "https://mkp.gem.gov.in/rcc-base-plate-tn-generation-distribution-corporation/na/p-5116877-74352046336-cat.html#variant_id=5116877-74352046336",
   },
   {
     title: "Hollow Block — 4inch & 6inch",
@@ -238,13 +246,66 @@ const ProductModal = ({
               ))}
             </div>
 
-            {/* Divider - matching card style */}
-            <div className="h-px bg-gradient-to-r from-gray-200 via-amber-200 to-gray-200 mb-4" />
+            {product.redirectImage && (
+              <div className="mb-5  rounded-lg p-4 border border-blue-200 shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex-1">
+                    <h3 className="text-sm font-semibold text-gray-800 mb-1">
+                      Available on Government e-Marketplace
+                    </h3>
+                    <p className="text-xs text-gray-600 mb-2">Check pricing</p>
+                    <button
+                      onClick={() =>
+                        window.open(product.redirectLink, "_blank")
+                      }
+                      className="cursor-pointer inline-flex items-center gap-2 text-xs font-medium text-blue-700 hover:text-blue-800 transition-colors"
+                    >
+                      <span>View on GeM Portal</span>
+                      <svg
+                        className="w-3 h-3"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <div className="flex-shrink-0">
+                    <Image
+                      src={product.redirectImage}
+                      alt={product.title}
+                      width={150}
+                      height={80}
+                      className="cursor-pointer hover:scale-105 transition-transform object-contain"
+                      onClick={() =>
+                        window.open(product.redirectLink, "_blank")
+                      }
+                      title="Buy from Government e-Marketplace"
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
 
-            {/* CTA */}
-            <Link href="/contact" className="block no-underline">
-              <Button className="w-full cursor-pointer">Get Quote</Button>
-            </Link>
+            {/* Divider - matching card style */}
+
+            {!product.redirectImage && (
+              <>
+                <div className="h-px bg-gradient-to-r from-gray-200 via-amber-200 to-gray-200 mb-4" />
+
+                <div className="mb-5">
+                  <Link href="/contact" className="block no-underline">
+                    <Button className="w-full cursor-pointer">Get Quote</Button>
+                  </Link>
+                </div>
+              </>
+            )}
           </div>
 
           {/* Bottom accent line */}
