@@ -303,10 +303,14 @@ export default function Home() {
         {/* Hiring Banner */}
         <a
           href="/jobopening"
-          className="flex items-center justify-center gap-2 bg-[#eba10e] text-white text-sm font-semibold py-2 px-4 hover:bg-amber-600 transition-colors duration-200"
+          className="flex items-center justify-center gap-1.5 bg-[#eba10e] text-white font-semibold py-2 px-4 hover:bg-amber-600 transition-colors duration-200 whitespace-nowrap overflow-hidden"
         >
           <span className="inline-block w-2 h-2 rounded-full bg-white animate-pulse flex-shrink-0" />
-          We&apos;re Hiring! Site Engineer position open — Apply Now →
+          <span className="text-xs sm:text-sm truncate">
+            <span className="hidden sm:inline">We&apos;re Hiring! Site Engineer position open — </span>
+            <span className="sm:hidden">We&apos;re Hiring! — </span>
+            Apply Now →
+          </span>
         </a>
         <Navbar />
         <Hero />
