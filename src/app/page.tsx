@@ -14,7 +14,8 @@ import Footer from "./ui/Footer";
 import StructuredData from "./components/StructuredData";
 
 export const metadata: Metadata = {
-  title: "Buy RCC Pole & PSC Pole in TamilNadu (TN) | Buy Electric Poles & Base Plate | Gemini Engineering Works",
+  title:
+    "Buy RCC Pole & PSC Pole in TamilNadu (TN) | Buy Electric Poles & Base Plate | Gemini Engineering Works",
   description:
     "Buy RCC pole, PSC pole, electric poles & base plate in TamilNadu (TN). TNEB approved manufacturer since 1999. Buy 9m RCC poles, 8m-9m PSC poles & baseplates in Tamilnadu. Gemini Engineering Works, Pudukkottai. Bulk orders welcome. Call +91 63744 48522.",
   keywords: [
@@ -299,6 +300,14 @@ export default function Home() {
     <>
       <StructuredData />
       <div>
+        {/* Hiring Banner */}
+        <a
+          href="/jobopening"
+          className="flex items-center justify-center gap-2 bg-[#eba10e] text-white text-sm font-semibold py-2 px-4 hover:bg-amber-600 transition-colors duration-200"
+        >
+          <span className="inline-block w-2 h-2 rounded-full bg-white animate-pulse flex-shrink-0" />
+          We&apos;re Hiring! Site Engineer position open — Apply Now →
+        </a>
         <Navbar />
         <Hero />
         <section id="about" aria-label="About Gemini Engineering Works">

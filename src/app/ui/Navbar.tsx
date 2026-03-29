@@ -42,7 +42,7 @@ const Navbar = () => {
     <>
       <nav
         className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-500 ease-out bg-white  animate-nav-slide-down ${
-          scrolled ? "py-3" : "py-4"
+          scrolled ? "py-3" : "py-3"
         }`}
       >
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 flex items-center justify-between">
