@@ -9,7 +9,8 @@ const Footer = () => {
     { name: "Home", href: "/" },
     { name: "About Us", href: "/#about" },
     { name: "Products", href: "/#products" },
-    { name: "Get Quote", href: "/contact" },
+    { name: "Contact Us", href: "/contact" },
+    { name: "Job Opening", href: "/jobopening" },
   ];
 
   return (

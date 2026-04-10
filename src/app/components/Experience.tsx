@@ -65,6 +65,7 @@ const Experience = () => {
                 src="/stack2.webp"
                 alt="Gemini Engineering Works electric pole manufacturing facility in Tamilnadu showing production and quality control"
                 fill
+                sizes="(max-width: 768px) 288px, 384px"
                 className="object-cover"
               />
             </div>

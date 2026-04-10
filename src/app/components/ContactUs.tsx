@@ -116,7 +116,8 @@ const ContactUs = () => {
             alt="JCB Truck"
             width={150}
             height={58}
-            className="object-contain -scale-x-100"
+            style={{ width: 150, height: 58 }}
+            className="-scale-x-100"
           />
         </div>
       </div>

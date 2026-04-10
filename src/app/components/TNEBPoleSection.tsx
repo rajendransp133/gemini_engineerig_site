@@ -103,7 +103,8 @@ const TNEBPoleSection = () => {
                     alt="Tamil Nadu Electricity Board (TNEB) TANGEDCO logo - Approved PSC RCC pole supplier in Tamilnadu"
                     width={380}
                     height={200}
-                    className="rounded-xl object-contain w-full max-w-[380px] h-auto"
+                    style={{ height: "auto" }}
+                    className="rounded-xl object-contain w-full max-w-[380px]"
                   />
                 </div>
               </div>
