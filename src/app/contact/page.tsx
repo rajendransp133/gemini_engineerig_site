@@ -65,7 +65,7 @@ const ContactPage = () => {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
 
@@ -159,7 +159,7 @@ const ContactPage = () => {
             _subject: `New Contact: ${formData.subject}`,
             message: formData.message,
           }),
-        }
+        },
       );
 
       if (response.ok) {
@@ -211,7 +211,7 @@ const ContactPage = () => {
   return (
     <>
       <ContactStructuredData />
-      <div className="min-h-screen flex flex-col gap-6">
+      <div className="min-h-screen flex flex-col ">
         <Navbar />
 
         {/* Hero Banner Section */}
@@ -454,7 +454,7 @@ const ContactPage = () => {
                   {/* Form Validation Errors Summary */}
                   {hasSubmitted &&
                     Object.keys(errors).filter(
-                      (key) => key !== "submit" && errors[key]
+                      (key) => key !== "submit" && errors[key],
                     ).length > 0 && (
                       <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl">
                         <div className="flex items-center gap-3 mb-2">
@@ -565,8 +565,8 @@ const ContactPage = () => {
         </main>
 
         {/* Animated JCB Truck */}
-        <div className="relative mt-16 h-24 w-full">
-          <div className="absolute -bottom-8 left-0 animate-truck-move">
+        <div className="relative mt-16 h-44 w-full overflow-hidden">
+          <div className="absolute -bottom-2 left-0 animate-truck-move">
             <Image
               src="/images/vehicle-3.svg"
               alt="JCB Truck"

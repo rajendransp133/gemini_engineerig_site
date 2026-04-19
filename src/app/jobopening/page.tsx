@@ -1,16 +1,88 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef, useEffect, type ComponentType } from "react";
 import Image from "next/image";
 import Navbar from "../ui/Navbar";
 import Footer from "../ui/Footer";
 import SubHeading from "../ui/SubHeading";
 import { MdOutlineEngineering, MdOutlineAccessTime } from "react-icons/md";
-import { FiMapPin } from "react-icons/fi";
+import { FiMapPin, FiChevronDown } from "react-icons/fi";
 import { PiGraduationCapBold } from "react-icons/pi";
 import { BsCheckCircleFill, BsXCircleFill } from "react-icons/bs";
 
+type DetailRow = {
+  icon: ComponentType<{ className?: string }>;
+  title: string;
+  content: string;
+};
+
+type Opening = {
+  id: string;
+  applyLabel: string;
+  heading: string;
+  details: DetailRow[];
+};
+
+const openings: Opening[] = [
+  {
+    id: "site-engineer",
+    applyLabel: "Site Engineer",
+    heading: "Opening 1 — Site Engineer",
+    details: [
+      {
+        icon: MdOutlineEngineering,
+        title: "Position",
+        content: "Site Engineer",
+      },
+      {
+        icon: PiGraduationCapBold,
+        title: "Qualification",
+        content: "Bachelor's Degree in Civil Engineering (B.E. / B.Tech)",
+      },
+      {
+        icon: MdOutlineAccessTime,
+        title: "Experience",
+        content: "Freshers welcome — prior site experience is a plus",
+      },
+      {
+        icon: FiMapPin,
+        title: "Location",
+        content: "Pudukkottai, Tamil Nadu",
+      },
+    ],
+  },
+  {
+    id: "administrative",
+    applyLabel: "Administrative",
+    heading: "Opening 2 — Administrative",
+    details: [
+      {
+        icon: MdOutlineEngineering,
+        title: "Position",
+        content: "Administrative",
+      },
+      {
+        icon: PiGraduationCapBold,
+        title: "Qualification",
+        content:
+          "B.E. Civil preferred. Any other bachelor's degree acceptable. Basic computer knowledge required.",
+      },
+      {
+        icon: MdOutlineAccessTime,
+        title: "Experience",
+        content: "Freshers welcome — prior office experience is a plus",
+      },
+      {
+        icon: FiMapPin,
+        title: "Location",
+        content: "Pudukkottai, Tamil Nadu",
+      },
+    ],
+  },
+];
+
 const JobOpeningPage = () => {
   const [formData, setFormData] = useState({
+    positionApplying: openings[0].id,
     fullName: "",
     phone: "",
     email: "",
@@ -23,6 +95,21 @@ const JobOpeningPage = () => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const validateField = (name: string, value: string): string => {
     switch (name) {
@@ -54,7 +141,7 @@ const JobOpeningPage = () => {
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     const { name, value } = e.target;
 
@@ -100,6 +187,11 @@ const JobOpeningPage = () => {
 
     setIsSubmitting(true);
 
+    const selectedOpening = openings.find(
+      (o) => o.id === formData.positionApplying,
+    );
+    const positionLabel = selectedOpening?.applyLabel ?? "Unknown";
+
     try {
       const response = await fetch(
         "https://formsubmit.co/ajax/geminienggworks@gmail.com",
@@ -113,18 +205,20 @@ const JobOpeningPage = () => {
             name: formData.fullName,
             email: formData.email,
             phone: formData.phone,
+            position: positionLabel,
             current_location: formData.currentLocation,
             experience: formData.experience || "Fresher / Not specified",
             note: formData.note || "No additional note",
-            _subject: `Job Application - Site Engineer: ${formData.fullName}`,
+            _subject: `Job Application - ${positionLabel}: ${formData.fullName}`,
           }),
-        }
+        },
       );
 
       if (response.ok) {
         setIsSuccess(true);
         setHasSubmitted(false);
         setFormData({
+          positionApplying: openings[0].id,
           fullName: "",
           phone: "",
           email: "",
@@ -143,32 +237,9 @@ const JobOpeningPage = () => {
     }
   };
 
-  const jobDetails = [
-    {
-      icon: MdOutlineEngineering,
-      title: "Position",
-      content: "Site Engineer",
-    },
-    {
-      icon: PiGraduationCapBold,
-      title: "Qualification",
-      content: "Bachelor's Degree in Civil Engineering (B.E. / B.Tech)",
-    },
-    {
-      icon: MdOutlineAccessTime,
-      title: "Experience",
-      content: "Freshers welcome — prior site experience is a plus",
-    },
-    {
-      icon: FiMapPin,
-      title: "Location",
-      content: "Pudukkottai, Tamil Nadu",
-    },
-  ];
-
   return (
     <>
-      <div className="min-h-screen flex flex-col gap-6">
+      <div className="min-h-screen flex flex-col ">
         <Navbar />
 
         {/* Hero Banner Section */}
@@ -178,7 +249,7 @@ const JobOpeningPage = () => {
         >
           <Image
             src="/stack4.webp"
-            alt="Job Opening at Gemini Engineering Works - Site Engineer Position"
+            alt="Job openings at Gemini Engineering Works — Site Engineer and Administrative roles"
             fill
             className=""
             priority
@@ -228,6 +299,65 @@ const JobOpeningPage = () => {
                 </div>
 
                 <form onSubmit={handleSubmit} className="p-8 lg:p-10 space-y-6">
+                  {/* Position applying for */}
+                  <div className="relative group" ref={dropdownRef}>
+                    <button
+                      type="button"
+                      onClick={() => setIsDropdownOpen((v) => !v)}
+                      aria-haspopup="listbox"
+                      aria-expanded={isDropdownOpen}
+                      className="w-full px-5 py-4 bg-gray-50 border-2 rounded-xl text-left text-[#343f52] focus:outline-none focus:bg-white transition-all duration-300 roboto-font flex items-center justify-between cursor-pointer "
+                    >
+                      <span>
+                        {
+                          openings.find(
+                            (o) => o.id === formData.positionApplying,
+                          )?.applyLabel
+                        }
+                      </span>
+                      <FiChevronDown className="w-4 h-4 text-gray-400 transition-transform duration-300" />
+                    </button>
+
+                    <label className="absolute left-5 -top-2.5 text-xs bg-white px-2 pointer-events-none roboto-font">
+                      Position applying for *
+                    </label>
+
+                    {isDropdownOpen && (
+                      <ul
+                        role="listbox"
+                        className="absolute z-20 mt-1 w-full bg-white rounded-t-lg rounded-b-xl shadow-lg overflow-hidden roboto-font"
+                      >
+                        {openings.map((o) => (
+                          <li
+                            key={o.id}
+                            role="option"
+                            aria-selected={formData.positionApplying === o.id}
+                            onClick={() => {
+                              setFormData((prev) => ({
+                                ...prev,
+                                positionApplying: o.id,
+                              }));
+                              setIsDropdownOpen(false);
+                            }}
+                            className={`px-5 py-3 cursor-pointer transition-colors duration-150 text-sm ${
+                              formData.positionApplying === o.id
+                                ? "bg-[#eba10e]/10  font-semibold"
+                                : "hover:bg-gray-50"
+                            }`}
+                          >
+                            {o.applyLabel}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    {hasSubmitted && errors.positionApplying && (
+                      <p className="text-red-500 text-xs mt-1 ml-1">
+                        {errors.positionApplying}
+                      </p>
+                    )}
+                  </div>
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Full Name */}
                     <div className="relative group">
@@ -407,7 +537,7 @@ const JobOpeningPage = () => {
                   {/* Validation summary */}
                   {hasSubmitted &&
                     Object.keys(errors).filter(
-                      (key) => key !== "submit" && errors[key]
+                      (key) => key !== "submit" && errors[key],
                     ).length > 0 && (
                       <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl">
                         <div className="flex items-center gap-3 mb-2">
@@ -435,6 +565,11 @@ const JobOpeningPage = () => {
                           {errors.currentLocation && (
                             <li className="text-sm roboto-font">
                               {errors.currentLocation}
+                            </li>
+                          )}
+                          {errors.positionApplying && (
+                            <li className="text-sm roboto-font">
+                              {errors.positionApplying}
                             </li>
                           )}
                         </ul>
@@ -470,28 +605,38 @@ const JobOpeningPage = () => {
                     </p>
                   </div>
 
-                  {/* Job detail items */}
-                  <div className="p-6 space-y-6">
-                    {jobDetails.map((detail, index) => (
-                      <div key={index} className="flex items-start gap-4">
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#eba10e] to-[#f5c04a] flex items-center justify-center flex-shrink-0">
-                          <detail.icon className="w-5 h-5 text-white" />
-                        </div>
-                        <div className="flex-1 pt-1">
-                          <h4 className="text-base font-bold text-[#343f52] mb-1">
-                            {detail.title}
-                          </h4>
-                          <p className="text-gray-600 text-sm leading-relaxed roboto-font">
-                            {detail.content}
-                          </p>
+                  {/* Job openings */}
+                  <div className="p-6 space-y-8">
+                    {openings.map((opening, openingIndex) => (
+                      <div key={opening.id}>
+                        {openingIndex > 0 && (
+                          <div className="border-t border-gray-200 mb-8" />
+                        )}
+                        <h4 className="text-lg font-bold text-[#343f52] mb-4">
+                          {opening.heading}
+                        </h4>
+                        <div className="space-y-6">
+                          {opening.details.map((detail, index) => (
+                            <div
+                              key={`${opening.id}-${detail.title}-${index}`}
+                              className="flex items-start gap-4"
+                            >
+                              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#eba10e] to-[#f5c04a] flex items-center justify-center flex-shrink-0">
+                                <detail.icon className="w-5 h-5 text-white" />
+                              </div>
+                              <div className="flex-1 pt-1">
+                                <h5 className="text-base font-bold text-[#343f52] mb-1">
+                                  {detail.title}
+                                </h5>
+                                <p className="text-gray-600 text-sm leading-relaxed roboto-font">
+                                  {detail.content}
+                                </p>
+                              </div>
+                            </div>
+                          ))}
                         </div>
                       </div>
                     ))}
-                  </div>
-
-                  {/* Divider */}
-                  <div className="px-6">
-                    <div className="border-t border-gray-200" />
                   </div>
                 </div>
               </div>
@@ -500,8 +645,8 @@ const JobOpeningPage = () => {
         </main>
 
         {/* Animated Truck */}
-        <div className="relative mt-16 h-24 w-full">
-          <div className="absolute -bottom-8 left-0 animate-truck-move">
+        <div className="relative mt-16 h-44 w-full overflow-hidden">
+          <div className="absolute -bottom-4 left-0 animate-truck-move">
             <Image
               src="/images/vehicle-3.svg"
               alt="JCB Truck"
@@ -510,9 +655,8 @@ const JobOpeningPage = () => {
               className="object-contain -scale-x-100"
             />
           </div>
+          <Footer />
         </div>
-
-        <Footer />
       </div>
     </>
   );
