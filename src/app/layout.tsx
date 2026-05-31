@@ -255,10 +255,10 @@ export const metadata: Metadata = {
       "Buy PSC poles and RCC poles in Tamil Nadu from Gemini Engineering Works. Leading manufacturer since 1999 in Pudukkottai, Tamilnadu. TNEB approved. Bulk orders welcome.",
     images: [
       {
-        url: "https://geminiengineeringworks.in/logo.webp",
+        url: "/hero1.webp",
         width: 1200,
         height: 630,
-        alt: "Gemini Engineering Works - PSC & RCC Electric Pole Manufacturers",
+        alt: "PSC Pole Casting Yard at Gemini Engineering Works manufacturing facility in Pudukkottai",
       },
     ],
   },
@@ -267,7 +267,7 @@ export const metadata: Metadata = {
     title: "Buy PSC & RCC Poles in Tamil Nadu | Gemini Engineering Works",
     description:
       "Buy PSC poles and RCC poles in Tamil Nadu. Leading manufacturer since 1999 in Pudukkottai, Tamilnadu. TNEB approved.",
-    images: ["/logo.webp"],
+    images: ["/hero1.webp"],
   },
   robots: {
     index: true,

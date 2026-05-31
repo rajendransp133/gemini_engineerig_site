@@ -93,11 +93,11 @@ const OurMissionVisionSection = () => {
         </header>
 
         {/* Desktop: Cards Grid */}
-        <div className="hidden md:grid md:grid-cols-3 gap-8">
+        <div className="hidden md:grid md:grid-cols-3 gap-8 md:items-stretch">
           {cards.map((card, index) => (
             <div
               key={index}
-              className="bg-gray-50 rounded-lg p-8 border border-[#f0f0f0] duration-300 text-center"
+              className="bg-gray-50 rounded-lg p-8 border border-[#f0f0f0] duration-300 text-center h-full flex flex-col"
             >
               <div className="w-20 h-20 mx-auto mb-6 bg-white rounded-lg flex items-center justify-center">
                 <Image
@@ -118,21 +118,24 @@ const OurMissionVisionSection = () => {
           ))}
         </div>
 
-        {/* Mobile: Carousel */}
+        {/* Mobile: Carousel — fixed min-height so every slide matches the tallest card */}
         <div className="md:hidden">
           <div
-            className="overflow-hidden"
+            className="overflow-hidden min-h-[26rem]"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
             <div
-              className="flex transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+              className="flex h-full transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
               style={{ transform: `translateX(-${activeIndex * 100}%)` }}
             >
               {cards.map((card, index) => (
-                <div key={index} className="w-full flex-shrink-0 px-2">
-                  <div className="bg-gray-50 rounded-lg p-8 border border-[#f0f0f0] duration-300 text-center">
+                <div
+                  key={index}
+                  className="w-full flex-shrink-0 px-2 h-full min-h-[26rem]"
+                >
+                  <div className="bg-gray-50 rounded-lg p-8 border border-[#f0f0f0] duration-300 text-center h-full min-h-[26rem] flex flex-col">
                     <div className="w-20 h-20 mx-auto mb-6 bg-white rounded-lg flex items-center justify-center">
                       <Image
                         src={card.icon}

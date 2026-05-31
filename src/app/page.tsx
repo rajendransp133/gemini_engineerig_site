@@ -124,6 +124,22 @@ export const metadata: Metadata = {
       "Buy PSC poles (PSC) and RCC poles in Tamil Nadu from Gemini Engineering Works, Pudukkottai. TNEB approved manufacturer since 1999. Call +91 63744 48522.",
     url: "https://geminiengineeringworks.in",
     type: "website",
+    images: [
+      {
+        url: "/hero1.webp",
+        width: 1200,
+        height: 630,
+        alt: "PSC Pole Casting Yard at Gemini Engineering Works manufacturing facility in Pudukkottai",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Buy PSC & RCC Poles in Tamil Nadu | TNEB Approved | Gemini Engineering Works",
+    description:
+      "Buy PSC poles (PSC) and RCC poles in Tamil Nadu from Gemini Engineering Works, Pudukkottai. TNEB approved manufacturer since 1999. Call +91 63744 48522.",
+    images: ["/hero1.webp"],
   },
   alternates: {
     canonical: "https://geminiengineeringworks.in",
