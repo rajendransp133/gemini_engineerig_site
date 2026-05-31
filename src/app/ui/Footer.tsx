@@ -105,25 +105,6 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-
-            {/* Google Map Section */}
-            <div>
-              <h3 className="text-[#1a1f2e] text-lg font-semibold mb-6 flex items-center gap-3 uppercase tracking-wider">
-                Our Location
-                <span className="flex-1 h-[2px] bg-[#eba10e] max-w-[60px]"></span>
-              </h3>
-              <a
-                href="https://maps.google.com/?q=10.4763535,78.7853814"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-gray-600 hover:text-[#eba10e] transition-colors text-sm roboto-font no-underline"
-              >
-                View on Google Maps →
-              </a>
-              <p className="text-gray-600 text-sm roboto-font mt-2">
-                SFNO. 27/6F2 Ganesh Nagar, Sathiyamangalam, Pudukkottai - 622501
-              </p>
-            </div>
           </div>
         </div>
       </div>
