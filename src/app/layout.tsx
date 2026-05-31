@@ -2,6 +2,15 @@ import type { Metadata } from "next";
 import "./globals.css";
 import WhatsAppButton from "./ui/WhatsAppButton";
 
+import { Roboto } from "next/font/google";
+
+const roboto = Roboto({
+  weight: ["300", "400", "500", "700"],
+  subsets: ["latin"],
+  variable: "--font-roboto",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://geminiengineeringworks.in/"),
   title: {
@@ -246,7 +255,7 @@ export const metadata: Metadata = {
       "Buy PSC poles and RCC poles in Tamil Nadu from Gemini Engineering Works. Leading manufacturer since 1999 in Pudukkottai, Tamilnadu. TNEB approved. Bulk orders welcome.",
     images: [
       {
-        url: "/logo.webp",
+        url: "https://geminiengineeringworks.in/logo.webp",
         width: 1200,
         height: 630,
         alt: "Gemini Engineering Works - PSC & RCC Electric Pole Manufacturers",
@@ -294,7 +303,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={roboto.className}>
         {children}
         <WhatsAppButton />
       </body>

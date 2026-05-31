@@ -19,7 +19,8 @@ const LogoIcon = ({ variant = "navbar" }: LogoIconProps) => {
         width={300}
         height={300}
         priority
-        className={`object-contain relative z-10 transition-transform duration-300 group-hover:scale-105 w-auto ${sizeClasses}`}
+        style={{ width: "auto" }}
+        className={`object-contain relative z-10 transition-transform duration-300 group-hover:scale-105 ${sizeClasses}`}
       />
     </Link>
   );

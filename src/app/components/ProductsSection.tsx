@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { FaArrowRight } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import Link from "next/link";
 import Button from "../ui/Button";
@@ -15,6 +14,8 @@ interface Product {
     description: string;
   }[];
   image: string;
+  redirectImage?: string;
+  redirectLink?: string;
 }
 
 const products: Product[] = [
@@ -39,6 +40,9 @@ const products: Product[] = [
       },
     ],
     image: "/images/products/rcc-pole-150kg.webp",
+    redirectImage: "/Government_e_Marketplace_Logo.jpg",
+    redirectLink:
+      "https://mkp.gem.gov.in/reinforced-concrete-poles-overhead-power-telecommunication-lines-785/reinforced-concrete-poles/p-5116877-77720843346-cat.html#variant_id=5116877-77720843346",
   },
   {
     title: "9 Metre PSC Pole (300kg WL)",
@@ -62,6 +66,9 @@ const products: Product[] = [
       },
     ],
     image: "/images/products/psc-pole-9m-300kg.webp",
+    redirectImage: "/Government_e_Marketplace_Logo.jpg",
+    redirectLink:
+      "https://mkp.gem.gov.in/reinforced-concrete-poles-overhead-power-telecommunication-lines-785/reinforced-concrete-poles/p-5116877-77720843346-cat.html#variant_id=5116877-77720843346",
   },
 
   {
@@ -109,15 +116,57 @@ const products: Product[] = [
     ],
     image: "/images/products/base-plate.webp",
   },
+  {
+    title: "Hollow Block — 4inch & 6inch",
+    description:
+      "Buy hollow blocks (4inch and 6inch sizes). High-quality concrete hollow blocks manufactured for construction projects.  ",
+    features: [
+      {
+        title: "Available Sizes",
+        description:
+          "4inch and 6inch hollow blocks for various construction needs.",
+      },
+
+      {
+        title: "Quality",
+        description:
+          "Manufactured with quality concrete for strength and durability.",
+      },
+    ],
+    image: "/images/products/hollow-block.webp",
+  },
+  {
+    title: "Fencing Post ",
+    description:
+      "Pre-stressed concrete fencing posts manufactured with high tensile strength(HTS) wire for durability and longevity. Ideal for boundary fencing, agricultural fencing, and compound walls",
+    features: [
+      {
+        title: "Curing Peroid",
+        description: "28 days curing peroid",
+      },
+      {
+        title: "Applications",
+        description:
+          "Ideal for boundary fencing, agricultural fencing, and compound walls.",
+      },
+      {
+        title: "Cement Grade",
+        description: "OPC-53  grade cement",
+      },
+    ],
+    image: "/images/products/fencing-post-hts.webp",
+  },
 ];
 
 // Product Modal Component
 const ProductModal = ({
   product,
+  productIndex,
   isOpen,
   onClose,
 }: {
   product: Product | null;
+  productIndex: number;
   isOpen: boolean;
   onClose: () => void;
 }) => {
@@ -132,85 +181,121 @@ const ProductModal = ({
       />
 
       {/* Modal */}
-      <div className="fixed inset-0 z-[1001] flex items-center justify-center p-3 sm:p-4 md:p-6 pointer-events-none">
+      <div className="fixed inset-0 z-[1001] flex items-center justify-center p-3 sm:p-6 pointer-events-none">
         <div
-          className="relative bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[95vh] sm:max-h-[90vh] overflow-hidden pointer-events-auto animate-modal-in flex flex-col"
+          className="relative bg-white rounded-2xl w-full max-w-xl max-h-[92vh] sm:max-h-[88vh] overflow-hidden pointer-events-auto animate-modal-in flex flex-col border border-gray-100 shadow-2xl"
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Card-style Dark Header */}
-          <div className="relative bg-[#343f52] px-5 sm:px-6 pt-5 sm:pt-6 pb-8 sm:pb-10">
+          {/* Header — matches card design */}
+          <div className="relative bg-[#343f52] px-6 sm:px-8 pt-6 sm:pt-8 pb-6 sm:pb-8 overflow-hidden flex-shrink-0">
+            {/* Faded background number */}
+            <span className="absolute right-6 top-1/2 -translate-y-1/2 text-9xl font-black text-white/[0.06] select-none leading-none pointer-events-none">
+              {String(productIndex + 1).padStart(2, "0")}
+            </span>
+
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-3 right-3 sm:top-4 sm:right-4 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-200 cursor-pointer border-none z-10"
+              className="absolute top-4 right-4 sm:top-5 sm:right-5 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-200 cursor-pointer border-none z-10"
               aria-label="Close modal"
             >
-              <IoClose className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+              <IoClose className="w-5 h-5 text-white" />
             </button>
 
+            {/* Amber accent bar */}
+            <div className="w-10 h-1 bg-[#eba10e] rounded-full mb-4" />
+
             {/* Title */}
-            <div className="pr-10 sm:pr-12">
-              <h2 className="text-xl sm:text-2xl font-bold text-white leading-snug">
-                {product.title}
-              </h2>
-            </div>
+            <h2 className="text-xl sm:text-2xl font-bold text-white leading-snug pr-12 relative z-10">
+              {product.title}
+            </h2>
           </div>
 
-          {/* Wave separator - matching card style */}
-          <div className="relative -mt-4">
-            <svg
-              viewBox="0 0 400 30"
-              className="w-full h-5 text-white"
-              preserveAspectRatio="none"
-            >
-              <path
-                fill="currentColor"
-                d="M0,20 C100,0 300,30 400,10 L400,30 L0,30 Z"
-              />
-            </svg>
-          </div>
-
-          {/* Card Body */}
-          <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 flex-1 overflow-y-auto">
+          {/* Scrollable Body */}
+          <div className="px-6 sm:px-8 py-6 sm:py-7 flex-1 overflow-y-auto space-y-6">
             {/* Description */}
-            <div className="mb-5">
-              <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-justify roboto-font">
-                {product.description}
-              </p>
-            </div>
+            <p className="text-gray-600 text-sm sm:text-base leading-relaxed text-justify roboto-font">
+              {product.description}
+            </p>
 
-            {/* Key Features - styled like card features */}
-            <div className="space-y-3 mb-5">
+            {/* Features */}
+            <div className="space-y-3.5">
               {product.features.map((feature, index) => (
-                <div key={index} className="flex items-start gap-2.5">
-                  <div className="flex-shrink-0 mt-1">
-                    <div className="w-5 h-5 rounded-full flex items-center justify-center">
-                      <FaArrowRight className="text-black text-[10px]" />
-                    </div>
-                  </div>
-                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed roboto-font">
+                <div key={index} className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#eba10e] mt-2 flex-shrink-0" />
+                  <p className="text-gray-600 text-sm leading-relaxed roboto-font">
                     <span className="font-semibold text-gray-800">
-                      {feature.title}:
-                    </span>{" "}
+                      {feature.title}:{" "}
+                    </span>
                     {feature.description}
                   </p>
                 </div>
               ))}
             </div>
 
-            {/* Divider - matching card style */}
-            <div className="h-px bg-gradient-to-r from-gray-200 via-amber-200 to-gray-200 mb-4" />
+            {/* GeM redirect */}
+            {product.redirectImage && (
+              <div className="rounded-xl p-4 sm:p-5 border border-gray-200 bg-gray-50">
+                <div className="flex items-center justify-between gap-4 flex-wrap sm:flex-nowrap">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-sm font-semibold text-gray-800 mb-1">
+                      Available on Government e-Marketplace
+                    </h3>
+                    <p className="text-xs text-gray-500 mb-3">
+                      Check pricing & place orders via GeM portal
+                    </p>
+                    <button
+                      onClick={() =>
+                        window.open(product.redirectLink, "_blank")
+                      }
+                      className="cursor-pointer inline-flex items-center gap-2 text-xs font-semibold text-[#343f52] hover:text-[#eba10e] transition-colors"
+                    >
+                      <span>View on GeM Portal</span>
+                      <svg
+                        className="w-3.5 h-3.5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <div className="flex-shrink-0">
+                    <Image
+                      src={product.redirectImage}
+                      alt="Government e-Marketplace"
+                      width={130}
+                      height={70}
+                      className="cursor-pointer hover:scale-105 transition-transform object-contain"
+                      onClick={() =>
+                        window.open(product.redirectLink, "_blank")
+                      }
+                      title="Buy from Government e-Marketplace"
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
 
-            {/* CTA */}
-            <Link href="/contact" className="block no-underline">
-              <Button className="w-full cursor-pointer">
-                Contact Us for Pricing
-              </Button>
-            </Link>
+            {/* Get Quote CTA */}
+            {!product.redirectImage && (
+              <div className="pt-1">
+                <div className="h-px bg-gradient-to-r from-gray-200 via-amber-200 to-gray-200 mb-5" />
+                <Link href="/contact" className="block no-underline">
+                  <Button className="w-full cursor-pointer">Get Quote</Button>
+                </Link>
+              </div>
+            )}
           </div>
 
           {/* Bottom accent line */}
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#eba10e] to-[#f5c04a]" />
+          <div className="h-1 bg-gradient-to-r from-[#eba10e] to-[#f5c04a] flex-shrink-0" />
         </div>
       </div>
 
@@ -219,7 +304,7 @@ const ProductModal = ({
         @keyframes modalIn {
           from {
             opacity: 0;
-            transform: scale(0.95) translateY(20px);
+            transform: scale(0.95) translateY(16px);
           }
           to {
             opacity: 1;
@@ -227,7 +312,7 @@ const ProductModal = ({
           }
         }
         .animate-modal-in {
-          animation: modalIn 0.3s ease-out forwards;
+          animation: modalIn 0.25s ease-out forwards;
         }
       `}</style>
     </>
@@ -236,10 +321,12 @@ const ProductModal = ({
 
 const ProductsSection = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const openModal = (product: Product) => {
+  const openModal = (product: Product, index: number) => {
     setSelectedProduct(product);
+    setSelectedIndex(index);
     setIsModalOpen(true);
     document.body.style.overflow = "hidden";
   };
@@ -269,7 +356,7 @@ const ProductsSection = () => {
 
   return (
     <section
-      className="py-16 md:py-24 bg-gray-50"
+      className="py-8 md:py-12 bg-gray-50"
       aria-labelledby="products-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -298,67 +385,51 @@ const ProductsSection = () => {
         </header>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
           {products.map((product, index) => (
             <div
               key={index}
-              onClick={() => openModal(product)}
-              className="relative bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-400 cursor-pointer group overflow-hidden hover:-translate-y-1.5 flex flex-col"
+              onClick={() => openModal(product, index)}
+              className="relative bg-white rounded-2xl overflow-hidden cursor-pointer group  transition-all duration-300 flex flex-col border border-gray-100"
             >
-              {/* Top Header */}
-              <div className="relative bg-[#343f52] px-5 pt-5 pb-8">
-                {/* Title */}
-                <h3 className="text-lg font-bold text-white leading-snug">
+              {/* Card Header */}
+              <div className="relative bg-[#343f52] px-5 pt-5 pb-5 overflow-hidden">
+                {/* Faded background number */}
+                <span className="absolute right-4 top-1/2 -translate-y-1/2 text-8xl font-black text-white/[0.07] select-none leading-none pointer-events-none">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                {/* Amber accent bar */}
+                <div className="w-8 h-1 bg-[#eba10e] rounded-full mb-3" />
+                <h3 className="text-base sm:text-lg font-bold text-white leading-snug relative z-10 pr-12">
                   {product.title}
                 </h3>
               </div>
 
-              {/* Wave separator */}
-              <div className="relative -mt-4">
-                <svg
-                  viewBox="0 0 400 30"
-                  className="w-full h-5 text-white"
-                  preserveAspectRatio="none"
-                >
-                  <path
-                    fill="currentColor"
-                    d="M0,20 C100,0 300,30 400,10 L400,30 L0,30 Z"
-                  />
-                </svg>
-              </div>
-
               {/* Card Body */}
-              <div className="px-5 pb-5 pt-0 flex flex-col justify-between flex-1">
-                {/* Key specs preview */}
-                <div className="space-y-2.5 mb-5">
+              <div className="px-5 pt-4 pb-5 flex flex-col flex-1">
+                {/* Features */}
+                <div className="space-y-2.5 flex-1 mb-4">
                   {product.features.slice(0, 2).map((feature, fIdx) => (
                     <div key={fIdx} className="flex items-start gap-2.5">
-                      <div className="flex-shrink-0 mt-1">
-                        <div className="w-5 h-5 rounded-full  flex items-center justify-center">
-                          <FaArrowRight className="text-black text-[10px]" />
-                        </div>
-                      </div>
-                      <p className="text-gray-600 text-xs leading-relaxed line-clamp-2 roboto-font">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#eba10e] mt-1.5 flex-shrink-0" />
+                      <p className="text-gray-600 text-xs leading-relaxed roboto-font line-clamp-2">
                         <span className="font-semibold text-gray-800">
-                          {feature.title}:
-                        </span>{" "}
+                          {feature.title}:{" "}
+                        </span>
                         {feature.description}
                       </p>
                     </div>
                   ))}
                 </div>
 
-                {/* Divider */}
-                <div className="h-px bg-gradient-to-r from-gray-200 via-amber-200 to-gray-200 mb-4" />
-
                 {/* CTA */}
-                <div className="flex items-center justify-between">
-                  <span className="text-[#eba10e] font-semibold text-sm group-hover:text-amber-600 transition-colors">
+                <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
+                  <span className="text-sm font-semibold text-[#343f52]  ">
                     View Details
                   </span>
-                  <div className="w-8 h-8 rounded-full bg-amber-50 group-hover:bg-[#eba10e] flex items-center justify-center transition-all duration-300">
+                  <div className="w-8 h-8 rounded-full border border-[#eba10e] group-hover:bg-[#eba10e]  flex items-center justify-center transition-all duration-300">
                     <svg
-                      className="w-3.5 h-3.5 text-[#eba10e] group-hover:text-white group-hover:translate-x-0.5 transition-all duration-300"
+                      className="w-3.5 h-3.5 text-[#eba10e] group-hover:text-white  transition-colors duration-300"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -374,8 +445,8 @@ const ProductsSection = () => {
                 </div>
               </div>
 
-              {/* Bottom accent line on hover */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#eba10e] to-[#f5c04a] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left" />
+              {/* Bottom accent — always visible, grows on hover */}
+              <div className="h-1 bg-gradient-to-r from-[#eba10e] to-[#f5c04a] transform scale-x-0  transition-transform duration-300 origin-left" />
             </div>
           ))}
         </div>
@@ -395,6 +466,7 @@ const ProductsSection = () => {
       {/* Product Modal */}
       <ProductModal
         product={selectedProduct}
+        productIndex={selectedIndex}
         isOpen={isModalOpen}
         onClose={closeModal}
       />

@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Quintessential&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Quintessential&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 @import "flowbite-react/plugin/tailwindcss";
 @source "../../.flowbite-react/class-list.json";
@@ -29,7 +28,7 @@ body {
 }
 
 .roboto-font {
-  font-family: "Roboto", sans-serif !important;
+  font-family: var(--font-roboto), "Roboto", sans-serif !important;
 }
 
 /* Smooth scrolling and better accessibility */

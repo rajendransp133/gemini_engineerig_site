@@ -40,7 +40,7 @@ const OurMissionVisionSection = () => {
         setActiveIndex((prev) => (prev + 1) % cards.length);
       }, 2000);
     },
-    [cards.length]
+    [cards.length],
   );
 
   const handleTouchStart = useCallback((e: React.TouchEvent) => {

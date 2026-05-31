@@ -53,8 +53,8 @@ const TNEBPoleSection = () => {
             TNEB Standard Pole Manufacturing
           </h2>
           <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-2xl mx-auto roboto-font">
-            We specialize in the high-volume production of electric poles designed
-            strictly according to{" "}
+            We specialize in the high-volume production of electric poles
+            designed strictly according to{" "}
             <span className="text-[#eba10e] font-semibold roboto-font">
               Tamil Nadu Electricity Board (TNEB)
             </span>{" "}
@@ -103,7 +103,8 @@ const TNEBPoleSection = () => {
                     alt="Tamil Nadu Electricity Board (TNEB) logo - Official supplier certification"
                     width={380}
                     height={200}
-                    className="rounded-xl object-contain w-full max-w-[380px] h-auto"
+                    style={{ height: "auto" }}
+                    className="rounded-xl object-contain w-full max-w-[380px]"
                   />
                 </div>
               </div>

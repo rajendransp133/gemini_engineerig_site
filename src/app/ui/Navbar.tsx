@@ -35,15 +35,13 @@ const Navbar = () => {
     { name: "Home", href: "/" },
     { name: "About Us", href: "/#about" },
     { name: "Products", href: "/#products" },
-    { name: "Contact Us", href: "/contact" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-500 ease-out bg-white shadow-[0_4px_30px_rgba(0,0,0,0.08)] animate-nav-slide-down ${
-          scrolled ? "py-3" : "py-4"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-500 ease-out bg-white  animate-nav-slide-down py-3`}
       >
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 flex items-center justify-between">
           {/* Logo Section */}
@@ -90,10 +88,12 @@ const Navbar = () => {
 
       {/* Mobile Sidebar */}
       <aside
-        className={`fixed top-0 left-0 w-[min(300px,85vw)] sm:w-[min(380px,75vw)] md:w-[400px] h-screen bg-white z-[1002] transition-transform duration-500 ease-out flex flex-col shadow-[4px_0_40px_rgba(0,0,0,0.1)] ${
+        className={`fixed top-0 left-0 w-[min(300px,85vw)] sm:w-[min(380px,75vw)] md:w-[400px] h-screen bg-white z-[1002] transition-transform duration-500 ease-out flex flex-col  ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
-        style={{ paddingBottom: 'max(1.5rem, env(safe-area-inset-bottom, 0px))' }}
+        style={{
+          paddingBottom: "max(1.5rem, env(safe-area-inset-bottom, 0px))",
+        }}
       >
         {/* Sidebar Header */}
         <div className="px-4 py-4 sm:px-6 sm:py-5 flex items-center justify-between flex-shrink-0">

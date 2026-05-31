@@ -15,7 +15,11 @@ const stats = [
 
 const Experience = () => {
   return (
-    <section className="py-16" style={{ backgroundColor: "#eef1f5" }} aria-label="Company Experience and Statistics">
+    <section
+      className="py-16"
+      style={{ backgroundColor: "#eef1f5" }}
+      aria-label="Company Experience and Statistics"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-30">
           {/* Left Side - Stats */}
@@ -23,7 +27,7 @@ const Experience = () => {
             {stats.map((stat, index) => (
               <div key={index} className="flex flex-col items-center">
                 <div
-                  className="w-28 h-24 md:w-32 md:h-28 flex items-center justify-center rounded-lg shadow-sm"
+                  className="w-28 h-24 md:w-32 md:h-28 flex items-center justify-center rounded-lg "
                   style={{ backgroundColor: stat.bgColor }}
                 >
                   <span
@@ -65,6 +69,7 @@ const Experience = () => {
                 src="/stack2.webp"
                 alt="Gemini Engineering Works manufacturing facility showing electric pole production and quality control"
                 fill
+                sizes="(max-width: 768px) 288px, 384px"
                 className="object-cover"
               />
             </div>
