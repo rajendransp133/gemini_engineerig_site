@@ -10,9 +10,9 @@ const StructuredData = () => {
     alternateName: "Gemini Engg Works",
     url: baseUrl,
     logo: `${baseUrl}/logo.webp`,
-    image: `${baseUrl}/logo.webp`,
+    image: `${baseUrl}/hero1.webp`,
     description:
-      "Buy PSC poles (PSCC) and RCC poles in Tamil Nadu from Gemini Engineering Works, Pudukkottai. Leading manufacturer since 1999. Supplying to Chennai, Coimbatore, Madurai, Trichy, Salem & all districts. Order RCC poles (9m, 150kg), PSC poles (8m-9m, 200-300kg), base plates. IS 1678, IS 2905, IS 7321 certified. TNEB approved supplier. Wholesale & bulk orders welcome.",
+      "Buy PSC poles (PSC) and RCC poles in Tamil Nadu from Gemini Engineering Works, Pudukkottai. TNEB approved manufacturer since 1999. Call +91 63744 48522.",
     foundingDate: "1999",
     founder: {
       "@type": "Person",
@@ -199,7 +199,7 @@ const StructuredData = () => {
       },
       category: "Electric Pole",
       sku: "RCC-9M-150KG",
-      
+
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: "4.8",
@@ -269,7 +269,7 @@ const StructuredData = () => {
       },
       category: "Electric Pole",
       sku: "PSC-9M-300KG",
-      
+
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: "4.9",
@@ -334,7 +334,7 @@ const StructuredData = () => {
       },
       category: "Electric Pole",
       sku: "PSC-8M-200KG",
-     
+
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: "4.7",
@@ -404,7 +404,7 @@ const StructuredData = () => {
       },
       category: "Base Plate",
       sku: "RCC-BASE-450X450X75",
-     
+
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: "4.8",
