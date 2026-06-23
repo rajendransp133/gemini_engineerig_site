@@ -2,10 +2,16 @@ import type { Metadata } from "next";
 import "./globals.css";
 import WhatsAppButton from "./ui/WhatsAppButton";
 
-import { Roboto } from "next/font/google";
+import { Oswald, Roboto } from "next/font/google";
+
+const oswald = Oswald({
+  subsets: ["latin"],
+  variable: "--font-oswald",
+  display: "swap",
+});
 
 const roboto = Roboto({
-  weight: ["300", "400", "500", "700"],
+  weight: ["400", "500", "700"],
   subsets: ["latin"],
   variable: "--font-roboto",
   display: "swap",
@@ -303,7 +309,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={roboto.className}>
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/hero1.webp"
+          fetchPriority="high"
+        />
+      </head>
+      <body className={`${oswald.variable} ${roboto.variable} ${oswald.className}`}>
         {children}
         <WhatsAppButton />
       </body>

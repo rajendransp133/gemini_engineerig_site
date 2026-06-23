@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { IoClose } from "react-icons/io5";
+import { IoChevronForward, IoClose } from "react-icons/io5";
+import { FaCheckCircle } from "react-icons/fa";
 import Link from "next/link";
 import Button from "../ui/Button";
 
@@ -222,7 +223,7 @@ const ProductModal = ({
             <div className="space-y-3.5">
               {product.features.map((feature, index) => (
                 <div key={index} className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#eba10e] mt-2 flex-shrink-0" />
+                  <FaCheckCircle className="text-[#eba10e] text-sm flex-shrink-0 mt-0.5" />
                   <p className="text-gray-600 text-sm leading-relaxed roboto-font">
                     <span className="font-semibold text-gray-800">
                       {feature.title}:{" "}
@@ -399,8 +400,7 @@ const ProductsSection = () => {
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 {/* Amber accent bar */}
-                <div className="w-8 h-1 bg-[#eba10e] rounded-full mb-3" />
-                <h3 className="text-base sm:text-lg font-bold text-white leading-snug relative z-10 pr-12">
+                <h3 className="text-base sm:text-lg font-bold text-white leading-snug relative z-10 pr-12 mt-4">
                   {product.title}
                 </h3>
               </div>
@@ -411,7 +411,7 @@ const ProductsSection = () => {
                 <div className="space-y-2.5 flex-1 mb-4">
                   {product.features.slice(0, 2).map((feature, fIdx) => (
                     <div key={fIdx} className="flex items-start gap-2.5">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#eba10e] mt-1.5 flex-shrink-0" />
+                      <FaCheckCircle className="text-xs flex-shrink-0 mt-0.5" />
                       <p className="text-gray-600 text-xs leading-relaxed roboto-font line-clamp-2">
                         <span className="font-semibold text-gray-800">
                           {feature.title}:{" "}
@@ -427,20 +427,8 @@ const ProductsSection = () => {
                   <span className="text-sm font-semibold text-[#343f52]  ">
                     View Details
                   </span>
-                  <div className="w-8 h-8 rounded-full border border-[#eba10e] group-hover:bg-[#eba10e]  flex items-center justify-center transition-all duration-300">
-                    <svg
-                      className="w-3.5 h-3.5 text-[#eba10e] group-hover:text-white  transition-colors duration-300"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2.5}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
+                  <div className="w-8 h-8 rounded-full border border-[#eba10e] group-hover:bg-[#eba10e] flex items-center justify-center transition-all duration-300">
+                    <IoChevronForward className="w-3.5 h-3.5 text-[#eba10e] group-hover:text-white transition-colors duration-300" />
                   </div>
                 </div>
               </div>
@@ -452,15 +440,6 @@ const ProductsSection = () => {
         </div>
 
         {/* Specifications Note */}
-        <div className="hidden md:block mt-12 bg-amber-50 border border-amber-200 rounded-lg p-6 text-center">
-          <p className="text-gray-700">
-            <strong>Quality Assured:</strong> All our poles are manufactured as
-            per{" "}
-            <span className="font-semibold text-amber-700">IS 1678:1998</span>{" "}
-            standards and undergo rigorous load testing, bending tests, and
-            crack resistance tests before dispatch.
-          </p>
-        </div>
       </div>
 
       {/* Product Modal */}

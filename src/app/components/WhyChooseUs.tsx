@@ -59,7 +59,7 @@ const WhyChooseUs = () => {
             <div className="flex flex-col gap-6">
               {features.map((feature, index) => (
                 <div key={index} className="flex gap-4">
-                  <FaCheckCircle className="text-amber-500 text-lg flex-shrink-0 self-start mt-1" />
+                  <FaCheckCircle className="text-black text-lg flex-shrink-0 self-start mt-1" />
                   <div className="flex flex-col gap-1">
                     <h3 className="font-bold text-gray-800 text-lg roboto-font">
                       {feature.title}

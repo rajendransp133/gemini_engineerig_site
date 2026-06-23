@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Quintessential&display=swap");
 @import "tailwindcss";
 @import "flowbite-react/plugin/tailwindcss";
 @source "../../.flowbite-react/class-list.json";
@@ -22,7 +21,7 @@ html {
 }
 
 body {
-  font-family: "Oswald", sans-serif;
+  font-family: var(--font-oswald), "Oswald", sans-serif;
   color: var(--primary-color);
   padding-top: 82px; /* Space for fixed navbar */
 }
@@ -63,28 +62,16 @@ a {
   animation: truckMove 25s linear infinite;
 }
 
-.quintessential-regular {
-  font-family: "Quintessential", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
 /* ============================================
    First Load Entrance Animations
    ============================================ */
 
-/* Hero background reveal - scale from 0 to full size */
+/* Hero background reveal - subtle scale only (opacity kept at 1 for LCP) */
 @keyframes heroReveal {
-  0% {
-    opacity: 0;
-    transform: scale(0.5);
+  from {
+    transform: scale(1.04);
   }
-  60% {
-    opacity: 1;
-    transform: scale(1.03);
-  }
-  100% {
-    opacity: 1;
+  to {
     transform: scale(1);
   }
 }
@@ -139,7 +126,7 @@ a {
 
 /* Animation classes */
 .animate-hero-bg {
-  animation: heroReveal 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: heroReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .animate-fade-in-up {

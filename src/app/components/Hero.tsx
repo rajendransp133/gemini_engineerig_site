@@ -42,10 +42,12 @@ const Hero = () => {
               <Image
                 src={slide.src}
                 alt={slide.alt}
-                width={1000}
-                height={1000}
+                width={1920}
+                height={1080}
+                sizes="100vw"
                 className="w-full h-full object-cover"
                 priority={index === 0}
+                loading={index === 0 ? "eager" : "lazy"}
               />
               {/* Cinematic gradient overlay — darker at bottom for depth */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/35 to-black/15" />

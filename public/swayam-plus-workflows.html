@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swayam Plus — Business Process Workflows</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&family=Syne:wght@700;800&display=swap');
+
+  :root {
+    --bg: #0a0e1a;
+    --surface: #111827;
+    --surface2: #1a2235;
+    --border: #1e2d45;
+    --accent-blue: #3b82f6;
+    --accent-teal: #14b8a6;
+    --accent-amber: #f59e0b;
+    --accent-rose: #f43f5e;
+    --accent-violet: #8b5cf6;
+    --accent-green: #22c55e;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #475569;
+    --student: #3b82f6;
+    --partner: #14b8a6;
+    --pic: #8b5cf6;
+    --hei: #f59e0b;
+    --admin: #f43f5e;
+    --notify: #22c55e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body { background: var(--bg); color: var(--text-primary); font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; line-height: 1.6; }
+
+  .header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 24px 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+  .header-left { display: flex; align-items: center; gap: 16px; }
+  .logo { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; color: var(--text-primary); letter-spacing: -0.5px; }
+  .logo span { color: var(--accent-blue); }
+  .badge { background: var(--border); color: var(--text-secondary); font-family: 'IBM Plex Mono', monospace; font-size: 10px; padding: 3px 8px; border-radius: 4px; letter-spacing: 1px; }
+  .header-right { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-muted); }
+
+  .tabs { display: flex; gap: 2px; padding: 16px 40px 0; background: var(--surface); border-bottom: 1px solid var(--border); overflow-x: auto; scrollbar-width: none; }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab { padding: 10px 20px; cursor: pointer; border-radius: 6px 6px 0 0; font-size: 12px; font-weight: 500; color: var(--text-muted); border: 1px solid transparent; border-bottom: none; transition: all 0.2s; white-space: nowrap; display: flex; align-items: center; gap: 8px; }
+  .tab:hover { color: var(--text-secondary); background: var(--surface2); }
+  .tab.active { color: var(--text-primary); background: var(--bg); border-color: var(--border); border-bottom-color: var(--bg); }
+  .tab-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  .content { padding: 40px; max-width: 1400px; margin: 0 auto; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .section-title { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+  .section-subtitle { color: var(--text-secondary); font-size: 13px; margin-bottom: 40px; }
+
+  .flow-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 32px; }
+
+  .flow-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; position: relative; overflow: hidden; }
+  .flow-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .flow-card.student::before { background: var(--student); }
+  .flow-card.partner::before { background: var(--partner); }
+  .flow-card.pic::before { background: var(--pic); }
+  .flow-card.hei::before { background: var(--hei); }
+  .flow-card.admin::before { background: var(--admin); }
+  .flow-card.notify::before { background: var(--notify); }
+
+  .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+  .card-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+  .card-title { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; }
+  .card-num { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--text-muted); margin-left: auto; }
+
+  .steps { display: flex; flex-direction: column; gap: 0; }
+  .step { display: flex; gap: 12px; position: relative; }
+  .step:not(:last-child)::after { content: ''; position: absolute; left: 11px; top: 28px; bottom: 0; width: 1px; background: var(--border); }
+  .step-indicator { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--border); background: var(--surface2); display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--text-muted); margin-top: 2px; position: relative; z-index: 1; }
+  .step-body { padding-bottom: 16px; flex: 1; }
+  .step-title { font-weight: 600; font-size: 13px; color: var(--text-primary); margin-bottom: 4px; }
+  .step-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+  .tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; padding: 2px 7px; border-radius: 4px; background: var(--surface2); border: 1px solid var(--border); color: var(--text-secondary); }
+  .tag.warn { border-color: #f59e0b44; color: var(--accent-amber); background: #f59e0b11; }
+  .tag.info { border-color: #3b82f644; color: var(--accent-blue); background: #3b82f611; }
+  .tag.success { border-color: #22c55e44; color: var(--accent-green); background: #22c55e11; }
+  .tag.danger { border-color: #f43f5e44; color: var(--accent-rose); background: #f43f5e11; }
+  .tag.purple { border-color: #8b5cf644; color: var(--accent-violet); background: #8b5cf611; }
+
+  .master-flow { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 32px; margin-bottom: 32px; }
+  .master-title { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-secondary); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 24px; }
+  .entity-grid { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-bottom: 32px; }
+  .entity-box { padding: 12px 20px; border-radius: 8px; border: 1px solid; font-weight: 600; font-size: 13px; text-align: center; min-width: 120px; }
+  .interaction-list { display: flex; flex-direction: column; gap: 8px; }
+  .interaction { display: flex; align-items: center; gap: 12px; padding: 10px 16px; background: var(--surface2); border-radius: 8px; font-size: 12px; }
+  .interaction-from, .interaction-to { font-weight: 600; padding: 3px 10px; border-radius: 4px; font-size: 11px; min-width: 80px; text-align: center; }
+  .arrow { color: var(--text-muted); font-size: 16px; flex-shrink: 0; }
+  .interaction-desc { color: var(--text-secondary); flex: 1; }
+
+  .policy-box { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; margin-top: 12px; }
+  .policy-title { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+  .policy-items { display: flex; flex-direction: column; gap: 6px; }
+  .policy-item { display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--text-secondary); }
+  .policy-item::before { content: '→'; color: var(--text-muted); flex-shrink: 0; margin-top: 1px; }
+
+  .full-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 28px; margin-bottom: 24px; position: relative; overflow: hidden; }
+  .full-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .full-card.student::before { background: var(--student); }
+  .full-card.partner::before { background: var(--partner); }
+  .full-card.pic::before { background: var(--pic); }
+  .full-card.hei::before { background: var(--hei); }
+  .full-card.admin::before { background: var(--admin); }
+  .full-card.notify::before { background: var(--notify); }
+  .full-card-title { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 800; margin-bottom: 4px; }
+  .full-card-sub { font-size: 12px; color: var(--text-muted); margin-bottom: 24px; font-family: 'IBM Plex Mono', monospace; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+  .notify-section { margin-bottom: 24px; }
+  .notify-section-title { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--text-muted); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .notify-items { display: flex; flex-direction: column; gap: 6px; }
+  .notify-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 12px; background: var(--surface2); border-radius: 6px; font-size: 12px; color: var(--text-secondary); }
+  .notify-trigger { font-family: 'IBM Plex Mono', monospace; font-size: 10px; padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 1px; }
+  .nt-email { background: #3b82f611; color: var(--accent-blue); border: 1px solid #3b82f633; }
+  .nt-system { background: #22c55e11; color: var(--accent-green); border: 1px solid #22c55e33; }
+  .nt-both { background: #8b5cf611; color: var(--accent-violet); border: 1px solid #8b5cf633; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px; }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-secondary); }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+  .callout { background: var(--surface2); border-left: 3px solid var(--accent-amber); border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 12px 0; font-size: 12px; color: var(--text-secondary); }
+  .callout strong { color: var(--accent-amber); }
+
+  @media (max-width: 768px) {
+    .two-col { grid-template-columns: 1fr; }
+    .content { padding: 20px; }
+    .tabs { padding: 12px 20px 0; }
+    .header { padding: 16px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="logo">Swayam<span>+</span></div>
+    <div class="badge">BUSINESS PROCESS WORKFLOWS</div>
+  </div>
+  <div class="header-right">TRANSITION DOCUMENTATION · v6.0</div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showTab('master',this)"><div class="tab-dot" style="background:#94a3b8"></div>Master Flow</div>
+  <div class="tab" onclick="showTab('student',this)"><div class="tab-dot" style="background:var(--student)"></div>Student</div>
+  <div class="tab" onclick="showTab('partner',this)"><div class="tab-dot" style="background:var(--partner)"></div>Partner</div>
+  <div class="tab" onclick="showTab('pic',this)"><div class="tab-dot" style="background:var(--pic)"></div>PIC Member</div>
+  <div class="tab" onclick="showTab('hei',this)"><div class="tab-dot" style="background:var(--hei)"></div>HEI</div>
+  <div class="tab" onclick="showTab('admin',this)"><div class="tab-dot" style="background:var(--admin)"></div>Super Admin</div>
+  <div class="tab" onclick="showTab('notify',this)"><div class="tab-dot" style="background:var(--notify)"></div>Notifications</div>
+  <div class="tab" onclick="showTab('policies',this)"><div class="tab-dot" style="background:var(--accent-amber)"></div>Policies & Rules</div>
+  <div class="tab" onclick="showTab('distlists',this)"><div class="tab-dot" style="background:#ec4899"></div>Distribution Lists</div>
+</div>
+
+<div class="content">
+
+<!-- ===== MASTER ===== -->
+<div class="tab-panel active" id="tab-master">
+  <div class="section-title">Platform Overview</div>
+  <div class="section-subtitle">Swayam Plus is an aggregator and listing platform for industry courses. Partners can host courses on Swayam Plus LMS or redirect to their own LMS. All student registrations are D2C only.</div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:var(--student)"></div>Student</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--partner)"></div>Partner</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--pic)"></div>PIC Member</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--hei)"></div>Higher Education Institution</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--admin)"></div>Super Admin</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--notify)"></div>Notification Layer</div>
+  </div>
+
+  <div class="master-flow">
+    <div class="master-title">Entity Map</div>
+    <div class="entity-grid">
+      <div class="entity-box" style="color:var(--student);border-color:#3b82f644;background:#3b82f611">🎓 Student</div>
+      <div class="entity-box" style="color:var(--partner);border-color:#14b8a644;background:#14b8a611">🏢 Partner</div>
+      <div class="entity-box" style="color:var(--pic);border-color:#8b5cf644;background:#8b5cf611">🔍 PIC Member</div>
+      <div class="entity-box" style="color:var(--hei);border-color:#f59e0b44;background:#f59e0b11">🏛 HEI</div>
+      <div class="entity-box" style="color:var(--admin);border-color:#f43f5e44;background:#f43f5e11">⚙️ Super Admin</div>
+      <div class="entity-box" style="color:var(--notify);border-color:#22c55e44;background:#22c55e11">🔔 Notifications</div>
+    </div>
+    <div class="master-title">Key Interactions</div>
+    <div class="interaction-list">
+      <div class="interaction">
+        <div class="interaction-from" style="background:#3b82f611;color:var(--student);border:1px solid #3b82f633">Student</div>
+        <div class="arrow">→</div>
+        <div class="interaction-to" style="background:#14b8a611;color:var(--partner);border:1px solid #14b8a633">Partner LMS</div>
+        <div class="interaction-desc">Model B only — accesses course via SSO redirect through Swayam Plus</div>
+      </div>
+      <div class="interaction">
+        <div class="interaction-from" style="background:#3b82f611;color:var(--student);border:1px solid #3b82f633">Student</div>
+        <div class="arrow">→</div>
+        <div class="interaction-to" style="background:#22c55e11;color:var(--notify);border:1px solid #22c55e33">Swayam+ LMS</div>
+        <div class="interaction-desc">Model A only — course hosted and accessed directly on Swayam Plus LMS</div>
+      </div>
+      <div class="interaction">
+        <div class="interaction-from" style="background:#14b8a611;color:var(--partner);border:1px solid #14b8a633">Partner</div>
+        <div class="arrow">→</div>
+        <div class="interaction-to" style="background:#f43f5e11;color:var(--admin);border:1px solid #f43f5e33">Super Admin</div>
+        <div class="interaction-desc">Submits due diligence, MOU, EOI, and course metadata for approval</div>
+      </div>
+      <div class="interaction">
+        <div class="interaction-from" style="background:#f43f5e11;color:var(--admin);border:1px solid #f43f5e33">Super Admin</div>
+        <div class="arrow">→</div>
+        <div class="interaction-to" style="background:#8b5cf611;color:var(--pic);border:1px solid #8b5cf633">PIC Member</div>
+        <div class="interaction-desc">Assigns courses for content + metadata review with 2-week window</div>
+      </div>
+      <div class="interaction">
+        <div class="interaction-from" style="background:#f59e0b11;color:var(--hei);border:1px solid #f59e0b33">HEI</div>
+        <div class="arrow">→</div>
+        <div class="interaction-to" style="background:#3b82f611;color:var(--student);border:1px solid #3b82f633">Student</div>
+        <div class="interaction-desc">APAAR-based matching → student consent → course assignment</div>
+      </div>
+      <div class="interaction">
+        <div class="interaction-from" style="background:#3b82f611;color:var(--student);border:1px solid #3b82f633">Student</div>
+        <div class="arrow">→</div>
+        <div class="interaction-to" style="background:#14b8a611;color:var(--partner);border:1px solid #14b8a633">Partner</div>
+        <div class="interaction-desc">Grievances routed to partner (or platform) — 48-hour resolution window</div>
+      </div>
+      <div class="interaction">
+        <div class="interaction-from" style="background:#3b82f611;color:var(--student);border:1px solid #3b82f633">Student</div>
+        <div class="arrow">→</div>
+        <div class="interaction-to" style="background:#8b5cf611;color:var(--pic);border:1px solid #8b5cf633">3rd Party</div>
+        <div class="interaction-desc">Assessment conducted by third party — scheduled via Swayam Plus</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow-grid">
+    <div class="flow-card student">
+      <div class="card-header"><div class="card-icon" style="background:#3b82f611">🎓</div><div class="card-title">Student Journey</div><div class="card-num">15 STAGES</div></div>
+      <div class="steps">
+        <div class="step"><div class="step-indicator">1</div><div class="step-body"><div class="step-title">Browse & D2C Register (ABC + APAAR mandatory)</div></div></div>
+        <div class="step"><div class="step-indicator">2</div><div class="step-body"><div class="step-title">OTP Login → Course Selection & Payment</div></div></div>
+        <div class="step"><div class="step-indicator">3</div><div class="step-body"><div class="step-title">LMS Access — Model A or B</div></div></div>
+        <div class="step"><div class="step-indicator">4</div><div class="step-body"><div class="step-title">Course Consumption (6 months from first login)</div></div></div>
+        <div class="step"><div class="step-indicator">5</div><div class="step-body"><div class="step-title">Assessment Registration → 3rd Party Exam</div></div></div>
+        <div class="step"><div class="step-indicator">6</div><div class="step-body"><div class="step-title">Certification & Certificate</div></div></div>
+        <div class="step"><div class="step-indicator">7</div><div class="step-body"><div class="step-title">Feedback Form (platform + partner)</div></div></div>
+      </div>
+    </div>
+    <div class="flow-card partner">
+      <div class="card-header"><div class="card-icon" style="background:#14b8a611">🏢</div><div class="card-title">Partner Journey</div><div class="card-num">8 STAGES</div></div>
+      <div class="steps">
+        <div class="step"><div class="step-indicator">1</div><div class="step-body"><div class="step-title">Due Diligence → MOU (3-year validity)</div></div></div>
+        <div class="step"><div class="step-indicator">2</div><div class="step-body"><div class="step-title">EOI Submission (every 6 months)</div></div></div>
+        <div class="step"><div class="step-indicator">3</div><div class="step-body"><div class="step-title">Metadata Upload + Hosting Model Selection</div></div></div>
+        <div class="step"><div class="step-indicator">4</div><div class="step-body"><div class="step-title">PIC Review → Course Live</div></div></div>
+        <div class="step"><div class="step-indicator">5</div><div class="step-body"><div class="step-title">Student Enrollment & LMS Access</div></div></div>
+        <div class="step"><div class="step-indicator">6</div><div class="step-body"><div class="step-title">Revenue Reconciliation (monthly)</div></div></div>
+        <div class="step"><div class="step-indicator">7</div><div class="step-body"><div class="step-title">Performance Review</div></div></div>
+        <div class="step"><div class="step-indicator">8</div><div class="step-body"><div class="step-title">Renewal or Exit</div></div></div>
+      </div>
+    </div>
+    <div class="flow-card pic">
+      <div class="card-header"><div class="card-icon" style="background:#8b5cf611">🔍</div><div class="card-title">PIC Member Journey</div><div class="card-num">5 STAGES</div></div>
+      <div class="steps">
+        <div class="step"><div class="step-indicator">1</div><div class="step-body"><div class="step-title">Added by Super Admin</div></div></div>
+        <div class="step"><div class="step-indicator">2</div><div class="step-body"><div class="step-title">Course Assigned (content + metadata)</div></div></div>
+        <div class="step"><div class="step-indicator">3</div><div class="step-body"><div class="step-title">Review within 2-week window</div></div></div>
+        <div class="step"><div class="step-indicator">4</div><div class="step-body"><div class="step-title">Decision — Approve / Reject / Next Cycle</div></div></div>
+        <div class="step"><div class="step-indicator">5</div><div class="step-body"><div class="step-title">Remuneration — ₹5,000 per course</div></div></div>
+      </div>
+    </div>
+    <div class="flow-card hei">
+      <div class="card-header"><div class="card-icon" style="background:#f59e0b11">🏛</div><div class="card-title">HEI Journey</div><div class="card-num">5 STAGES</div></div>
+      <div class="steps">
+        <div class="step"><div class="step-indicator">1</div><div class="step-body"><div class="step-title">Onboarding Application → MOU</div></div></div>
+        <div class="step"><div class="step-indicator">2</div><div class="step-body"><div class="step-title">Single Faculty Admin ID Created</div></div></div>
+        <div class="step"><div class="step-indicator">3</div><div class="step-body"><div class="step-title">APAAR-based Student Matching</div></div></div>
+        <div class="step"><div class="step-indicator">4</div><div class="step-body"><div class="step-title">Student Consent → Course Assignment</div></div></div>
+        <div class="step"><div class="step-indicator">5</div><div class="step-body"><div class="step-title">Dashboard Monitoring</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== STUDENT ===== -->
+<div class="tab-panel" id="tab-student">
+  <div class="section-title" style="color:var(--student)">Student Flow</div>
+  <div class="section-subtitle">End-to-end journey from discovery to certification. All registrations are D2C only.</div>
+
+  <div class="full-card student">
+    <div class="full-card-title">Phase 1 — Discovery & Registration</div>
+    <div class="full-card-sub">ENTRY POINT · D2C ONLY</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--student);color:var(--student)">1</div>
+        <div class="step-body">
+          <div class="step-title">Browse Platform</div>
+          <div class="step-desc">Student lands on Swayam Plus and browses courses without logging in. No registration required to explore.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--student);color:var(--student)">2</div>
+        <div class="step-body">
+          <div class="step-title">D2C Registration</div>
+          <div class="step-desc">All student accounts are created via D2C only — no HEI or partner can create student accounts. Registration captures personal details, ABC number, and APAAR number. Both ABC and APAAR are mandatory. Data consent is captured at this stage.</div>
+          <div class="tags"><span class="tag danger">ABC — mandatory</span><span class="tag danger">APAAR — mandatory</span><span class="tag danger">D2C only — no proxy registration</span><span class="tag">Data consent captured</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--student);color:var(--student)">3</div>
+        <div class="step-body">
+          <div class="step-title">OTP Login</div>
+          <div class="step-desc">All logins are OTP-based to the registered email ID. No username/password system. Applies to all subsequent logins.</div>
+          <div class="tags"><span class="tag info">OTP to registered email</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="full-card student">
+    <div class="full-card-title">Phase 2 — Course Selection & Payment</div>
+    <div class="full-card-sub">TRANSACTION FLOW · THREE FEE MODELS</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--student);color:var(--student)">4</div>
+        <div class="step-body">
+          <div class="step-title">Select Course</div>
+          <div class="step-desc">Student selects a course listed on Swayam Plus. Swayam Plus is the listing and aggregation platform. Actual learning happens on partner LMS (Model B) or Swayam Plus LMS (Model A). Courses fall into three fee types — fully free (no cost for content or certification), free with paid assessment (content free, separate fee for assessment and certification), or fully paid (fee for content access; assessment may be included or charged separately).</div>
+          <div class="tags"><span class="tag success">Fully free — content + cert at no cost</span><span class="tag warn">Free access + paid assessment</span><span class="tag info">Fully paid course</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--student);color:var(--student)">5</div>
+        <div class="step-body">
+          <div class="step-title">Payment on Swayam Plus</div>
+          <div class="step-desc">All payments are collected at Swayam Plus end. Invoice generated immediately upon successful payment. Partner is notified of new enrollment.</div>
+          <div class="tags"><span class="tag success">Invoice auto-generated</span><span class="tag info">Partner notified</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--student);color:var(--student)">6</div>
+        <div class="step-body">
+          <div class="step-title">Refund Policy</div>
+          <div class="step-desc">Student must request a refund within 3 working days of payment or before completing the course — whichever occurs first. Refund requests are reviewed on a case-by-case basis. Learner may be asked to provide screenshots of any technical issues faced on Swayam Plus or the partner portal. Swayam Plus reserves the right to refuse requests deemed fraudulent or against terms and conditions. Once a genuine refund is approved, 100% of payment is returned to the student via the original payment method. Swayam Plus is not responsible for gateway processing duration.</div>
+          <div class="tags"><span class="tag warn">3 working days from payment</span><span class="tag warn">Case-by-case review</span><span class="tag info">Screenshots may be requested</span><span class="tag success">100% refund if approved</span><span class="tag danger">Fraudulent requests refused</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="full-card student">
+    <div class="full-card-title">Phase 3 — LMS Access & Course Consumption</div>
+    <div class="full-card-sub">LEARNING PHASE · 6-MONTH WINDOW FROM FIRST LOGIN</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--student);color:var(--student)">7</div>
+        <div class="step-body">
+          <div class="step-title">LMS Access — Model A (Swayam Plus LMS)</div>
+          <div class="step-desc">If course is hosted on Swayam Plus LMS, student accesses directly within the platform. No redirect. 6-month clock starts at first login.</div>
+          <div class="tags"><span class="tag info">Model A — no redirect</span><span class="tag warn">6-month clock starts at first login</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--student);color:var(--student)">8</div>
+        <div class="step-body">
+          <div class="step-title">LMS Access — Model B (Partner LMS via SSO)</div>
+          <div class="step-desc">If course is hosted on partner LMS, student is redirected via SSO using registered email. Partner provisions access within max 24-hour TAT. If SSO fails, grievance is auto-generated on student dashboard. 6-month clock starts at first login.</div>
+          <div class="tags"><span class="tag info">Model B — SSO redirect</span><span class="tag warn">Max 24-hour TAT</span><span class="tag danger">SSO failure → auto grievance</span><span class="tag warn">6-month clock starts at first login</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--student);color:var(--student)">9</div>
+        <div class="step-body">
+          <div class="step-title">Course Access Rules</div>
+          <div class="step-desc">Student must always access the course through Swayam Plus. Student can only see Swayam Plus-listed courses — not other courses on the partner LMS. Course cannot be paused — must be completed within 6-month window from first login.</div>
+          <div class="tags"><span class="tag warn">6-month window from first login</span><span class="tag">No pause/resume</span><span class="tag">Swayam Plus-listed courses only</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--student);color:var(--student)">10</div>
+        <div class="step-body">
+          <div class="step-title">Access Expiry</div>
+          <div class="step-desc">If student does not complete course within 6 months of first login, access is terminated. Automated email sent 30 days before expiry as warning, and again on expiry communicating termination.</div>
+          <div class="tags"><span class="tag warn">Warning email 30 days before</span><span class="tag danger">Termination email on expiry</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="full-card student">
+    <div class="full-card-title">Phase 4 — Assessment & Certification</div>
+    <div class="full-card-sub">POST-COMPLETION · THIRD PARTY ASSESSMENT</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--student);color:var(--student)">11</div>
+        <div class="step-body">
+          <div class="step-title">Assessment Registration</div>
+          <div class="step-desc">On course completion, student gets option to sign up for assessment on Swayam Plus. Swayam Plus validates course completion — for Model A courses, platform validates internally. For Model B courses, partner confirms completion. Access to assessment is blocked until completion is validated.</div>
+          <div class="tags"><span class="tag info">Model A — platform validates internally</span><span class="tag info">Model B — partner confirms</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--student);color:var(--student)">12</div>
+        <div class="step-body">
+          <div class="step-title">Assessment Payment & Scheduling</div>
+          <div class="step-desc">Separate payment required for assessment and certification. Invoice generated upon payment. Scheduling assistant on Swayam Plus helps student find an exam slot. Assessment is conducted by a third party.</div>
+          <div class="tags"><span class="tag success">Invoice generated</span><span class="tag info">Scheduling on Swayam Plus</span><span class="tag purple">Assessment by 3rd party</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--student);color:var(--student)">13</div>
+        <div class="step-body">
+          <div class="step-title">Rescheduling & No-Show Policy</div>
+          <div class="step-desc">Student can reschedule up to 48 hours before scheduled slot. No reschedule allowed after that. No-show means student must pay again for a fresh booking. No refund for cancellation or no-show under any circumstance.</div>
+          <div class="tags"><span class="tag warn">Reschedule: up to 48 hrs before</span><span class="tag danger">No show = pay again</span><span class="tag danger">No refund</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--student);color:var(--student)">14</div>
+        <div class="step-body">
+          <div class="step-title">Exam Reminder</div>
+          <div class="step-desc">Automated email reminder sent to student 24 hours before the scheduled examination.</div>
+          <div class="tags"><span class="tag info">Email 24 hrs before exam</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--student);color:var(--student)">15</div>
+        <div class="step-body">
+          <div class="step-title">Certificate Generation</div>
+          <div class="step-desc">If student passes (passing criteria defined by partner), a verifiable certificate is generated by Swayam Plus. Certificate is auto-uploaded to ABC portal, emailed to student, and available for download on student dashboard at any time. Student can share certificate link on social media.</div>
+          <div class="tags"><span class="tag success">Auto-upload to ABC portal</span><span class="tag success">Email with link</span><span class="tag success">Dashboard download anytime</span><span class="tag info">Social share enabled</span><span class="tag purple">Certificate issued by Swayam Plus</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--student);color:var(--student)">16</div>
+        <div class="step-body">
+          <div class="step-title">Assessment Failure</div>
+          <div class="step-desc">No reattempts allowed. Student must pay again for a fresh assessment registration and schedule a new slot.</div>
+          <div class="tags"><span class="tag danger">No reattempts</span><span class="tag warn">Must pay and rebook</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="full-card student">
+    <div class="full-card-title">Phase 5 — Feedback</div>
+    <div class="full-card-sub">TRIGGERED AT COMPLETION OR 6-MONTH EXPIRY — WHICHEVER IS EARLIER</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--student);color:var(--student)">17</div>
+        <div class="step-body">
+          <div class="step-title">Feedback Form Trigger</div>
+          <div class="step-desc">A feedback form is automatically triggered at whichever event occurs first — course completion or 6-month access expiry. The form is mandatory and must be submitted before the student's dashboard marks the course as fully closed.</div>
+          <div class="tags"><span class="tag warn">Triggered at completion OR 6-month expiry — whichever is earlier</span><span class="tag info">Mandatory form</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--student);color:var(--student)">18</div>
+        <div class="step-body">
+          <div class="step-title">Feedback Form — Two Sections</div>
+          <div class="step-desc">Section 1 — Platform Experience: Student rates and comments on Swayam Plus as a platform — navigation, payment experience, support, and overall usability. Section 2 — Partner & Course Experience: Student rates the course content quality, instructor effectiveness, LMS experience, and overall satisfaction with the partner's course.</div>
+          <div class="tags"><span class="tag info">Section 1: Platform experience</span><span class="tag info">Section 2: Partner &amp; course experience</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--student);color:var(--student)">19</div>
+        <div class="step-body">
+          <div class="step-title">Feedback Routing</div>
+          <div class="step-desc">Platform feedback is reviewed by Super Admin for platform improvement. Partner and course feedback is aggregated per course and tracked against the 75% satisfaction threshold. Negative feedback on a specific course is shared with the partner by Super Admin requesting rectification.</div>
+          <div class="tags"><span class="tag info">Platform feedback → Super Admin</span><span class="tag warn">Partner feedback → aggregated + tracked</span><span class="tag warn">Negative feedback shared with partner</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="full-card student">
+    <div class="full-card-title">Phase 7 — Grievance</div>
+    <div class="full-card-sub">SUPPORT FLOW</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--student);color:var(--student)">17</div>
+        <div class="step-body">
+          <div class="step-title">Raise a Grievance</div>
+          <div class="step-desc">Student selects grievance type from a dropdown — options include partner name + course, or platform concern. For partner grievances, student explains the issue and it is automatically routed to the partner via email. For platform concerns, it is routed directly to Super Admin / customer service.</div>
+          <div class="tags"><span class="tag info">Partner grievance → routed to partner</span><span class="tag warn">Platform concern → routed to Super Admin</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--student);color:var(--student)">18</div>
+        <div class="step-body">
+          <div class="step-title">Resolution Tracking</div>
+          <div class="step-desc">Progress visible on both student dashboard and partner dashboard. Partner must resolve within 48 hours. If unresolved after 48 hours, grievance is escalated to Super Admin who routes to customer service support.</div>
+          <div class="tags"><span class="tag warn">48-hour partner window</span><span class="tag danger">Escalates to Super Admin if unresolved</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PARTNER ===== -->
+<div class="tab-panel" id="tab-partner">
+  <div class="section-title" style="color:var(--partner)">Partner Flow</div>
+  <div class="section-subtitle">From onboarding through course delivery, revenue reconciliation, and exit</div>
+
+  <div class="full-card partner">
+    <div class="full-card-title">Phase 1 — Partner Onboarding</div>
+    <div class="full-card-sub">ENTRY POINT · SOP SEQUENCE</div>
+    <div class="callout"><strong>Note:</strong> Steps 1–5 below can run in parallel, not necessarily in linear sequence.</div>
+    <div class="steps" style="margin-top:16px">
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--partner);color:var(--partner)">1</div>
+        <div class="step-body">
+          <div class="step-title">Expression of Interest (EOI)</div>
+          <div class="step-desc">Interested organisations initiate the process by submitting an EOI form on the Swayam Plus website. The form captures basic organisational information — name, establishment date, existing partnerships, area of expertise, course content capabilities, and financial information. Once submitted, the Swayam Plus team evaluates and schedules an introductory call.</div>
+          <div class="tags"><span class="tag info">Entry point for all new partners</span><span class="tag">Basic org info + financial info captured</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--partner);color:var(--partner)">2</div>
+        <div class="step-body">
+          <div class="step-title">Due Diligence Form</div>
+          <div class="step-desc">Partner fills a comprehensive due diligence form capturing organisational background, operational capacity, financial stability, partnership history, and readiness to deliver online courses at scale. Super Admin evaluates and approves or rejects with reason.</div>
+          <div class="tags"><span class="tag warn">Legitimacy, experience, financial stability assessed</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--partner);color:var(--partner)">3</div>
+        <div class="step-body">
+          <div class="step-title">Rejection Path</div>
+          <div class="step-desc">Partners rejected at EOI or due diligence stage receive immediate notification with reason. Can reapply only in the next cycle.</div>
+          <div class="tags"><span class="tag danger">Immediate email with reason</span><span class="tag warn">Reapply: next cycle only</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--partner);color:var(--partner)">4</div>
+        <div class="step-body">
+          <div class="step-title">Course Details Form</div>
+          <div class="step-desc">Approved partners provide preliminary information about proposed courses — content overview, delivery format, duration, and intended learner outcomes. This feeds into the course review and onboarding decision.</div>
+          <div class="tags"><span class="tag info">Content overview + delivery format + outcomes</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--partner);color:var(--partner)">5</div>
+        <div class="step-body">
+          <div class="step-title">Course Review & Onboarding Decision</div>
+          <div class="step-desc">Submitted course information is reviewed by the designated academic committee. A formal onboarding decision is communicated to the applicant. Approved courses proceed to technical integration.</div>
+          <div class="tags"><span class="tag info">Formal onboarding decision communicated</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--partner);color:var(--partner)">6</div>
+        <div class="step-body">
+          <div class="step-title">Technical Integration Discussion</div>
+          <div class="step-desc">A technical discussion is scheduled to outline the course onboarding process and API integration framework. API integration scope is determined at this stage based on cycle requirements.</div>
+          <div class="tags"><span class="tag info">API integration scoped here</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--partner);color:var(--partner)">7</div>
+        <div class="step-body">
+          <div class="step-title">MOU Execution via Legality + Manual Upload to Swayam Plus</div>
+          <div class="step-desc">A draft MOU is shared with the partner for review and legal vetting. IIT Madras legal team may be consulted for specific concerns. MOU is signed digitally via "Legality" — a third-party digital signing portal external to Swayam Plus. Automated emails sent to the designated signee and witness for digital signature. Once signed on Legality, the executed MOU is manually uploaded to Swayam Plus by the Super Admin. Only after the upload is confirmed on Swayam Plus does the partner get access to upload course metadata. MOU is valid for 3 years with a reminder sent 3 months before expiry.</div>
+          <div class="tags"><span class="tag purple">Signed via Legality (external 3rd party)</span><span class="tag warn">Manually uploaded to Swayam Plus post-signing</span><span class="tag info">3-year validity</span><span class="tag warn">3-month expiry reminder</span><span class="tag success">Upload unlocks metadata access</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--partner);color:var(--partner)">8</div>
+        <div class="step-body">
+          <div class="step-title">MOU Renewal (after 3 years)</div>
+          <div class="step-desc">MOU renewal is a renewal only — no fresh due diligence required unless Super Admin specifically flags it. Existing courses and enrolled students are not disrupted during the renewal period. Renewal MOU is also signed via Legality and manually uploaded to Swayam Plus.</div>
+          <div class="tags"><span class="tag success">No fresh due diligence</span><span class="tag success">No disruption to courses or students</span><span class="tag warn">Super Admin can flag for re-diligence</span><span class="tag purple">Renewal also via Legality + manual upload</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="full-card partner">
+    <div class="full-card-title">Phase 2 — EOI, Metadata & Hosting Model</div>
+    <div class="full-card-sub">EVERY 6 MONTHS</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--partner);color:var(--partner)">6</div>
+        <div class="step-body">
+          <div class="step-title">EOI Cycle Opens</div>
+          <div class="step-desc">EOI cycle opens once every 6 months. All partners receive email intimation with form link. Partners fill a separate EOI form for each course. Rejected EOI submissions can only be resubmitted in the next cycle.</div>
+          <div class="tags"><span class="tag info">Every 6 months</span><span class="tag">One form per course</span><span class="tag danger">Rejection: next cycle only</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--partner);color:var(--partner)">7</div>
+        <div class="step-body">
+          <div class="step-title">Course Metadata Upload & Hosting Model Selection</div>
+          <div class="step-desc">Once EOI courses are approved, partner uploads final course metadata and selects their hosting model. This decision is locked for the duration of the active enrollment cycle. Every metadata change requires Super Admin approval. Super Admin decides on a case-by-case basis whether a metadata change triggers PIC re-review.</div>
+          <div class="tags"><span class="tag warn">Every change needs Super Admin approval</span><span class="tag info">PIC re-review at Super Admin discretion</span><span class="tag danger">Hosting model locked while enrollments are active</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--partner);color:var(--partner)">7a</div>
+        <div class="step-body">
+          <div class="step-title">Model A — Hosted on Swayam Plus LMS</div>
+          <div class="step-desc">Course is hosted directly on Swayam Plus LMS. Each partner gets a separate, isolated LMS instance — no cross-partner data visibility under any circumstance. Partner has full access to their instance: edit content, download student data, access all analytics. Revenue split: 50% partner / 50% Swayam Plus.</div>
+          <div class="tags"><span class="tag purple">50% partner / 50% Swayam Plus</span><span class="tag success">Full LMS access — isolated instance</span><span class="tag danger">No cross-partner data visibility</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--partner);color:var(--partner)">7b</div>
+        <div class="step-body">
+          <div class="step-title">Model B — Redirect to Partner LMS</div>
+          <div class="step-desc">Course hosted on partner's own LMS. Student redirected via SSO from Swayam Plus. Partner manages their own LMS entirely. Revenue split: 80% partner / 20% Swayam Plus.</div>
+          <div class="tags"><span class="tag success">80% partner / 20% Swayam Plus</span><span class="tag info">SSO redirect</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--partner);color:var(--partner)">8</div>
+        <div class="step-body">
+          <div class="step-title">Hosting Model Change Policy</div>
+          <div class="step-desc">A partner may request to switch hosting model (A↔B) only between EOI cycles — not while a course is live with active enrollments. Request must be flagged to Super Admin. Change takes effect from the next EOI cycle. All existing enrolled students continue on the original model until their 6-month window closes.</div>
+          <div class="tags"><span class="tag danger">No mid-cycle model switch</span><span class="tag warn">Change effective from next EOI cycle</span><span class="tag info">Existing students: original model until expiry</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--partner);color:var(--partner)">9</div>
+        <div class="step-body">
+          <div class="step-title">Course Approval / Rejection</div>
+          <div class="step-desc">After PIC review, Super Admin approves or rejects courses. Partner notified with reason for every action. Approved courses valid for 2 years. Reminder sent 3 months before renewal. When a course is marked for PIC review (including re-reviews), it is blocked for new enrollments until review is complete. Existing students retain access.</div>
+          <div class="tags"><span class="tag info">2-year validity</span><span class="tag warn">3-month renewal reminder</span><span class="tag danger">Blocked for new enrollments during PIC review</span><span class="tag success">Existing students unaffected</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="full-card partner">
+    <div class="full-card-title">Phase 3 — Operations & Revenue</div>
+    <div class="full-card-sub">ONGOING OPERATIONS</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--partner);color:var(--partner)">10</div>
+        <div class="step-body">
+          <div class="step-title">Student Enrollment & Access</div>
+          <div class="step-desc">When a student pays, partner is notified with student details. Model A: student accesses directly on Swayam Plus LMS — partner verifies completion when assessment is requested. Model B: partner LMS provisions SSO access within 24-hour TAT — partner also confirms completion for assessment.</div>
+          <div class="tags"><span class="tag warn">24-hour TAT for Model B</span><span class="tag info">Partner confirms completion for assessment (both models)</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--partner);color:var(--partner)">11</div>
+        <div class="step-body">
+          <div class="step-title">Revenue Reconciliation</div>
+          <div class="step-desc">Revenue split depends on hosting model — 50/50 for Model A, 80/20 for Model B. Approved refunds (within 3 working days, case-by-case) result in 100% return to student with no revenue for either party. Monthly reconciliation report generated and disbursed.</div>
+          <div class="tags"><span class="tag purple">Model A: 50/50</span><span class="tag success">Model B: 80/20</span><span class="tag danger">Refund: 100% back to student</span><span class="tag info">Monthly disbursement</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--partner);color:var(--partner)">12</div>
+        <div class="step-body">
+          <div class="step-title">Partner Dashboard</div>
+          <div class="step-desc">Dashboard shows students registered and paid per course, payment reconciliation status, and grievance inbox.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--partner);color:var(--partner)">13</div>
+        <div class="step-body">
+          <div class="step-title">Grievance Management</div>
+          <div class="step-desc">Student grievances appear in partner dashboard. Must be resolved within 48 hours. Unresolved grievances escalated to Super Admin. Platform concern grievances go directly to Super Admin and do not appear in the partner dashboard.</div>
+          <div class="tags"><span class="tag warn">48-hour resolution window</span><span class="tag danger">Escalates if unresolved</span><span class="tag info">Platform concerns bypass partner</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="full-card partner">
+    <div class="full-card-title">Phase 4 — Performance & Exit</div>
+    <div class="full-card-sub">PERFORMANCE MONITORING</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--partner);color:var(--partner)">14</div>
+        <div class="step-body">
+          <div class="step-title">Performance Threshold — Student Volume</div>
+          <div class="step-desc">Partner courses must clock 1,000 students in 6 months. If threshold is not met, partner receives 30-day notice with email intimation. Course is removed after 30 days. No appeal allowed.</div>
+          <div class="tags"><span class="tag warn">1,000 students / 6 months</span><span class="tag danger">30-day removal notice</span><span class="tag danger">No appeal</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--partner);color:var(--partner)">14a</div>
+        <div class="step-body">
+          <div class="step-title">Performance Threshold — Satisfaction Rate</div>
+          <div class="step-desc">Partner must maintain a minimum 75% positive satisfaction rate based on aggregated student feedback across all feedback submissions for the course. Satisfaction rate is calculated continuously as feedback forms are submitted — triggered at each student's course completion or 6-month expiry, whichever is earlier. If the satisfaction rate drops below 75%, Super Admin is alerted.</div>
+          <div class="tags"><span class="tag warn">Minimum 75% positive feedback required</span><span class="tag info">Aggregated across all submissions per course</span><span class="tag danger">Below 75% triggers alert to Super Admin</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--partner);color:var(--partner)">14b</div>
+        <div class="step-body">
+          <div class="step-title">Satisfaction Breach — 30-Day Warning Period</div>
+          <div class="step-desc">On breach of the 75% threshold, Super Admin issues a 30-day warning to the partner with the aggregated negative feedback and reason. Students enrolled in the course are also notified that the course is under review and may be removed in 30 days. No new enrollments are allowed during the 30-day warning window. Partner must address feedback issues and demonstrate improvement within 30 days. Super Admin reviews and decides whether to lift the warning or proceed with removal.</div>
+          <div class="tags"><span class="tag danger">30-day warning to partner</span><span class="tag warn">Students notified of potential removal</span><span class="tag danger">No new enrollments during warning period</span><span class="tag info">Super Admin reviews at end of 30 days</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--partner);color:var(--partner)">14c</div>
+        <div class="step-body">
+          <div class="step-title">Satisfaction Breach — Outcome</div>
+          <div class="step-desc">If partner demonstrates improvement within 30 days and satisfaction rate recovers, Super Admin lifts the warning and course is restored for new enrollments. If not resolved within 30 days, course is removed from the platform.</div>
+          <div class="tags"><span class="tag success">Resolved → warning lifted, enrollments restored</span><span class="tag danger">Unresolved → course removed</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--partner);color:var(--partner)">15</div>
+        <div class="step-body">
+          <div class="step-title">Existing Students on Removed Course</div>
+          <div class="step-desc">Students who have already paid retain access for their 6-month window from first login regardless of course removal reason — volume threshold or satisfaction breach. No new registrations allowed for flagged or removed courses.</div>
+          <div class="tags"><span class="tag info">Existing access continues</span><span class="tag danger">No new registrations</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--partner);color:var(--partner)">16</div>
+        <div class="step-body">
+          <div class="step-title">Voluntary Exit</div>
+          <div class="step-desc">Partner can choose to exit voluntarily. From exit date, no new registrations allowed. Students with paid enrollments as on the record date of exit get either continued 6-month access or full refund. Partner commits to one option and must honour it.</div>
+          <div class="tags"><span class="tag danger">No new registrations from exit date</span><span class="tag warn">Continued access OR full refund for existing students</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PIC ===== -->
+<div class="tab-panel" id="tab-pic">
+  <div class="section-title" style="color:var(--pic)">PIC Member Flow</div>
+  <div class="section-subtitle">Program Implementation Committee — reviews both course content and metadata. Remunerated per review.</div>
+
+  <div class="full-card pic">
+    <div class="full-card-title">Phase 1 — Onboarding</div>
+    <div class="full-card-sub">ADMIN DRIVEN</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--pic);color:var(--pic)">1</div>
+        <div class="step-body">
+          <div class="step-title">Added by Super Admin</div>
+          <div class="step-desc">PIC members are added to the platform by Super Admin using their specific email addresses. No self-registration.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--pic);color:var(--pic)">2</div>
+        <div class="step-body">
+          <div class="step-title">Conflict of Interest</div>
+          <div class="step-desc">Managed manually by Super Admin. No automated system. Super Admin ensures PIC members are not assigned courses where a conflict exists.</div>
+          <div class="tags"><span class="tag warn">Manual management by Super Admin</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="full-card pic">
+    <div class="full-card-title">Phase 2 — Course Review</div>
+    <div class="full-card-sub">CORE WORKFLOW · CONTENT + METADATA</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--pic);color:var(--pic)">3</div>
+        <div class="step-body">
+          <div class="step-title">Course Assignment</div>
+          <div class="step-desc">Super Admin assigns a course to a PIC member. Member receives email intimation. A 2-week review window opens. Completing review within 2 weeks is a contractual obligation — no extensions or reassignments. While under PIC review, course is blocked for new enrollments. Existing students retain access.</div>
+          <div class="tags"><span class="tag warn">2-week window — no extension</span><span class="tag danger">Contractual obligation</span><span class="tag danger">Blocked for new enrollments during review</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--pic);color:var(--pic)">4</div>
+        <div class="step-body">
+          <div class="step-title">Review Scope</div>
+          <div class="step-desc">PIC member reviews both course content and metadata in all cases — regardless of hosting model. For Model A (Swayam Plus LMS), PIC accesses content directly on the platform. For Model B (Partner LMS), partner must share content access with the PIC member for review.</div>
+          <div class="tags"><span class="tag info">Model A — direct platform access</span><span class="tag warn">Model B — partner must share access</span><span class="tag purple">Content + metadata always reviewed</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--pic);color:var(--pic)">5</div>
+        <div class="step-body">
+          <div class="step-title">Decision — Approve</div>
+          <div class="step-desc">PIC member approves course with feedback. Intimation sent to both partner and Super Admin with approval and feedback. Course unblocked for new enrollments.</div>
+          <div class="tags"><span class="tag success">Partner + Super Admin notified</span><span class="tag success">Course unblocked</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--pic);color:var(--pic)">6</div>
+        <div class="step-body">
+          <div class="step-title">Decision — Reject</div>
+          <div class="step-desc">PIC member rejects course with reason. Intimation sent to partner and Super Admin with rejection reason and feedback.</div>
+          <div class="tags"><span class="tag danger">Partner + Super Admin notified</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--pic);color:var(--pic)">7</div>
+        <div class="step-body">
+          <div class="step-title">Decision — Next Cycle</div>
+          <div class="step-desc">PIC member can provide improvement feedback deferring course to next cycle. Course not taken up in current cycle. Partner and Super Admin notified.</div>
+          <div class="tags"><span class="tag warn">Deferred to next cycle</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="full-card pic">
+    <div class="full-card-title">Phase 3 — Course Validity & Renewal</div>
+    <div class="full-card-sub">ONGOING</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--pic);color:var(--pic)">8</div>
+        <div class="step-body">
+          <div class="step-title">Course Validity Period</div>
+          <div class="step-desc">All PIC-approved courses are valid for 2 years. After 2 years, the course must go through re-review — same process as initial review.</div>
+          <div class="tags"><span class="tag info">2-year validity</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--pic);color:var(--pic)">9</div>
+        <div class="step-body">
+          <div class="step-title">Renewal Intimation & Re-assignment</div>
+          <div class="step-desc">3 months before course expiry, email intimation sent to Super Admin and Partner. Super Admin manually assigns course for re-review. Re-review triggers the same enrollment block as initial review. PIC member paid ₹5,000 for re-review.</div>
+          <div class="tags"><span class="tag warn">3-month advance notice</span><span class="tag info">Manual re-assignment by Super Admin</span><span class="tag success">₹5,000 for re-review</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="full-card pic">
+    <div class="full-card-title">Phase 4 — Dashboard & Remuneration</div>
+    <div class="full-card-sub">MEMBER VIEW</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--pic);color:var(--pic)">10</div>
+        <div class="step-body">
+          <div class="step-title">PIC Dashboard</div>
+          <div class="step-desc">Dashboard shows all courses assigned, courses pending review, total course count, and courses pending payment.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--pic);color:var(--pic)">11</div>
+        <div class="step-body">
+          <div class="step-title">Remuneration</div>
+          <div class="step-desc">PIC members are paid ₹5,000 per course reviewed — including re-reviews after 2-year renewal. Pending payment courses visible in dashboard.</div>
+          <div class="tags"><span class="tag success">₹5,000 per course</span><span class="tag success">₹5,000 per re-review</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HEI ===== -->
+<div class="tab-panel" id="tab-hei">
+  <div class="section-title" style="color:var(--hei)">HEI Flow</div>
+  <div class="section-subtitle">Higher Education Institutions — onboarding, APAAR-based student matching, and monitoring</div>
+
+  <div class="full-card hei">
+    <div class="full-card-title">Phase 1 — Onboarding</div>
+    <div class="full-card-sub">ENTRY POINT</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--hei);color:var(--hei)">1</div>
+        <div class="step-body">
+          <div class="step-title">Onboarding Application</div>
+          <div class="step-desc">Institution submits an onboarding application capturing institution name, type, accreditation details, authorised faculty admin contact, and student strength and departments.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--hei);color:var(--hei)">2</div>
+        <div class="step-body">
+          <div class="step-title">Super Admin Review</div>
+          <div class="step-desc">Super Admin reviews and approves or rejects. Rejected institutions receive email with reason and can reapply in the next cycle only.</div>
+          <div class="tags"><span class="tag danger">Rejection: email with reason</span><span class="tag warn">Reapply: next cycle only</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--hei);color:var(--hei)">3</div>
+        <div class="step-body">
+          <div class="step-title">Agreement / MOU</div>
+          <div class="step-desc">Approved institutions receive standard HEI agreement template. Signing happens outside the system. Signed agreement uploaded to Swayam Plus before access is granted.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--hei);color:var(--hei)">4</div>
+        <div class="step-body">
+          <div class="step-title">Single Faculty Admin ID</div>
+          <div class="step-desc">Super Admin creates a single faculty Admin ID for the institution. Restricted to one faculty login — not a shared or generic ID. OTP-based login to the faculty's registered email. Credentials shared with the authorised contact.</div>
+          <div class="tags"><span class="tag danger">Single faculty login only</span><span class="tag info">OTP to faculty registered email</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="full-card hei">
+    <div class="full-card-title">Phase 2 — Student Matching via APAAR</div>
+    <div class="full-card-sub">IDENTITY RESOLUTION FLOW</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--hei);color:var(--hei)">5</div>
+        <div class="step-body">
+          <div class="step-title">HEI Submits APAAR IDs</div>
+          <div class="step-desc">HEI uploads a list of APAAR IDs for students they wish to enroll. HEI cannot create student accounts — all registration is D2C only. Swayam Plus runs a matching check against existing registered student accounts using APAAR ID.</div>
+          <div class="tags"><span class="tag danger">No HEI-created accounts</span><span class="tag info">APAAR-based matching</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--hei);color:var(--hei)">6a</div>
+        <div class="step-body">
+          <div class="step-title">Match Found — Consent Flow</div>
+          <div class="step-desc">Matched student receives a notification informing them their account is being linked to the institution. Student is given a binary choice — Accept or Decline. If accepted, account is linked and HEI can view enrollment and progress on their dashboard. If declined, account remains independent and HEI is notified of the decline.</div>
+          <div class="tags"><span class="tag warn">Student consent required</span><span class="tag success">Accept → account linked</span><span class="tag danger">Decline → HEI notified</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--hei);color:var(--hei)">6b</div>
+        <div class="step-body">
+          <div class="step-title">No Match — Invite Flow</div>
+          <div class="step-desc">If APAAR ID not found, system sends an automated invite to the student to register on Swayam Plus with APAAR ID pre-filled. HEI is also notified that registration is pending for this APAAR ID. Once the student registers D2C, matching and consent flow in Step 6a is triggered automatically.</div>
+          <div class="tags"><span class="tag info">Auto invite to student</span><span class="tag info">APAAR pre-filled in form</span><span class="tag warn">HEI notified — pending registration</span><span class="tag success">Auto-triggers 6a post registration</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="full-card hei">
+    <div class="full-card-title">Phase 3 — Course Assignment & Payment</div>
+    <div class="full-card-sub">TWO PAYMENT WORKFLOWS · ASSIGNMENT ONLY AFTER CONSENT</div>
+    <div class="callout"><strong>Important:</strong> Course assignment happens only after student consent is received in Step 6a. No course is assigned to a student who has not yet accepted the institution linking.</div>
+    <div style="margin-top:16px">
+    <div class="two-col">
+      <div>
+        <div class="policy-box">
+          <div class="policy-title">Workflow A — Institution Pays</div>
+          <div class="policy-items">
+            <div class="policy-item">Faculty Admin assigns courses to consented students</div>
+            <div class="policy-item">Institution makes bulk payment on Swayam Plus</div>
+            <div class="policy-item">Bulk discount tiers apply based on student count per course: 50–100 students → 10% discount | 101–200 students → 15% discount | 200+ students → 20–25% discount (exact rate at discretion of HEI management and partner)</div>
+            <div class="policy-item">Discount applied on total course fee after any existing promotions. Institution must provide proof of enrollment count to qualify</div>
+            <div class="policy-item">Invoice generated reflecting applicable discount</div>
+            <div class="policy-item">Access granted to assigned students immediately</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="policy-box">
+          <div class="policy-title">Workflow B — Student Pays</div>
+          <div class="policy-items">
+            <div class="policy-item">Faculty Admin assigns courses to consented students</div>
+            <div class="policy-item">Each student follows standard individual payment workflow</div>
+            <div class="policy-item">Individual invoice generated per student</div>
+            <div class="policy-item">Access granted post individual payment</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="full-card hei">
+    <div class="full-card-title">Phase 4 — Monitoring Dashboard</div>
+    <div class="full-card-sub">INSTITUTION VIEW · CONSENTED STUDENTS ONLY</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-indicator" style="border-color:var(--hei);color:var(--hei)">7</div>
+        <div class="step-body">
+          <div class="step-title">Institution Dashboard</div>
+          <div class="step-desc">Dashboard shows all consented and linked students across all assigned courses. Tracks enrollment count, completion status, certification status, and payment status per student per course. Only reflects students who have accepted institution linking.</div>
+          <div class="tags"><span class="tag info">Enrollment count</span><span class="tag info">Completion status</span><span class="tag info">Certification status</span><span class="tag info">Payment status</span><span class="tag warn">Accepted students only</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SUPER ADMIN ===== -->
+<div class="tab-panel" id="tab-admin">
+  <div class="section-title" style="color:var(--admin)">Super Admin Flow</div>
+  <div class="section-subtitle">Platform authority — oversees all entities, approvals, assignments, and financial operations</div>
+
+  <div class="flow-grid">
+    <div class="flow-card admin">
+      <div class="card-header"><div class="card-icon" style="background:#f43f5e11">⚙️</div><div class="card-title">Partner Management</div></div>
+      <div class="steps">
+        <div class="step"><div class="step-indicator">1</div><div class="step-body"><div class="step-title">Review due diligence</div><div class="step-desc">Approve or reject with reason. Notify partner immediately.</div></div></div>
+        <div class="step"><div class="step-indicator">2</div><div class="step-body"><div class="step-title">Share MOU template</div><div class="step-desc">On approval, share standard MOU. Activate metadata access after upload.</div></div></div>
+        <div class="step"><div class="step-indicator">3</div><div class="step-body"><div class="step-title">MOU renewal oversight</div><div class="step-desc">Receive 3-month expiry reminder. Initiate renewal. Flag for re-diligence if needed.</div><div class="tags"><span class="tag warn">No auto re-diligence unless flagged</span></div></div></div>
+        <div class="step"><div class="step-indicator">4</div><div class="step-body"><div class="step-title">Open / close EOI cycle</div><div class="step-desc">Manages 6-monthly EOI cycle. Notifies all partners on opening.</div></div></div>
+        <div class="step"><div class="step-indicator">5</div><div class="step-body"><div class="step-title">Monitor performance</div><div class="step-desc">Tracks 1,000 student threshold. Triggers removal notices. Manages voluntary exits.</div></div></div>
+        <div class="step"><div class="step-indicator">6</div><div class="step-body"><div class="step-title">Hosting model change requests</div><div class="step-desc">Receives and approves/rejects partner requests to switch hosting model. Effective next EOI cycle only.</div><div class="tags"><span class="tag warn">Next EOI cycle only</span></div></div></div>
+      </div>
+    </div>
+
+    <div class="flow-card admin">
+      <div class="card-header"><div class="card-icon" style="background:#f43f5e11">📋</div><div class="card-title">Course Management</div></div>
+      <div class="steps">
+        <div class="step"><div class="step-indicator">1</div><div class="step-body"><div class="step-title">Review course metadata</div><div class="step-desc">Approve or reject metadata submitted by partners. Every change requires re-approval.</div></div></div>
+        <div class="step"><div class="step-indicator">2</div><div class="step-body"><div class="step-title">Assign to PIC member</div><div class="step-desc">Forward to PIC for content + metadata review. Course blocked for new enrollments from this point.</div></div></div>
+        <div class="step"><div class="step-indicator">3</div><div class="step-body"><div class="step-title">Metadata change review</div><div class="step-desc">Decides on case-by-case basis whether metadata change triggers PIC re-review. If PIC re-review is triggered, course is blocked for new enrollments.</div><div class="tags"><span class="tag warn">Case-by-case PIC re-review decision</span></div></div></div>
+        <div class="step"><div class="step-indicator">4</div><div class="step-body"><div class="step-title">Action PIC outcomes</div><div class="step-desc">Approve, reject, or defer based on PIC decision. Notify partner with reason.</div></div></div>
+        <div class="step"><div class="step-indicator">5</div><div class="step-body"><div class="step-title">Course renewal</div><div class="step-desc">Receives 3-month renewal alerts. Manually assigns course for re-review.</div><div class="tags"><span class="tag info">2-year course validity</span></div></div></div>
+      </div>
+    </div>
+
+    <div class="flow-card admin">
+      <div class="card-header"><div class="card-icon" style="background:#f43f5e11">👥</div><div class="card-title">PIC Management</div></div>
+      <div class="steps">
+        <div class="step"><div class="step-indicator">1</div><div class="step-body"><div class="step-title">Add PIC members</div><div class="step-desc">Add members using their specific email addresses.</div></div></div>
+        <div class="step"><div class="step-indicator">2</div><div class="step-body"><div class="step-title">Assign courses</div><div class="step-desc">Assign specific courses to specific PIC members. Manage conflicts manually.</div></div></div>
+        <div class="step"><div class="step-indicator">3</div><div class="step-body"><div class="step-title">Process remuneration</div><div class="step-desc">Pay ₹5,000 per reviewed course including re-reviews. Track pending payments.</div><div class="tags"><span class="tag success">₹5,000 per course / re-review</span></div></div></div>
+      </div>
+    </div>
+
+    <div class="flow-card admin">
+      <div class="card-header"><div class="card-icon" style="background:#f43f5e11">🏛</div><div class="card-title">HEI Management</div></div>
+      <div class="steps">
+        <div class="step"><div class="step-indicator">1</div><div class="step-body"><div class="step-title">Review HEI applications</div><div class="step-desc">Approve or reject onboarding applications with reason.</div></div></div>
+        <div class="step"><div class="step-indicator">2</div><div class="step-body"><div class="step-title">Create single faculty Admin ID</div><div class="step-desc">Create one faculty Admin ID per institution post MOU upload. OTP-based.</div><div class="tags"><span class="tag danger">One faculty ID only</span></div></div></div>
+        <div class="step"><div class="step-indicator">3</div><div class="step-body"><div class="step-title">Monitor institutions</div><div class="step-desc">View enrollment and payment status across institutions.</div></div></div>
+      </div>
+    </div>
+
+    <div class="flow-card admin">
+      <div class="card-header"><div class="card-icon" style="background:#f43f5e11">🚨</div><div class="card-title">Grievance & Escalation</div></div>
+      <div class="steps">
+        <div class="step"><div class="step-indicator">1</div><div class="step-body"><div class="step-title">Receive platform concern grievances</div><div class="step-desc">Platform concern grievances from students routed directly here — bypass partner.</div></div></div>
+        <div class="step"><div class="step-indicator">2</div><div class="step-body"><div class="step-title">Receive escalated grievances</div><div class="step-desc">Partner grievances unresolved after 48 hours escalated here.</div></div></div>
+        <div class="step"><div class="step-indicator">3</div><div class="step-body"><div class="step-title">Route to customer service</div><div class="step-desc">Routes all escalated / platform grievances to customer service support for resolution.</div></div></div>
+      </div>
+    </div>
+
+    <div class="flow-card admin">
+      <div class="card-header"><div class="card-icon" style="background:#f43f5e11">💰</div><div class="card-title">Financial & Compliance</div></div>
+      <div class="steps">
+        <div class="step"><div class="step-indicator">1</div><div class="step-body"><div class="step-title">Financial oversight</div><div class="step-desc">Reviews monthly reconciliation reports. Oversees disbursements — 50/50 (Model A) and 80/20 (Model B).</div></div></div>
+        <div class="step"><div class="step-indicator">2</div><div class="step-body"><div class="step-title">Audit trail</div><div class="step-desc">Full visibility of all actions across the platform for accountability and compliance.</div></div></div>
+        <div class="step"><div class="step-indicator">3</div><div class="step-body"><div class="step-title">Data & consent compliance</div><div class="step-desc">Monitors data privacy, student consent, and ABC/APAAR integration status.</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== NOTIFICATIONS ===== -->
+<div class="tab-panel" id="tab-notify">
+  <div class="section-title" style="color:var(--notify)">Notification Workflow</div>
+  <div class="section-subtitle">All automated notifications. All in English.</div>
+
+  <div class="full-card notify" style="margin-bottom:24px">
+    <div class="full-card-title">Tagging Rules</div>
+    <div class="full-card-sub">HOW EMAIL / SYSTEM / BOTH IS DECIDED</div>
+    <div class="policy-items" style="gap:12px;display:flex;flex-direction:column">
+      <div class="policy-item"><strong style="color:var(--accent-blue)">EMAIL only</strong> — time-sensitive or must reach the user regardless of whether they are logged in. Missing it has a real consequence. Sent to registered email ID via email service.</div>
+      <div class="policy-item"><strong style="color:var(--accent-green)">SYSTEM only</strong> — purely operational, low urgency, relevant only within an active workflow the user is managing on the platform. Visible as an in-app notification or dashboard update when user logs in. No email sent.</div>
+      <div class="policy-item"><strong style="color:var(--accent-violet)">BOTH</strong> — high-stakes event where missing it has a financial, legal, access, or deadline consequence. Must reach the user on email AND be tracked inside the platform as a persistent in-app notification for reference and audit.</div>
+    </div>
+  </div>
+
+  <div class="full-card notify">
+    <div class="full-card-title">Student Notifications</div>
+    <div class="full-card-sub">TRIGGERED EVENTS</div>
+    <div class="notify-items">
+      <div class="notify-item"><span class="notify-trigger nt-email">EMAIL</span>OTP sent on every login attempt — time-sensitive, must reach inbox immediately</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Payment confirmation + invoice on course purchase — financial record, must be emailed and visible in dashboard for reference</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>SSO access confirmation once partner LMS provisions access (Model B) — access event, student needs email record and dashboard status</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>SSO failure — auto grievance created — access blocked, financial impact, student needs email alert and dashboard grievance tracking</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Refund request received — financial event in progress, student needs email confirmation and dashboard status to track</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Refund approved — 100% refund initiated — financial outcome, must be emailed and visible in dashboard</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Refund rejected — reason communicated — financial decision with reason, must be emailed and visible in dashboard</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Assessment registration confirmation + invoice — financial record + deadline anchor, email and dashboard</div>
+      <div class="notify-item"><span class="notify-trigger nt-email">EMAIL</span>Assessment reminder — 24 hours before exam — time-critical, student must receive even if not logged in</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Certificate generated — verifiable link — permanent credential, must be emailed and always accessible on dashboard</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Course access expiry warning — 30 days before 6-month window closes — deadline-driven, email + dashboard warning banner</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Course access terminated — on expiry — access consequence, must be emailed and reflected on dashboard</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Grievance status updates — financial and access implications possible, student must be emailed and track on dashboard</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Feedback form triggered — mandatory, student may not log in near expiry, email required; dashboard shows form prompt</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Course under review — 75% threshold breached — access implication, student must be informed via email and see status on dashboard</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Course removed after 30-day warning — access terminated, must be emailed and dashboard updated immediately</div>
+      <div class="notify-item"><span class="notify-trigger nt-email">EMAIL</span>HEI linking request — consent required, student must see this even if not logged in; action required via email link</div>
+      <div class="notify-item"><span class="notify-trigger nt-email">EMAIL</span>Registration invite — APAAR pre-filled — student is not yet on the platform, email is the only channel available</div>
+    </div>
+  </div>
+
+  <div class="full-card notify">
+    <div class="full-card-title">Partner Notifications</div>
+    <div class="full-card-sub">TRIGGERED EVENTS</div>
+    <div class="notify-items">
+      <div class="notify-item"><span class="notify-trigger nt-email">EMAIL</span>Due diligence form submission acknowledgement — confirmation only, low urgency, no action required</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Approval or rejection of due diligence with reason — decision with consequences, must be emailed and logged in partner dashboard</div>
+      <div class="notify-item"><span class="notify-trigger nt-email">EMAIL</span>MOU template shared upon approval — document delivery, email is the appropriate channel</div>
+      <div class="notify-item"><span class="notify-trigger nt-email">EMAIL</span>EOI cycle opening — every 6 months with form link — action required, deadline-driven, email ensures reach</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Course metadata approved or rejected with reason — decision affecting course status, must be emailed and visible in partner dashboard</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Course marked for PIC review — new enrollments blocked — immediate commercial impact, email + dashboard status update</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>PIC review outcome — approval, rejection, or next cycle with feedback — decision with consequences, email + dashboard</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Course unblocked for new enrollments after PIC approval — commercial impact, email + dashboard status restored</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>New student registration and payment confirmation — revenue event, must be emailed and visible in partner dashboard for reconciliation</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Monthly reconciliation report — financial record, must be emailed and accessible in partner dashboard</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Grievance received from student — 48-hour SLA starts now, email to ensure immediate awareness + dashboard for tracking</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Aggregated negative feedback report — action required, email + dashboard record for audit trail</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Satisfaction threshold breach — 30-day warning — high stakes, commercial and legal consequence, email + dashboard warning</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Warning lifted — satisfaction recovered — status change, email confirmation + dashboard restored</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Course removed — satisfaction breach unresolved — permanent action, must be emailed and dashboard updated</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Grievance escalated to Super Admin — SLA breached, partner accountability, email + dashboard flag</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>30-day course removal warning — 1,000 student threshold — commercial consequence, email + dashboard warning flag</div>
+      <div class="notify-item"><span class="notify-trigger nt-email">EMAIL</span>MOU expiry reminder — 3 months prior — advance notice, email is sufficient at this lead time</div>
+      <div class="notify-item"><span class="notify-trigger nt-email">EMAIL</span>Course renewal reminder — 3 months before 2-year expiry — advance notice, email sufficient at this lead time</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Hosting model change request acknowledged / approved / rejected — commercial decision, email + dashboard status</div>
+    </div>
+  </div>
+
+  <div class="full-card notify">
+    <div class="full-card-title">PIC Member Notifications</div>
+    <div class="full-card-sub">TRIGGERED EVENTS</div>
+    <div class="notify-items">
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Course assignment — 2-week review window opened — contractual obligation starts now, email + dashboard task created</div>
+      <div class="notify-item"><span class="notify-trigger nt-email">EMAIL</span>Mid-window reminder at 1 week — deadline approaching — time-sensitive nudge, email ensures reach even if not logged in</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Remuneration payment confirmation — ₹5,000 — financial record, email + dashboard payment log</div>
+    </div>
+  </div>
+
+  <div class="full-card notify">
+    <div class="full-card-title">HEI Notifications</div>
+    <div class="full-card-sub">TRIGGERED EVENTS</div>
+    <div class="notify-items">
+      <div class="notify-item"><span class="notify-trigger nt-email">EMAIL</span>Onboarding application acknowledgement — confirmation only, no action required</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Approval or rejection with reason — decision with consequences, email + dashboard status</div>
+      <div class="notify-item"><span class="notify-trigger nt-email">EMAIL</span>Agreement / MOU template shared — document delivery, email is the appropriate channel</div>
+      <div class="notify-item"><span class="notify-trigger nt-email">EMAIL</span>Faculty Admin ID credentials shared — sensitive credentials, email only, not in-app for security</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Student match found — consent pending — action required from student, HEI must track status, email + dashboard</div>
+      <div class="notify-item"><span class="notify-trigger nt-system">SYSTEM</span>Student accepted institution linking — status update only, low urgency, dashboard update sufficient</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Student declined institution linking — enrollment impacted, HEI needs to know and take action, email + dashboard</div>
+      <div class="notify-item"><span class="notify-trigger nt-system">SYSTEM</span>No match found — invite sent to student — status update, HEI can track on dashboard, no immediate action needed</div>
+      <div class="notify-item"><span class="notify-trigger nt-system">SYSTEM</span>Pending student has now registered — consent flow triggered — status update, dashboard tracking sufficient</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Student enrollment confirmed post payment — financial and access record, email + dashboard</div>
+      <div class="notify-item"><span class="notify-trigger nt-email">EMAIL</span>Monthly summary of student progress — periodic report, email delivery appropriate</div>
+    </div>
+  </div>
+
+  <div class="full-card notify">
+    <div class="full-card-title">Super Admin Notifications</div>
+    <div class="full-card-sub">TRIGGERED EVENTS</div>
+    <div class="notify-items">
+      <div class="notify-item"><span class="notify-trigger nt-system">SYSTEM</span>New partner due diligence form submitted — queued for review, dashboard task, no urgency requiring email</div>
+      <div class="notify-item"><span class="notify-trigger nt-system">SYSTEM</span>New HEI onboarding application submitted — queued for review, dashboard task, no urgency requiring email</div>
+      <div class="notify-item"><span class="notify-trigger nt-system">SYSTEM</span>MOU uploaded by partner or HEI — queued action, dashboard task, no urgency requiring email</div>
+      <div class="notify-item"><span class="notify-trigger nt-system">SYSTEM</span>Course metadata submitted or updated by partner — queued for review, dashboard task</div>
+      <div class="notify-item"><span class="notify-trigger nt-system">SYSTEM</span>PIC review completed with outcome — queued action, dashboard task, Super Admin acts on next login</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Platform concern grievance received from student — SLA starts, must be seen immediately, email + dashboard</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Partner grievance escalated — 48-hour SLA breached — urgent escalation, email + dashboard flag</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Partner performance alert — 1,000 student threshold at risk — commercial consequence approaching, email + dashboard</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Satisfaction threshold breach — course below 75% — action required within 30 days, email + dashboard alert</div>
+      <div class="notify-item"><span class="notify-trigger nt-both">BOTH</span>Satisfaction warning outcome — resolved or expired — decision point, email + dashboard status update</div>
+      <div class="notify-item"><span class="notify-trigger nt-system">SYSTEM</span>Partner hosting model change request received — queued for review, dashboard task</div>
+      <div class="notify-item"><span class="notify-trigger nt-email">EMAIL</span>MOU expiry alerts — 3 months prior — advance notice at long lead time, email sufficient</div>
+      <div class="notify-item"><span class="notify-trigger nt-email">EMAIL</span>Course renewal alerts — 3 months before 2-year expiry — advance notice, email sufficient</div>
+      <div class="notify-item"><span class="notify-trigger nt-email">EMAIL</span>Monthly reconciliation report generated — periodic report, email delivery appropriate</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== POLICIES ===== -->
+<div class="tab-panel" id="tab-policies">
+  <div class="section-title" style="color:var(--accent-amber)">Policies & Business Rules</div>
+  <div class="section-subtitle">Quick reference for all platform rules, thresholds, timelines, and financial splits</div>
+
+  <div class="flow-grid">
+    <div class="flow-card student">
+      <div class="card-header"><div class="card-icon" style="background:#3b82f611">⏱</div><div class="card-title">Time-Based Rules</div></div>
+      <div class="policy-items" style="gap:10px;display:flex;flex-direction:column">
+        <div class="policy-item">6-month course access clock: <strong style="color:var(--text-primary)">starts at first login</strong></div>
+        <div class="policy-item">Refund window: <strong style="color:var(--text-primary)">3 working days from payment</strong> — case-by-case review</div>
+        <div class="policy-item">SSO provisioning TAT: <strong style="color:var(--text-primary)">24 hours max</strong> (Model B)</div>
+        <div class="policy-item">Assessment reschedule: up to <strong style="color:var(--text-primary)">48 hours before exam</strong></div>
+        <div class="policy-item">Exam reminder: <strong style="color:var(--text-primary)">24 hours before exam</strong></div>
+        <div class="policy-item">Grievance resolution: <strong style="color:var(--text-primary)">48 hours (partner)</strong></div>
+        <div class="policy-item">PIC review window: <strong style="color:var(--text-primary)">2 weeks</strong> from assignment</div>
+        <div class="policy-item">Partner performance window: <strong style="color:var(--text-primary)">6 months</strong></div>
+        <div class="policy-item">Course removal notice: <strong style="color:var(--text-primary)">30 days</strong></div>
+        <div class="policy-item">EOI cycle: every <strong style="color:var(--text-primary)">6 months</strong></div>
+        <div class="policy-item">MOU validity: <strong style="color:var(--text-primary)">3 years</strong></div>
+        <div class="policy-item">Course approval validity: <strong style="color:var(--text-primary)">2 years</strong></div>
+        <div class="policy-item">Renewal reminders: <strong style="color:var(--text-primary)">3 months before expiry</strong></div>
+      </div>
+    </div>
+
+    <div class="flow-card partner">
+      <div class="card-header"><div class="card-icon" style="background:#14b8a611">💰</div><div class="card-title">Financial Rules</div></div>
+      <div class="policy-items" style="gap:10px;display:flex;flex-direction:column">
+        <div class="policy-item">Model A (Swayam Plus LMS) — partner: <strong style="color:var(--text-primary)">50%</strong></div>
+        <div class="policy-item">Model A (Swayam Plus LMS) — Swayam Plus: <strong style="color:var(--text-primary)">50%</strong></div>
+        <div class="policy-item">Model B (Partner LMS redirect) — partner: <strong style="color:var(--text-primary)">80%</strong></div>
+        <div class="policy-item">Model B (Partner LMS redirect) — Swayam Plus: <strong style="color:var(--text-primary)">20%</strong></div>
+        <div class="policy-item">Refund: <strong style="color:var(--text-primary)">100% to student if approved — no revenue to either party</strong></div>
+        <div class="policy-item">Price revision: <strong style="color:var(--text-primary)">Once every 2 years per course</strong></div>
+        <div class="policy-item">Price revision &gt;50% increase: <strong style="color:var(--text-primary)">Triggers fresh PIC review</strong></div>
+        <div class="policy-item">HEI bulk discount (50–100 students): <strong style="color:var(--text-primary)">10%</strong></div>
+        <div class="policy-item">HEI bulk discount (101–200 students): <strong style="color:var(--text-primary)">15%</strong></div>
+        <div class="policy-item">HEI bulk discount (200+ students): <strong style="color:var(--text-primary)">20–25%</strong></div>
+        <div class="policy-item">Disbursement: <strong style="color:var(--text-primary)">Monthly</strong></div>
+        <div class="policy-item">Reconciliation report: <strong style="color:var(--text-primary)">Monthly</strong></div>
+        <div class="policy-item">Course pricing: <strong style="color:var(--text-primary)">No floor or ceiling — partner sets price</strong></div>
+        <div class="policy-item">PIC remuneration: <strong style="color:var(--text-primary)">₹5,000 per course (incl. re-reviews)</strong></div>
+        <div class="policy-item">Assessment fee: <strong style="color:var(--text-primary)">Separate from course fee</strong></div>
+        <div class="policy-item">No-show: <strong style="color:var(--text-primary)">Must pay again — no refund</strong></div>
+        <div class="policy-item">Cancellation: <strong style="color:var(--text-primary)">No refund</strong></div>
+      </div>
+    </div>
+
+    <div class="flow-card pic">
+      <div class="card-header"><div class="card-icon" style="background:#8b5cf611">📏</div><div class="card-title">Threshold & Access Rules</div></div>
+      <div class="policy-items" style="gap:10px;display:flex;flex-direction:column">
+        <div class="policy-item">Satisfaction threshold: <strong style="color:var(--text-primary)">Minimum 75% positive feedback per course</strong></div>
+        <div class="policy-item">Feedback trigger: <strong style="color:var(--text-primary)">Course completion OR 6-month expiry — whichever is earlier</strong></div>
+        <div class="policy-item">Satisfaction breach warning: <strong style="color:var(--text-primary)">30 days — partner + students notified</strong></div>
+        <div class="policy-item">No new enrollments during: <strong style="color:var(--text-primary)">Satisfaction warning period</strong></div>
+        <div class="policy-item">Course fee types: <strong style="color:var(--text-primary)">Fully free | Free + paid assessment | Fully paid</strong></div>
+        <div class="policy-item">Free courses: <strong style="color:var(--text-primary)">One-step review by Swayam Plus only</strong></div>
+        <div class="policy-item">Paid courses: <strong style="color:var(--text-primary)">Two-step review — Super Admin + PIC</strong></div>
+        <div class="policy-item">Min students per course per 6 months: <strong style="color:var(--text-primary)">1,000</strong></div>
+        <div class="policy-item">Assessment reattempts: <strong style="color:var(--text-primary)">None — pay and rebook</strong></div>
+        <div class="policy-item">Passing criteria: <strong style="color:var(--text-primary)">Defined by partner</strong></div>
+        <div class="policy-item">Certificate issued by: <strong style="color:var(--text-primary)">Swayam Plus</strong></div>
+        <div class="policy-item">Assessment conducted by: <strong style="color:var(--text-primary)">Third party</strong></div>
+        <div class="policy-item">Course removal appeal: <strong style="color:var(--text-primary)">Not allowed</strong></div>
+        <div class="policy-item">Hosting model change: <strong style="color:var(--text-primary)">Next EOI cycle only</strong></div>
+        <div class="policy-item">Metadata change PIC review: <strong style="color:var(--text-primary)">Super Admin decides case by case</strong></div>
+        <div class="policy-item">Partner reapplication: <strong style="color:var(--text-primary)">Next cycle only</strong></div>
+        <div class="policy-item">EOI resubmission: <strong style="color:var(--text-primary)">Next cycle only</strong></div>
+      </div>
+    </div>
+
+    <div class="flow-card hei">
+      <div class="card-header"><div class="card-icon" style="background:#f59e0b11">🌐</div><div class="card-title">Platform Rules</div></div>
+      <div class="policy-items" style="gap:10px;display:flex;flex-direction:column">
+        <div class="policy-item">Authentication: <strong style="color:var(--text-primary)">OTP to registered email — all users</strong></div>
+        <div class="policy-item">Language: <strong style="color:var(--text-primary)">English (multilingual planned)</strong></div>
+        <div class="policy-item">Student registration: <strong style="color:var(--text-primary)">D2C only</strong></div>
+        <div class="policy-item">ABC + APAAR: <strong style="color:var(--text-primary)">Mandatory at registration</strong></div>
+        <div class="policy-item">HEI enrollment: <strong style="color:var(--text-primary)">APAAR-based matching + student consent</strong></div>
+        <div class="policy-item">Course assignment (HEI): <strong style="color:var(--text-primary)">Only after student consent</strong></div>
+        <div class="policy-item">HEI Admin ID: <strong style="color:var(--text-primary)">Single faculty login only</strong></div>
+        <div class="policy-item">LMS data isolation: <strong style="color:var(--text-primary)">Separate instance per partner (Model A)</strong></div>
+        <div class="policy-item">Student LMS visibility: <strong style="color:var(--text-primary)">Swayam Plus-listed courses only</strong></div>
+        <div class="policy-item">Certificate upload: <strong style="color:var(--text-primary)">Auto to ABC portal</strong></div>
+        <div class="policy-item">Audit trail: <strong style="color:var(--text-primary)">All platform actions logged</strong></div>
+        <div class="policy-item">Data consent: <strong style="color:var(--text-primary)">Captured at D2C registration</strong></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== DISTRIBUTION LISTS ===== -->
+<div class="tab-panel" id="tab-distlists">
+  <div class="section-title" style="color:#ec4899">Distribution Lists</div>
+  <div class="section-subtitle">8 marketing distribution lists — automatically maintained based on user registration, role, and platform activity</div>
+
+  <div class="full-card" style="border-top:3px solid #ec4899">
+    <div class="full-card-title">DL Architecture</div>
+    <div class="full-card-sub">ALL LEARNERS IS THE MASTER LIST — ALL OTHER DLs ARE SUBSETS</div>
+    <div class="callout"><strong>Super Admin</strong> is added to all 8 distribution lists automatically for message reach verification purposes.</div>
+    <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:10px">
+      <div style="background:#ec489911;border:1px solid #ec489944;border-radius:8px;padding:10px 16px;font-size:12px;font-weight:600;color:#ec4899">ALL LEARNERS (Master)</div>
+      <div style="background:#3b82f611;border:1px solid #3b82f644;border-radius:8px;padding:10px 16px;font-size:12px;font-weight:600;color:var(--student)">ALL STUDENTS</div>
+      <div style="background:#f59e0b11;border:1px solid #f59e0b44;border-radius:8px;padding:10px 16px;font-size:12px;font-weight:600;color:var(--hei)">ALL WORKING PROFESSIONALS</div>
+      <div style="background:#14b8a611;border:1px solid #14b8a644;border-radius:8px;padding:10px 16px;font-size:12px;font-weight:600;color:var(--partner)">ALL FACULTY</div>
+      <div style="background:#f43f5e11;border:1px solid #f43f5e44;border-radius:8px;padding:10px 16px;font-size:12px;font-weight:600;color:var(--admin)">ADMINISTRATORS</div>
+      <div style="background:#8b5cf611;border:1px solid #8b5cf644;border-radius:8px;padding:10px 16px;font-size:12px;font-weight:600;color:var(--pic)">HEI SPOCs</div>
+      <div style="background:#22c55e11;border:1px solid #22c55e44;border-radius:8px;padding:10px 16px;font-size:12px;font-weight:600;color:var(--notify)">ALL PARTNER SPOCs</div>
+      <div style="background:#6366f111;border:1px solid #6366f144;border-radius:8px;padding:10px 16px;font-size:12px;font-weight:600;color:#6366f1">ALL PICs</div>
+    </div>
+  </div>
+
+  <div class="flow-grid">
+
+    <div class="flow-card" style="border-top:3px solid #ec4899">
+      <div class="card-header">
+        <div class="card-icon" style="background:#ec489911;font-size:14px">👥</div>
+        <div class="card-title" style="color:#ec4899">ALL LEARNERS</div>
+        <div class="card-num">MASTER LIST</div>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-indicator">1</div><div class="step-body"><div class="step-title">Trigger</div><div class="step-desc">Email auto-added immediately upon successful registration on Swayam Plus — regardless of role selected.</div></div></div>
+        <div class="step"><div class="step-indicator">2</div><div class="step-body"><div class="step-title">Scope</div><div class="step-desc">Every registered user on the platform. The master list. All other DLs are subsets of this list.</div></div></div>
+        <div class="step"><div class="step-indicator">3</div><div class="step-body"><div class="step-title">Opt-out</div><div class="step-desc">User can opt out of ALL LEARNERS entirely — this means no marketing communication from any DL. Or they can opt out of specific sub-lists only while remaining on ALL LEARNERS.</div><div class="tags"><span class="tag danger">Opt-out of master = no marketing at all</span></div></div></div>
+        <div class="step"><div class="step-indicator">4</div><div class="step-body"><div class="step-title">Post-expiry</div><div class="step-desc">Email stays on the list after course access expires by default. Removed only on user's explicit opt-out choice.</div></div></div>
+        <div class="step"><div class="step-indicator">5</div><div class="step-body"><div class="step-title">6-Monthly Profile Verification</div><div class="step-desc">Every 6 months, an automated email goes to ALL LEARNERS asking them to verify and update their profile details. Any role changes made in response update the relevant sub-DLs in real time upon profile save.</div><div class="tags"><span class="tag warn">Every 6 months</span><span class="tag info">Role changes update DLs in real time</span></div></div></div>
+      </div>
+    </div>
+
+    <div class="flow-card student">
+      <div class="card-header">
+        <div class="card-icon" style="background:#3b82f611;font-size:14px">🎓</div>
+        <div class="card-title">ALL STUDENTS</div>
+        <div class="card-num">SELF-IDENTIFIED</div>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-indicator">1</div><div class="step-body"><div class="step-title">Trigger</div><div class="step-desc">User selects "Student" as their role during registration. Email is added to ALL STUDENTS immediately upon registration, in addition to ALL LEARNERS.</div></div></div>
+        <div class="step"><div class="step-indicator">2</div><div class="step-body"><div class="step-title">Role Change</div><div class="step-desc">If user updates their role to another category, email is removed from ALL STUDENTS in real time and added to the new role DL. Always retained on ALL LEARNERS.</div><div class="tags"><span class="tag warn">Real-time update on profile save</span></div></div></div>
+      </div>
+    </div>
+
+    <div class="flow-card hei">
+      <div class="card-header">
+        <div class="card-icon" style="background:#f59e0b11;font-size:14px">💼</div>
+        <div class="card-title">ALL WORKING PROFESSIONALS</div>
+        <div class="card-num">SELF-IDENTIFIED</div>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-indicator">1</div><div class="step-body"><div class="step-title">Trigger</div><div class="step-desc">User selects "Working Professional" as their role during registration. Email added to ALL WORKING PROFESSIONALS immediately, in addition to ALL LEARNERS.</div></div></div>
+        <div class="step"><div class="step-indicator">2</div><div class="step-body"><div class="step-title">Role Change</div><div class="step-desc">If user updates their role, email is removed from ALL WORKING PROFESSIONALS in real time and added to the new role DL. Always retained on ALL LEARNERS.</div><div class="tags"><span class="tag warn">Real-time update on profile save</span></div></div></div>
+      </div>
+    </div>
+
+    <div class="flow-card partner">
+      <div class="card-header">
+        <div class="card-icon" style="background:#14b8a611;font-size:14px">🏫</div>
+        <div class="card-title">ALL FACULTY</div>
+        <div class="card-num">SELF-IDENTIFIED</div>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-indicator">1</div><div class="step-body"><div class="step-title">Trigger</div><div class="step-desc">User selects "Faculty" as their role during registration. Email added to ALL FACULTY immediately, in addition to ALL LEARNERS.</div></div></div>
+        <div class="step"><div class="step-indicator">2</div><div class="step-body"><div class="step-title">Role Change</div><div class="step-desc">If user updates their role, email is removed from ALL FACULTY in real time and added to the new role DL. Always retained on ALL LEARNERS.</div><div class="tags"><span class="tag warn">Real-time update on profile save</span></div></div></div>
+        <div class="step"><div class="step-indicator">3</div><div class="step-body"><div class="step-title">Note</div><div class="step-desc">This is learner-side self-identification only. HEI faculty Admin IDs created by Super Admin are separately managed under HEI SPOCs — they do not automatically appear on ALL FACULTY unless the faculty member also independently self-registers on the platform.</div><div class="tags"><span class="tag info">Learner-side role only</span></div></div></div>
+      </div>
+    </div>
+
+    <div class="flow-card admin">
+      <div class="card-header">
+        <div class="card-icon" style="background:#f43f5e11;font-size:14px">🏛</div>
+        <div class="card-title">ADMINISTRATORS</div>
+        <div class="card-num">SELF-IDENTIFIED</div>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-indicator">1</div><div class="step-body"><div class="step-title">Trigger</div><div class="step-desc">User selects "Administrator" as their role during registration — for example, department heads or academic coordinators registering as individual learners. Email added to ADMINISTRATORS immediately, in addition to ALL LEARNERS.</div></div></div>
+        <div class="step"><div class="step-indicator">2</div><div class="step-body"><div class="step-title">Note</div><div class="step-desc">Platform-side administrators such as Super Admin are added separately by the system — not through self-registration. Super Admin is added to all 8 DLs automatically.</div><div class="tags"><span class="tag warn">Platform admins ≠ self-identified administrators</span></div></div></div>
+        <div class="step"><div class="step-indicator">3</div><div class="step-body"><div class="step-title">Role Change</div><div class="step-desc">If user updates their role, email is removed from ADMINISTRATORS in real time and added to the new role DL. Always retained on ALL LEARNERS.</div><div class="tags"><span class="tag warn">Real-time update on profile save</span></div></div></div>
+      </div>
+    </div>
+
+    <div class="flow-card" style="border-top:3px solid #8b5cf6">
+      <div class="card-header">
+        <div class="card-icon" style="background:#8b5cf611;font-size:14px">🏛</div>
+        <div class="card-title" style="color:var(--pic)">HEI SPOCs</div>
+        <div class="card-num">SYSTEM CREATED</div>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-indicator">1</div><div class="step-body"><div class="step-title">Trigger</div><div class="step-desc">Email auto-added when Super Admin creates a faculty Admin ID for an institution post MOU upload. Added to HEI SPOCs automatically — one entry per institution.</div><div class="tags"><span class="tag purple">System-created — not self-registration</span></div></div></div>
+        <div class="step"><div class="step-indicator">2</div><div class="step-body"><div class="step-title">Scope</div><div class="step-desc">All active HEI faculty Admin IDs on the platform. Used for institution-specific communications — enrollment updates, course announcements, policy changes relevant to HEIs.</div></div></div>
+        <div class="step"><div class="step-indicator">3</div><div class="step-body"><div class="step-title">Offboarding</div><div class="step-desc">If an HEI is offboarded, the corresponding SPOC email is removed from HEI SPOCs. Stays by default until offboarded or explicit opt-out.</div></div></div>
+      </div>
+    </div>
+
+    <div class="flow-card notify">
+      <div class="card-header">
+        <div class="card-icon" style="background:#22c55e11;font-size:14px">🏢</div>
+        <div class="card-title">ALL PARTNER SPOCs</div>
+        <div class="card-num">SYSTEM CREATED</div>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-indicator">1</div><div class="step-body"><div class="step-title">Trigger</div><div class="step-desc">Partner admin email auto-added to ALL PARTNER SPOCs when a partner is onboarded and MOU is uploaded on Swayam Plus.</div><div class="tags"><span class="tag success">System-created — not self-registration</span></div></div></div>
+        <div class="step"><div class="step-indicator">2</div><div class="step-body"><div class="step-title">Scope</div><div class="step-desc">All active partner admin accounts on the platform. Used for partner-specific communications — EOI cycle announcements, reconciliation reports, policy updates, compliance notices.</div></div></div>
+        <div class="step"><div class="step-indicator">3</div><div class="step-body"><div class="step-title">Offboarding</div><div class="step-desc">If a partner exits voluntarily or is removed, their SPOC email is removed from ALL PARTNER SPOCs. Stays by default until offboarded or explicit opt-out.</div></div></div>
+      </div>
+    </div>
+
+    <div class="flow-card" style="border-top:3px solid #6366f1">
+      <div class="card-header">
+        <div class="card-icon" style="background:#6366f111;font-size:14px">🔍</div>
+        <div class="card-title" style="color:#6366f1">ALL PICs</div>
+        <div class="card-num">SYSTEM CREATED</div>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-indicator">1</div><div class="step-body"><div class="step-title">Trigger</div><div class="step-desc">PIC member email auto-added to ALL PICs when Super Admin adds the member to the platform using their specific email address.</div><div class="tags"><span class="tag">System-created — not self-registration</span></div></div></div>
+        <div class="step"><div class="step-indicator">2</div><div class="step-body"><div class="step-title">Scope</div><div class="step-desc">All active PIC members on the platform. Used for PIC-specific communications — course assignment intimations, review deadline reminders, remuneration updates, policy changes.</div></div></div>
+        <div class="step"><div class="step-indicator">3</div><div class="step-body"><div class="step-title">Offboarding</div><div class="step-desc">If a PIC member is removed by Super Admin, their email is removed from ALL PICs immediately.</div></div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="full-card" style="border-top:3px solid #ec4899">
+    <div class="full-card-title">DL Management Rules — Quick Reference</div>
+    <div class="full-card-sub">CROSS-CUTTING RULES ACROSS ALL 8 LISTS</div>
+    <div class="two-col">
+      <div>
+        <div class="policy-box">
+          <div class="policy-title">Trigger Events — When DL is Updated</div>
+          <div class="policy-items">
+            <div class="policy-item">New learner registers → added to ALL LEARNERS + role DL</div>
+            <div class="policy-item">Learner changes role → removed from old role DL, added to new role DL, retained on ALL LEARNERS — all in real time on profile save</div>
+            <div class="policy-item">HEI Admin ID created by Super Admin → added to HEI SPOCs</div>
+            <div class="policy-item">Partner MOU uploaded → partner SPOC added to ALL PARTNER SPOCs</div>
+            <div class="policy-item">PIC member added by Super Admin → added to ALL PICs</div>
+            <div class="policy-item">Super Admin account created → added to all 8 DLs</div>
+            <div class="policy-item">6-monthly profile verification email → role changes update DLs in real time</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="policy-box">
+          <div class="policy-title">Removal Events — When DL is Updated</div>
+          <div class="policy-items">
+            <div class="policy-item">User opts out of ALL LEARNERS → removed from all 8 DLs</div>
+            <div class="policy-item">User opts out of specific sub-list → removed from that DL only, retained on ALL LEARNERS</div>
+            <div class="policy-item">Course access expires → email stays on all DLs by default</div>
+            <div class="policy-item">Partner exits → SPOC removed from ALL PARTNER SPOCs</div>
+            <div class="policy-item">HEI offboarded → SPOC removed from HEI SPOCs</div>
+            <div class="policy-item">PIC member removed by Super Admin → removed from ALL PICs</div>
+            <div class="policy-item">Role change → removed from old role DL only</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+<script>
+  function showTab(id, el) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    el.classList.add('active');
+  }
+</script>
+</body>
+</html>

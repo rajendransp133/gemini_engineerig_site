@@ -99,13 +99,13 @@ const OurMissionVisionSection = () => {
               key={index}
               className="bg-gray-50 rounded-lg p-8 border border-[#f0f0f0] duration-300 text-center h-full flex flex-col"
             >
-              <div className="w-20 h-20 mx-auto mb-6 bg-white rounded-lg flex items-center justify-center">
+              <div className="w-20 h-20 mx-auto mb-6 border border-[#343f52] rounded-lg flex items-center justify-center">
                 <Image
                   src={card.icon}
                   alt={`${card.title} icon`}
                   width={50}
                   height={50}
-                  className="object-contain"
+                  className="object-contain "
                 />
               </div>
               <h3 className="text-xl font-bold text-[#343f52] mb-4">
